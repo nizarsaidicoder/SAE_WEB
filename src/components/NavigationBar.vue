@@ -18,25 +18,25 @@
           >
           <RouterLink
             class="navbar-item"
-            to="/blog"
+            to="/carte-distance"
             ><i class="fi fi-rr-route navbar-item-icon"></i>
             <div class="navbar-item-text">Carte Distance</div></RouterLink
           >
           <RouterLink
             class="navbar-item"
-            to="/contact"
+            to="/boules-maximales"
             ><i class="fi fi-rr-ball-pile navbar-item-icon"></i>
             <div class="navbar-item-text">Boules maximales</div></RouterLink
           >
           <RouterLink
             class="navbar-item"
-            to="/about"
+            to="/reconsrtuction"
             ><i class="fi fi-rr-build-alt navbar-item-icon"></i>
             <div class="navbar-item-text">Reconstruction</div></RouterLink
           >
           <RouterLink
             class="navbar-item"
-            to="/about"
+            to="/a-propos"
             ><i class="fi fi-rr-images navbar-item-icon"></i>
             <div class="navbar-item-text">A propos</div></RouterLink
           >
@@ -46,13 +46,7 @@
   </div>
 </template>
 
-<script>
-  export default {
-    setup() {
-      return {};
-    },
-  };
-</script>
+<script setup></script>
 
 <style lang="scss" scoped>
   @import "@/assets/css/variables";
