@@ -1,0 +1,16 @@
+@mixin apply-gradient-text {
+  background: $linear;
+  background-size: 100% 100%;
+  background-clip: text;
+}
+@mixin apply-gradient-border {
+  background: $linear;
+  background-size: 100% 100%;
+  background-clip: text;
+  -webkit-text-stroke: 3px transparent;
+  color: $primary;
+}
+@mixin apply-gradient-block {
+  background: $linear;
+  background-size: 100% 100%;
+}

@@ -14,31 +14,31 @@
             class="navbar-item"
             to="/"
             ><i class="fi fi-rr-home navbar-item-icon"></i>
-            <div class="navbar-item-text">Accueil</div></RouterLink
+            <p class="navbar-item-text">Accueil</p></RouterLink
           >
           <RouterLink
             class="navbar-item"
             to="/carte-distance"
             ><i class="fi fi-rr-route navbar-item-icon"></i>
-            <div class="navbar-item-text">Carte Distance</div></RouterLink
+            <p class="navbar-item-text">Carte Distance</p></RouterLink
           >
           <RouterLink
             class="navbar-item"
             to="/boules-maximales"
             ><i class="fi fi-rr-ball-pile navbar-item-icon"></i>
-            <div class="navbar-item-text">Boules maximales</div></RouterLink
+            <p class="navbar-item-text">Boules maximales</p></RouterLink
           >
           <RouterLink
             class="navbar-item"
             to="/reconsrtuction"
             ><i class="fi fi-rr-build-alt navbar-item-icon"></i>
-            <div class="navbar-item-text">Reconstruction</div></RouterLink
+            <p class="navbar-item-text">Reconstruction</p></RouterLink
           >
           <RouterLink
             class="navbar-item"
             to="/a-propos"
             ><i class="fi fi-rr-images navbar-item-icon"></i>
-            <div class="navbar-item-text">A propos</div></RouterLink
+            <p class="navbar-item-text">A propos</p></RouterLink
           >
         </ul>
       </div>
@@ -50,17 +50,18 @@
 
 <style lang="scss" scoped>
   @import "@/assets/css/variables";
+  @import "@/assets/css/mixins";
   .navbar {
     background-color: $primary;
+    border-bottom: 1px solid $accent;
     &-container {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin: 0 auto;
-      padding: 1.6rem 2rem;
+      padding: 0.6rem 2rem;
     }
     &-item {
-      color: $accent;
       text-transform: uppercase;
       text-decoration: none;
       font-weight: 600;
@@ -72,20 +73,28 @@
       align-items: center;
       justify-content: center;
       gap: 1rem;
+      &-text {
+        @include apply-gradient-text;
+      }
       &:hover {
         .navbar-item-icon {
           font-size: 3.2rem;
           transition: all cubic-bezier(0.39, 0.575, 0.565, 1) 0.3s;
+        }
+        .navbar-item-text {
+          @include apply-gradient-text;
+          color: transparent;
+          // color: red;
         }
       }
       &:after {
         background: none repeat scroll 0 0 transparent;
         position: absolute;
         display: block;
-        bottom: 0;
+        bottom: -7px; /* Adjust the value to position the underline */
         content: "";
         height: 3px;
-        left: 50%;
+        left: 0;
         border-radius: 3px;
         background: $secondary;
         transition: width 0.3s ease 0s, left 0.3s ease 0s, height 0.1s ease 0s;

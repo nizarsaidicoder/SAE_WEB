@@ -1,1 +1,45 @@
+@import "./variables";
+@import "./mixins.scss";
+@import "./animations.scss";
 $heading-primary: 9.6rem;
+
+.heading-primary {
+  @include apply-gradient-border;
+  display: inline-block;
+  font-size: $heading-primary;
+  font-style: normal;
+  font-weight: 800;
+  letter-spacing: 9.6px;
+  position: relative;
+  transition: all 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+  animation: animate-section-title 2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+  &:after {
+    background: none repeat scroll 0 0 transparent;
+    position: absolute;
+    display: block;
+    bottom: 0;
+    content: "";
+    height: 3px;
+    left: 60%;
+    bottom: 5%;
+    @include apply-gradient-block;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s, height 0.1s ease 0s;
+    width: 0;
+    box-shadow: 0 0 20px $secondary, 0 0 20px $secondary, 0 0 20px $secondary,
+      0 0 20px $secondary, 0 0 20px $secondary, 0 0 20px $secondary,
+      0 0 20px $secondary, 0 0 20px $secondary;
+  }
+
+  &:hover:after {
+    width: 130%;
+    left: -40%;
+  }
+
+  &:hover {
+    @include apply-gradient-text;
+    -webkit-text-stroke: 0px transparent;
+    color: transparent;
+    margin-left: 10rem;
+  }
+}
