@@ -14,3 +14,11 @@
     transform: translateX(0px);
   }
 }
+@keyframes image-enter-left {
+  0% {
+    transform: translateX(100rem);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}

@@ -14,3 +14,8 @@
   background: $linear;
   background-size: 100% 100%;
 }
+@mixin apply-gradient-border-box {
+  border: 2px solid transparent; /* Set an initial transparent border */
+  border-image: $linear; /* Linear gradient border */
+  border-image-slice: 1; /* Ensure the entire border is covered with the gradient */
+}

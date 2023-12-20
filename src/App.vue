@@ -15,10 +15,10 @@
 <style lang="scss">
   @import "./assets/css/variables";
   body {
-    background-image: url("@/assets/images/lines/Line\ 8.png");
-    background-repeat: no-repeat;
-    background-size: 220rem;
-    background-position: 10%;
-    background-position-x: center;
+    // background-image: url("@/assets/images/lines/Line\ 8.png");
+    // background-repeat: no-repeat;
+    // background-size: 220rem;
+    // background-position: 10%;
+    // background-position-x: center;
   }
 </style>

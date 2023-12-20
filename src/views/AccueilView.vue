@@ -4,16 +4,19 @@
     <div class="accueil">
       <div class="accueil-text">
         <p class="accueil-text-para">
-          Hello! 👋 WE ARE
-          <span class="highlight highlight-full">EZWIN</span> Bienvenue sur
-          notre site de compression d'images ! Découvrez comment notre approche
-          novatrice, basée sur l'algorithme de Distance Euclidienne au Carré
-          (SED) et les Boules Maximales, révolutionne la compression. Réduisez
-          la taille des fichiers sans compromettre la qualité visuelle. Explorez
-          notre contenu éducatif pour comprendre ces techniques en seulement
-          quelques clics. Optez pour une compression intelligente et efficace
-          dès aujourd'hui !
+          Hello! 👋 <span class="highlight highlight-full">WE ARE EZWIN</span>
+          Bienvenue sur notre site de compression d'images ! Découvrez comment
+          notre approche novatrice, basée sur l'algorithme de Distance
+          Euclidienne au Carré (SED) et les Boules Maximales, révolutionne la
+          compression. Réduisez la taille des fichiers sans compromettre la
+          qualité visuelle. Explorez notre contenu éducatif pour comprendre ces
+          techniques en seulement quelques clics. Optez pour une compression
+          intelligente et efficace dès aujourd'hui !
         </p>
+        <div class="accueil-buttons">
+          <Button btnType="primary">Voir Plus</Button>
+          <Button btnType="secondary">About us</Button>
+        </div>
       </div>
       <div class="accueil-img">
         <img
@@ -25,12 +28,8 @@
   </div>
 </template>
 
-<script>
-  export default {
-    setup() {
-      return {};
-    },
-  };
+<script setup>
+  import Button from "../components/Button.vue";
 </script>
 
 <style lang="scss" scoped>
@@ -44,9 +43,9 @@
   }
 
   .accueil {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Creates 2 columns of equal width */
-    grid-template-rows: auto; /* Creates 1 row that adjusts to the content */
+    display: flex;
+    position: relative;
+
     gap: 3.2rem; /* Adjust the gap as needed */
     // gap: 50rem;
     &-title {
@@ -55,30 +54,39 @@
     }
     &-text {
       display: flex;
-      gap: 10rem;
+      gap: 6.4rem;
       flex-direction: column;
       animation: text-enter-right 2s cubic-bezier(0.165, 0.84, 0.44, 1);
+      max-width: 72rem;
+      margin-left: 12rem;
+
       &-para {
         font-size: 2.4rem;
-        margin-left: 8rem;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 3.9rem; /* 162.5% */
+        letter-spacing: 2.4px;
       }
-      // margin-left: 5rem;
     }
     &-img {
-      position: relative;
       &-image {
-        width: 100rem;
         position: absolute;
         top: -50%;
-        left: 30%;
-        transform: scale(1.1);
+        left: 50%;
+        width: 170rem;
+        animation: image-enter-left 1s ease-out;
       }
+    }
+    &-buttons {
+      display: flex;
+      gap: 3.6rem;
     }
 
     .highlight {
       position: relative;
       color: $accent;
       font-weight: 100;
+      padding: 0.7rem 0;
       &::after {
         content: "";
         width: 80%;

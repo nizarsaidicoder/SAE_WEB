@@ -80,6 +80,8 @@
         .navbar-item-icon {
           font-size: 3.2rem;
           transition: all cubic-bezier(0.39, 0.575, 0.565, 1) 0.3s;
+          @include apply-gradient-text;
+          color: transparent;
         }
         .navbar-item-text {
           @include apply-gradient-text;
