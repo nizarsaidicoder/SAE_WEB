@@ -14,8 +14,12 @@
           intelligente et efficace dès aujourd'hui !
         </p>
         <div class="accueil-buttons">
-          <Button btnType="primary">Voir Plus</Button>
-          <Button btnType="secondary">About us</Button>
+          <RouterLink to="/carte-distance">
+            <Button btnType="primary">Voir Plus</Button>
+          </RouterLink>
+          <RouterLink to="/a-propos">
+            <Button btnType="secondary">About us</Button>
+          </RouterLink>
         </div>
       </div>
       <div class="accueil-img">
@@ -73,7 +77,7 @@
         position: absolute;
         top: -50%;
         left: 50%;
-        width: 170rem;
+        height: 100rem;
         animation: image-enter-left 1s ease-out;
       }
     }
