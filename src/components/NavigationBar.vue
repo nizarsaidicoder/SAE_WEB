@@ -3,42 +3,49 @@
     rel="stylesheet"
     href="https://cdn-uicons.flaticon.com/2.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css" />
   <div>
-    <nav class="navbar">
-      <div class="navbar-container">
+    <nav class="navigation">
+      <div class="navigation-container">
         <img
           src="../assets/images/Logo.svg"
           alt="logo "
           class="logo-img highlight highlight-full" />
-        <ul class="navbar-list">
+        <button
+          class="navigation-toggle"
+          @click="toggleMenu">
+          <i class="fi fi-rr-menu-burger"></i>
+        </button>
+        <ul
+          class="navigation-list"
+          :class="{ 'show-menu appear': isMenuOpen }">
           <RouterLink
-            class="navbar-item"
+            class="navigation-item"
             to="/"
-            ><i class="fi fi-rr-home navbar-item-icon"></i>
-            <p class="navbar-item-text">Accueil</p></RouterLink
+            ><i class="fi fi-rr-home navigation-item-icon"></i>
+            <p class="navigation-item-text">Accueil</p></RouterLink
           >
           <RouterLink
-            class="navbar-item"
+            class="navigation-item"
             to="/carte-distance"
-            ><i class="fi fi-rr-route navbar-item-icon"></i>
-            <p class="navbar-item-text">Carte Distance</p></RouterLink
+            ><i class="fi fi-rr-route navigation-item-icon"></i>
+            <p class="navigation-item-text">Carte Distance</p></RouterLink
           >
           <RouterLink
-            class="navbar-item"
+            class="navigation-item"
             to="/boules-maximales"
-            ><i class="fi fi-rr-ball-pile navbar-item-icon"></i>
-            <p class="navbar-item-text">Boules maximales</p></RouterLink
+            ><i class="fi fi-rr-ball-pile navigation-item-icon"></i>
+            <p class="navigation-item-text">Boules maximales</p></RouterLink
           >
           <RouterLink
-            class="navbar-item"
-            to="/reconsrtuction"
-            ><i class="fi fi-rr-build-alt navbar-item-icon"></i>
-            <p class="navbar-item-text">Reconstruction</p></RouterLink
+            class="navigation-item"
+            to="/reconstruction"
+            ><i class="fi fi-rr-build-alt navigation-item-icon"></i>
+            <p class="navigation-item-text">Reconstruction</p></RouterLink
           >
           <RouterLink
-            class="navbar-item"
+            class="navigation-item"
             to="/a-propos"
-            ><i class="fi fi-rr-images navbar-item-icon"></i>
-            <p class="navbar-item-text">A propos</p></RouterLink
+            ><i class="fi fi-rr-images navigation-item-icon"></i>
+            <p class="navigation-item-text">A propos</p></RouterLink
           >
         </ul>
       </div>
@@ -46,12 +53,20 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+  import { ref } from "vue";
 
-<style lang="scss" scoped>
+  const isMenuOpen = ref(false);
+  const isSmallScreen = ref(false);
+  function toggleMenu() {
+    isMenuOpen.value = !isMenuOpen.value;
+  }
+</script>
+
+<style lang="scss">
   @import "@/assets/css/variables";
   @import "@/assets/css/mixins";
-  .navbar {
+  .navigation {
     background-color: $primary;
     border-bottom: 1px solid $accent;
     &-container {
@@ -60,6 +75,8 @@
       align-items: center;
       margin: 0 auto;
       padding: 0.6rem 2rem;
+      width: 100vw;
+      // max-width: fit-content;
     }
     &-item {
       text-transform: uppercase;
@@ -77,13 +94,12 @@
         @include apply-gradient-text;
       }
       &:hover {
-        .navbar-item-icon {
-          font-size: 3.2rem;
+        .navigation-item-icon {
           transition: all cubic-bezier(0.39, 0.575, 0.565, 1) 0.3s;
           @include apply-gradient-text;
           color: transparent;
         }
-        .navbar-item-text {
+        .navigation-item-text {
           @include apply-gradient-text;
           color: transparent;
           // color: red;
@@ -124,5 +140,42 @@
     display: flex;
     gap: 6rem;
     font-size: 1.8rem;
+  }
+  .navigation-toggle {
+    display: none;
+  }
+  /* RESPONSIVE STYLES */
+  @media (max-width: 768px) {
+    .navigation-container {
+      flex-direction: column;
+      align-items: flex-start;
+      position: relative;
+    }
+    .navigation-toggle {
+      display: block;
+      // background: none;
+      // border: none;
+      font-size: 4.6rem;
+      color: $accent;
+      cursor: pointer;
+      margin-top: 1.2rem;
+      position: absolute;
+      top: 0;
+      right: 5%;
+    }
+    .navigation-list {
+      display: none;
+      flex-direction: column;
+      gap: 2rem;
+      padding: 1rem 0;
+      width: 100%;
+      &.show-menu {
+        display: flex;
+      }
+    }
+    .navigation-item {
+      width: 100%;
+      text-align: center;
+    }
   }
 </style>

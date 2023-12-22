@@ -1,9 +1,44 @@
 <template>
-  <div>carte-distance</div>
+  <div class="container">
+    <div class="heading">
+      <h1 class="heading-section-border">CARTE DISTANCE</h1>
+      <h1 class="heading-section">EUCLIDIENNE</h1>
+    </div>
+    <p class="text">
+      Nuxt is an open source framework that makes web development intuitive and
+      powerful.Create performant and production-grade full-stack web apps and
+      websites with confidence.
+    </p>
+    <div class="buttons">
+      <Button btnType="primary">Algorithme Optimise</Button>
+      <Button btnType="secondary">Algorithme Brute Force</Button>
+    </div>
+  </div>
 </template>
 
-<script>
-  export default {};
+<script setup>
+  import Button from "@/components/Button.vue";
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss">
+  @import "../assets/css/typography";
+  @import "../assets/css/variables";
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 6.4rem auto;
+    max-width: 120rem;
+    gap: 3.2rem;
+  }
+  .heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .buttons {
+    display: flex;
+    gap: 2.4rem;
+  }
+</style>

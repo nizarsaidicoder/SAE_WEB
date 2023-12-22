@@ -1,57 +1,45 @@
 <template>
-  <div class="code-container">
-    <highlightjs
-      language="csharp"
-      :code="csharpCode"
-      class="code" />
+  <div class="container">
+    <div class="heading">
+      <h1 class="heading-section-border">Boules</h1>
+      <h1 class="heading-section">maximales</h1>
+    </div>
+    <p class="text">
+      Nuxt is an open source framework that makes web development intuitive and
+      powerful.Create performant and production-grade full-stack web apps and
+      websites with confidence.
+    </p>
+    <div class="buttons">
+      <Button btnType="primary">Algorithme Optimise</Button>
+      <Button btnType="secondary">Algorithme Brute Force</Button>
+    </div>
   </div>
 </template>
 
-<script>
-  import "highlight.js/lib/common";
-  import hljsVuePlugin from "@highlightjs/vue-plugin";
-
-  export default {
-    components: {
-      highlightjs: hljsVuePlugin.component,
-    },
-    data() {
-      return {
-        csharpCode: `
- public static int[,] ImageToInt(Bitmap Ximg)
- {
-     int largeur = Ximg.Width;
-     int hauteur = Ximg.Height;
-     int[,] tab = new int[hauteur, largeur];
-     for (int lig = 0; lig < hauteur; lig++)
-     {
-         for (int col = 0; col < largeur; col++)
-         {
-             Color c = Ximg.GetPixel(col, lig);
-
-             tab[lig, col] = (int)c.R;
-         }
-     }
-     return tab;
- }`,
-      };
-    },
-  };
+<script setup>
+  import Button from "@/components/Button.vue";
 </script>
+
 <style lang="scss">
-  .code {
-    max-width: fit-content;
-    // margin: 8rem;
-    font-size: 1.8rem;
-    font-weight: bold;
+  @import "../assets/css/typography";
+  @import "../assets/css/variables";
+  @import "../assets/css/main";
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 6.4rem auto;
+    max-width: 120rem;
+    gap: 3.2rem;
   }
-  code {
-    border-radius: 1rem;
-    font-weight: bold;
+  .heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
-  .code-container {
-    background-color: red;
-    max-width: fit-content;
-    // padding: 2rem;
+  .buttons {
+    display: flex;
+    gap: 2.4rem;
   }
 </style>

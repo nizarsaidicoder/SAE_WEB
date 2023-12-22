@@ -6,6 +6,22 @@
     transform: translateY(0px);
   }
 }
+@keyframes title-enter-left {
+  0% {
+    transform: translateX(80rem);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+@keyframes title-enter-right {
+  0% {
+    transform: translateX(-80rem);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
 @keyframes text-enter-right {
   0% {
     transform: translateX(-80px);

@@ -12,6 +12,6 @@
   };
 </script>
 
-<style scoped>
+<style>
   /* Add your component's styles here */
 </style>

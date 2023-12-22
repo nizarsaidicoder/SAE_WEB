@@ -20,10 +20,10 @@
   };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   @import "../assets/css/variables";
   @import "../assets/css/mixins";
-
+  @import "../assets/css/main";
   .btn {
     padding: 0.6rem 2.4rem;
     border-radius: 4px;

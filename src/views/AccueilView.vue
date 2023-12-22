@@ -36,7 +36,7 @@
   import Button from "../components/Button.vue";
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   @import "../assets/css/typography";
   @import "../assets/css/variables";
   @import "../assets/css/animations";
@@ -50,7 +50,6 @@
     display: flex;
     position: relative;
 
-    gap: 3.2rem; /* Adjust the gap as needed */
     // gap: 50rem;
     &-title {
       margin-left: 3.2rem;
@@ -58,7 +57,7 @@
     }
     &-text {
       display: flex;
-      gap: 6.4rem;
+      gap: 3.2rem;
       flex-direction: column;
       animation: text-enter-right 2s cubic-bezier(0.165, 0.84, 0.44, 1);
       max-width: 72rem;
