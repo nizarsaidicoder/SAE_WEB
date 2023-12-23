@@ -31,9 +31,9 @@
           </h2>
         </div>
       </div>
-      <p
-        v-html="description"
-        class="card-text-description"></p>
+      <p class="card-text-description">
+        {{ description }}
+      </p>
     </div>
   </div>
 </template>
@@ -60,6 +60,7 @@
   .card {
     // Add your styles here
     &-container {
+      height: 100%;
       max-width: 36rem;
       border-radius: 1rem;
       border: solid 4px orange;
@@ -173,9 +174,9 @@
             }
           }
         }
-        &-description {
-          // Add your styles here
-        }
+      }
+      &-description {
+        text-align: center;
       }
     }
   }

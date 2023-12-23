@@ -25,7 +25,7 @@
       <div class="accueil-img">
         <img
           class="accueil-img-image"
-          src="@/assets/images/hero-img.png"
+          src="../../assets/images/hero-img.png"
           alt="" />
       </div>
     </div>
@@ -33,12 +33,12 @@
 </template>
 
 <script setup>
-  import Button from "../components/Button.vue";
+  import Button from "../../components/Button.vue";
 </script>
 
 <style lang="scss">
-  @import "../assets/css/typography";
-  @import "../assets/css/variables";
+  @import "../../assets/css/typography";
+  @import "../../assets/css/variables";
 
   .section-accueil {
     margin: 6.4rem auto;

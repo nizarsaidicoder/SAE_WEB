@@ -2,36 +2,27 @@
   <div class="about-us-container">
     <h1 class="heading-section">About Us</h1>
     <div class="cards-container">
-      <ProfileCard
-        name="Nesrine"
-        job="Developpeuse"
-        :description="`💻 Développeuse passionnée créant des merveilles numériques ! 🚀<br>
-                  🌟 Donnant vie aux idées avec du code et de la créativité. 🎨`"
-        backImage="nes-back.jpg"
-        image="nezuko.png"
-        theme="nesrine" />
-      <ProfileCard
-        name="Nizar"
-        job="Designer"
-        :description="`✨ Concevant l'avenir, un pixel à la fois. 🎨<br>
-                  🚀 Transformant l'imagination en réalités visuellement époustouflantes. ☕`"
-        backImage="niz-back.png"
-        image="nizar.png"
-        theme="nizar" />
-      <ProfileCard
-        name="Amine"
-        job="Developpeur"
-        :description="`🖥️ Confectionnant des solutions puissantes avec la magie du code ! ✨<br>
-                  🌐 Transformant les problèmes complexes en solutions logicielles élégantes. 💡`"
-        backImage="amine-back.png"
-        image="amine.png"
-        theme="amine" />
+      <RouterLink
+        v-for="profile in profiles"
+        :to="'/a-propos/' + profile.name">
+        <ProfileCard
+          :key="profile.id"
+          :name="profile.name"
+          :job="profile.job"
+          :description="profile.description"
+          :backImage="profile.backImage"
+          :image="profile.image"
+          :theme="profile.theme"
+      /></RouterLink>
     </div>
   </div>
 </template>
 
 <script setup>
   import ProfileCard from "@/components/ProfileCard.vue";
+  import { useAboutStore } from "@/data/aboutStore.js";
+
+  const { profiles } = useAboutStore();
 </script>
 
 <style lang="scss">
