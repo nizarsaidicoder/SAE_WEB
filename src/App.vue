@@ -28,7 +28,6 @@
 </template>
 
 <style lang="scss">
-  @import "./assets/css/variables";
   .background-lines {
     position: relative;
     background-repeat: no-repeat;
@@ -60,7 +59,7 @@
       top: 0;
       left: 0;
       width: 100vw;
-      height: 100vh;
+      height: 102vh;
       background-image: linear-gradient(
         to top,
         rgb(0, 0, 0),

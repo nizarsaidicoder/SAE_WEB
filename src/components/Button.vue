@@ -21,7 +21,6 @@
 </script>
 
 <style lang="scss">
-  @import "../assets/css/variables";
   @import "../assets/css/mixins";
   @import "../assets/css/main";
   .btn {
@@ -40,7 +39,7 @@
       }
     }
     &.primary {
-      @include apply-gradient-block;
+      @include apply-gradient-block($linear);
       color: $accent;
     }
 

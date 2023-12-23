@@ -10,8 +10,14 @@
   -webkit-text-stroke: 3px transparent;
   color: $primary;
 }
-@mixin apply-gradient-block {
-  background: $linear;
+@mixin apply-color-border($color:$primary) {
+  background: $color;
+  background-size: 100% 100%;
+  background-clip: text;
+  -webkit-text-stroke: 3px transparent;
+}
+@mixin apply-gradient-block($color) {
+  background: $color;
   background-size: 100% 100%;
 }
 @mixin apply-gradient-border-box {

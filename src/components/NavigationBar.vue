@@ -98,10 +98,12 @@
           transition: all cubic-bezier(0.39, 0.575, 0.565, 1) 0.3s;
           @include apply-gradient-text;
           color: transparent;
+          transform: scale(1.4);
         }
         .navigation-item-text {
           @include apply-gradient-text;
           color: transparent;
+
           // color: red;
         }
       }
@@ -153,8 +155,6 @@
     }
     .navigation-toggle {
       display: block;
-      // background: none;
-      // border: none;
       font-size: 4.6rem;
       color: $accent;
       cursor: pointer;

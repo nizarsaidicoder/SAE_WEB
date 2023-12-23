@@ -20,8 +20,6 @@
 </script>
 
 <style lang="scss">
-  @import "../assets/css/typography";
-  @import "../assets/css/variables";
   .container {
     display: flex;
     flex-direction: column;

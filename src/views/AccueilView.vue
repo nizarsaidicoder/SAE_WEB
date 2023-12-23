@@ -39,8 +39,6 @@
 <style lang="scss">
   @import "../assets/css/typography";
   @import "../assets/css/variables";
-  @import "../assets/css/animations";
-  @import "@/assets/css/mixins";
 
   .section-accueil {
     margin: 6.4rem auto;
@@ -99,7 +97,7 @@
         position: absolute;
         z-index: -1;
         display: block;
-        @include apply-gradient-block;
+        @include apply-gradient-block($linear);
       }
       &:hover {
         .highlight::after {
