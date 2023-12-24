@@ -116,7 +116,7 @@
         height: 3px;
         left: 0;
         border-radius: 3px;
-        background: $secondary;
+        @include apply-gradient-block($linear);
         transition: width 0.3s ease 0s, left 0.3s ease 0s, height 0.1s ease 0s;
         width: 0;
       }
@@ -136,7 +136,7 @@
   }
 
   /* NAVBAR LIST */
-  ul {
+  .navigation-container > ul {
     padding: 0;
     list-style: none;
     display: flex;

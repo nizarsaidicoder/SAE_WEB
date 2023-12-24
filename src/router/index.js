@@ -35,6 +35,11 @@ const router = createRouter({
       props: true,
       component: () => import("@/router/views/AboutMeView.vue"),
     },
+    {
+      path: "/algo",
+      name: "algo",
+      component: () => import("@/router/views/AlgoView.vue"),
+    },
   ],
 });
 
