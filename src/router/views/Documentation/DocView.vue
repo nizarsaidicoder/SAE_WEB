@@ -1,10 +1,8 @@
 <template>
-  <div class="doc-container">
+  <ScrollSpy class="doc-navigation" />
+  <!-- <div class="doc-container">
     <nav class="doc-navigation">
       <h1 class="algo-title">Carte Distance</h1>
-      <ScrollSpy
-        :sections="sections"
-        :activeSection="activeSection" />
 
       <h1 class="algo-title">Boules Max</h1>
       <ScrollSpy
@@ -16,29 +14,33 @@
       class="doc-content"
       @active-section-update="handleActiveSectionUpdate"
       @all-ids="handleAllIds" />
-  </div>
+  </div> -->
 </template>
 
 <script setup>
   import { ref, watch } from "vue";
+  import { useRoute } from "vue-router";
+  const route = useRoute();
+  console.log(route.path);
+
   import ScrollSpy from "@/components/ScrollSpy.vue";
-  import DocContent from "@/components/DocContent.vue";
-  const activeSection = ref(null);
+  // import DocContent from "@/components/DocContent.vue";
+  // const activeSection = ref(null);
 
-  const handleActiveSectionUpdate = (sectionId) => {
-    activeSection.value = sectionId;
-    console.log(sectionId);
-  };
+  // const handleActiveSectionUpdate = (sectionId) => {
+  //   activeSection.value = sectionId;
+  //   console.log(sectionId);
+  // };
 
-  const sections = ref([]);
+  // const sections = ref([]);
 
-  const handleAllIds = (ids) => {
-    sections.value = [...ids];
-  };
+  // const handleAllIds = (ids) => {
+  //   sections.value = [...ids];
+  // };
 
-  watch(activeSection, (newValue) => {
-    console.log("Active section changed:", newValue);
-  });
+  // watch(activeSection, (newValue) => {
+  //   console.log("Active section changed:", newValue);
+  // });
 </script>
 
 <style lang="scss">
@@ -53,11 +55,11 @@
 
     &-navigation {
       position: fixed;
+      top: 15%;
+      left: 2%;
       height: fit-content;
       border-right: $accent 2px solid;
       padding: 0rem 2rem;
-      grid-area: fixed-element; // Add this line
-      font-size: 1.6rem;
     }
     &-content {
       grid-column-start: 3;

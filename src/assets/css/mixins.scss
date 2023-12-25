@@ -10,7 +10,7 @@
   -webkit-text-stroke: 3px transparent;
   color: $primary;
 }
-@mixin apply-color-border($color:$primary) {
+@mixin apply-color-border($color: $primary) {
   background: $color;
   background-size: 100% 100%;
   background-clip: text;

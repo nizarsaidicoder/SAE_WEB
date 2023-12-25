@@ -8,9 +8,9 @@
 
 <script setup>
   import { useRoute } from "vue-router";
-  import AmineView from "./AmineView.vue";
-  import NizarView from "./NizarView.vue";
-  import NesrineView from "./NesrineView.vue";
+  import AmineView from "./portfolios/AmineView.vue";
+  import NizarView from "./portfolios/NizarView.vue";
+  import NesrineView from "./portfolios/NesrineView.vue";
 
   const route = useRoute();
   const profile = route.params.name;

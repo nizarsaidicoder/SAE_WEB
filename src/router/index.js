@@ -12,18 +12,40 @@ const router = createRouter({
     {
       path: "/boules-maximales",
       name: "boules-maximales",
-      component: () => import("@/router/views/BoulesMaxView.vue"),
+      component: () =>
+        import("@/router/views/Documentation/BoulesMax/BoulesMaxView.vue"),
+    },
+    {
+      path: "/boules-maximales/:algo",
+      props: true,
+      component: () => import("@/router/views/Documentation/DocView.vue"),
     },
     {
       path: "/carte-distance",
       name: "carte-distance",
 
-      component: () => import("@/router/views/CarteDistanceView.vue"),
+      component: () =>
+        import(
+          "@/router/views/Documentation/CarteDistance/CarteDistanceView.vue"
+        ),
+    },
+    {
+      path: "/carte-distance/:algo",
+      props: true,
+      component: () => import("@/router/views/Documentation/DocView.vue"),
     },
     {
       path: "/reconstruction",
       name: "reconstruction",
-      component: () => import("@/router/views/ReconstructionView.vue"),
+      component: () =>
+        import(
+          "@/router/views/Documentation/Reconstruction/ReconstructionView.vue"
+        ),
+    },
+    {
+      path: "/reconstruction/:algo",
+      props: true,
+      component: () => import("@/router/views/Documentation/DocView.vue"),
     },
     {
       path: "/a-propos",
@@ -34,11 +56,6 @@ const router = createRouter({
       path: "/a-propos/:name",
       props: true,
       component: () => import("@/router/views/AboutMeView.vue"),
-    },
-    {
-      path: "/algo",
-      name: "algo",
-      component: () => import("@/router/views/AlgoView.vue"),
     },
   ],
 });
