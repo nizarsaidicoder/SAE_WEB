@@ -1,9 +1,10 @@
 import { defineStore } from "pinia";
+import { useRoute } from "vue-router";
 
 export const useSectionStore = defineStore({
   id: "sectionStore",
   state: () => ({
-    activeSection: "boules-maximales",
+    activeSection: null,
     activeSubSection: null,
     activeSubSubSection: null,
     sections: [
@@ -145,7 +146,7 @@ export const useSectionStore = defineStore({
             ],
           },
           {
-            id: "boules-max-optimise",
+            id: "reconstruction-optimise",
             title: "Algorithme optimisé",
             subSections: [
               {
@@ -185,6 +186,19 @@ export const useSectionStore = defineStore({
     },
     setActiveSection(section) {
       this.activeSubSubSection = section;
+    },
+    setSectionsFromRoute() {
+      const route = useRoute();
+      // Extract the necessary information from the route path
+      const pathParts = route.path.split("/").filter((part) => part !== "");
+
+      if (pathParts.length >= 1) {
+        this.activeSection = pathParts[0];
+      }
+
+      if (pathParts.length >= 2) {
+        this.activeSubSection = pathParts[0] + "-" + pathParts[1];
+      }
     },
   },
   getters: {

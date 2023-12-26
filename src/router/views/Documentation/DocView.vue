@@ -8,15 +8,18 @@
 </template>
 
 <script setup>
-  import { ref, watch } from "vue";
+  import { ref, watch, onMounted } from "vue";
   import { useSectionStore } from "@/data/sectionStore";
   import ScrollSpy from "@/components/ScrollSpy.vue";
   import CarteDistanceDocs from "./CarteDistance/CarteDistanceDocs.vue";
   import BoulesMaxDocs from "./BoulesMax/BoulesMaxDocs.vue";
   import ReconstructionDocs from "./Reconstruction/ReconstructionDocs.vue";
+
   const store = useSectionStore();
   const activeSection = ref(store.activeSection);
-
+  onMounted(() => {
+    store.setSectionsFromRoute();
+  });
   // Watch for changes in the store's activeSection
   watch(
     () => store.activeSection,
@@ -61,15 +64,10 @@
       top: 20%;
       left: 2%;
       height: fit-content;
-      border-right: $accent 2px solid;
       padding: 0rem 2rem;
     }
     &-content {
-      position: fixed;
-      top: 20%;
-      left: 24%;
-      width: 100rem;
-      background-color: red;
+      margin: 10% 6.4rem 9.6rem 22%;
     }
   }
 

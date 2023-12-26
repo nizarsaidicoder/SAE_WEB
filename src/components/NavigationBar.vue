@@ -18,7 +18,7 @@
         </button>
         <ul
           class="navigation-list"
-          :class="{ 'show-menu appear': isMenuOpen }">
+          :class="isMenuOpen ? 'show-menu appear' : ''">
           <RouterLink
             class="navigation-item"
             to="/"
@@ -56,23 +56,30 @@
 </template>
 
 <script setup>
-  import { computed, ref } from "vue";
+  import { computed, ref, watch } from "vue";
   import { useRoute } from "vue-router";
-  const route = useRoute().path;
+
+  const route = useRoute();
   const isFixed = computed(() => {
     return (
-      route.includes("/boules-maximales/") ||
-      route.includes("/reconstruction/") ||
-      route.includes("/carte-distance/")
+      route.path.includes("/boules-maximales/") ||
+      route.path.includes("/reconstruction/") ||
+      route.path.includes("/carte-distance/")
     );
   });
+  watch(
+    () => isFixed.value,
+    (newValue) => {
+      isFixed.value = newValue;
+    }
+  );
   const isMenuOpen = ref(false);
   function toggleMenu() {
     isMenuOpen.value = !isMenuOpen.value;
   }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   @import "@/assets/css/variables";
   @import "@/assets/css/mixins";
   .navigation {
@@ -83,7 +90,7 @@
       justify-content: space-between;
       align-items: center;
       margin: 0 auto;
-      padding: 0.6rem 2rem;
+      padding: 1.2rem 2rem;
       width: 100vw;
       // max-width: fit-content;
     }
@@ -141,7 +148,7 @@
   }
   /* LOGO */
   .logo-img {
-    height: 6.4rem;
+    height: 4.8rem;
   }
 
   /* NAVBAR LIST */
@@ -157,6 +164,9 @@
   }
   /* RESPONSIVE STYLES */
   @media (max-width: 768px) {
+    .navigation-container > ul {
+      display: none;
+    }
     .navigation-container {
       flex-direction: column;
       align-items: flex-start;
@@ -190,7 +200,7 @@
   .fixed-nav {
     position: fixed;
     top: 0;
-    // width: 100%;
+    width: 100%;
     z-index: 100;
   }
 </style>

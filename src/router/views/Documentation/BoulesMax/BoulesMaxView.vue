@@ -10,10 +10,10 @@
       websites with confidence.
     </p>
     <div class="buttons">
-      <RouterLink to="/boules-maximales/algo-optimisee">
+      <RouterLink to="/boules-maximales/optimise">
         <Button btnType="primary">Algorithme Optimise</Button>
       </RouterLink>
-      <RouterLink to="/boules-maximales/algo-brute-force">
+      <RouterLink to="/boules-maximales/brute-force">
         <Button btnType="secondary">Algorithme Brute Force</Button>
       </RouterLink>
     </div>

@@ -1,4 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @import "./variables";
+@import "./mixins";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -13,13 +15,33 @@ html {
   scroll-behavior: smooth;
 }
 body {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Montserrat Alternates", sans-serif;
   overflow-x: hidden;
   scroll-behavior: smooth;
   background-color: $primary;
   color: $accent;
   overflow-x: hidden;
+  &::-webkit-scrollbar {
+    width: 12px; /* Adjust the width as needed */
+  }
+
+  /* Define the styles for the scrollbar thumb (the draggable handle) */
+  &::-webkit-scrollbar-thumb {
+    @include apply-gradient-block($accent);
+    border-radius: 6px; /* Add rounded corners to the thumb */
+  }
+
+  /* Define the styles for the scrollbar track when the thumb is being dragged */
+  &::-webkit-scrollbar-track {
+    background-color: $primary; /* Change the background color of the track */
+  }
+
+  /* Optionally, you can also style the scrollbar corner */
+  &::-webkit-scrollbar-corner {
+    background-color: $primary; /* Change the background color of the corner */
+  }
 }
+
 @media screen and (max-width: 768px) {
   html {
     font-size: 45%;

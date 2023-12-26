@@ -12,6 +12,7 @@
   const csharpCode = props.code;
 </script>
 <style lang="scss">
+  @import "@/assets/css/variables";
   .code {
     max-width: fit-content;
     // margin: 8rem;
@@ -21,5 +22,6 @@
   code {
     border-radius: 1rem;
     font-weight: bold;
+    border: 2px solid $accent;
   }
 </style>
