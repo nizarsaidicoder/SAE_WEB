@@ -17,7 +17,6 @@ const router = createRouter({
     },
     {
       path: "/boules-maximales/:algo",
-      props: true,
       component: () => import("@/router/views/Documentation/DocView.vue"),
     },
     {
@@ -31,7 +30,6 @@ const router = createRouter({
     },
     {
       path: "/carte-distance/:algo",
-      props: true,
       component: () => import("@/router/views/Documentation/DocView.vue"),
     },
     {
@@ -44,7 +42,6 @@ const router = createRouter({
     },
     {
       path: "/reconstruction/:algo",
-      props: true,
       component: () => import("@/router/views/Documentation/DocView.vue"),
     },
     {

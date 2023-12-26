@@ -18,7 +18,7 @@
 
 <template>
   <header>
-    <NavigationBar />
+    <NavigationBar  />
   </header>
   <div
     class="background-lines"
@@ -68,4 +68,5 @@
       z-index: -1; /* Ensure the dark layer is above the image */
     }
   }
+
 </style>

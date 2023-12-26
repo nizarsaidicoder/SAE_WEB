@@ -1,11 +1,5 @@
-<script setup>
+<script setup></script>
 
-</script>
+<template>THIS IS RECONSTUCTION DOCUMENTATION</template>
 
-<template>
-
-</template>
-
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

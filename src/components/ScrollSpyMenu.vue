@@ -6,7 +6,7 @@
         :class="id == activeSection ? 'active' : ''"
         :id="id"
         @click="changeAlgo(id)">
-        {{ menuTitle }}<span class="scroll-spy-arrow">&rarr;</span>
+        {{ menuTitle }}
       </h3>
     </RouterLink>
 
@@ -15,26 +15,32 @@
       v-if="activeSection == id">
       <li
         v-for="section in menuSections"
-        :key="menuTitle + section"
-        @click="changeAlgoType(section.id)"
+        :key="section.id"
         class="menu-sections-section">
-        <span :class="section.id == activeSubSection ? 'active' : ''">
+        <span
+          :class="section.id == activeSubSection ? 'active' : ''"
+          @click="changeAlgoType(section.id)">
           {{ section.title }}
+          <span
+            v-if="section.id == activeSubSection"
+            class="scroll-spy-arrow active"
+            >&darr;</span
+          >
+          <span
+            v-else
+            class="scroll-spy-arrow"
+            >&rarr;</span
+          >
         </span>
         <ul
           class="menu-sections-items"
           v-if="activeSubSection == section.id">
           <li
             v-for="subSection in section.subSections"
-            :key="menuTitle + section + subSection"
-            @click="changeSection(subSection.title.toLowerCase())"
+            :key="subSection.id"
+            @click="changeSection(subSection.id)"
             class="menu-sections-items-item">
-            <span
-              :class="
-                subSection.title.toLowerCase() == activeSubSubSection
-                  ? 'active'
-                  : ''
-              ">
+            <span :class="subSection.id == activeSubSubSection ? 'active' : ''">
               {{ subSection.title }}
             </span>
           </li>
@@ -68,10 +74,18 @@
   const activeSubSubSection = ref(algos.activeSubSection);
 
   const changeAlgo = (id) => {
+    const section = algos.getSection(id);
+    const subSection = section?.subSections[0];
+    const subSubSection = subSection?.subSections[0];
     algos.setActiveAlgo(id);
+    algos.setActiveAlgoType(subSection?.id);
+    algos.setActiveSection(subSubSection?.id);
   };
   const changeAlgoType = (id) => {
-    algos.setActiveAlgoType(id);
+    const subSection = algos.getSubSection(id);
+    const subSubSection = subSection?.subSections[0];
+    algos.setActiveAlgoType(subSection?.id);
+    algos.setActiveSection(subSubSection?.id);
   };
   const changeSection = (id) => {
     algos.setActiveSection(id);
@@ -80,19 +94,19 @@
   watch(
     () => algos.activeSection,
     (newValue) => {
-      activeSection.value = newValue;
+      activeSection.value = newValue || null;
     }
   );
   watch(
     () => algos.activeSubSection,
     (newValue) => {
-      activeSubSection.value = newValue;
+      activeSubSection.value = newValue || null;
     }
   );
   watch(
     () => algos.activeSubSubSection,
     (newValue) => {
-      activeSubSubSection.value = newValue;
+      activeSubSubSection.value = newValue || null;
     }
   );
 </script>
@@ -109,6 +123,7 @@
       font-weight: 600;
       margin-bottom: 1rem;
       cursor: pointer;
+      position: relative;
     }
     &-sections {
       display: flex;
@@ -122,6 +137,7 @@
         font-size: 1.6rem;
         gap: 1.2rem;
         cursor: pointer;
+        position: relative;
       }
       &-items {
         padding: 0 2rem;
@@ -141,7 +157,10 @@
     @include apply-gradient-text;
     color: transparent;
   }
-  .x {
-    color: red;
+  .scroll-spy-arrow {
+    position: absolute;
+    right: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
   }
 </style>

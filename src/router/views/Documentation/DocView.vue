@@ -1,32 +1,35 @@
 <template>
   <ScrollSpy class="doc-navigation" />
-  <!-- <div class="doc-container">
-    <nav class="doc-navigation">
-      <h1 class="algo-title">Carte Distance</h1>
-
-      <h1 class="algo-title">Boules Max</h1>
-      <ScrollSpy
-        :sections="sections"
-        :activeSection="activeSection" />
-    </nav>
-
-    <DocContent
-      class="doc-content"
-      @active-section-update="handleActiveSectionUpdate"
-      @all-ids="handleAllIds" />
-  </div> -->
+  <div class="doc-content">
+    <CarteDistanceDocs v-if="activeSection === 'carte-distance'" />
+    <BoulesMaxDocs v-if="activeSection === 'boules-maximales'" />
+    <ReconstructionDocs v-if="activeSection === 'reconstruction'" />
+  </div>
 </template>
 
 <script setup>
   import { ref, watch } from "vue";
-  import { useRoute } from "vue-router";
-  const route = useRoute();
-  console.log(route.path);
-
+  import { useSectionStore } from "@/data/sectionStore";
   import ScrollSpy from "@/components/ScrollSpy.vue";
+  import CarteDistanceDocs from "./CarteDistance/CarteDistanceDocs.vue";
+  import BoulesMaxDocs from "./BoulesMax/BoulesMaxDocs.vue";
+  import ReconstructionDocs from "./Reconstruction/ReconstructionDocs.vue";
+  const store = useSectionStore();
+  const activeSection = ref(store.activeSection);
+
+  // Watch for changes in the store's activeSection
+  watch(
+    () => store.activeSection,
+    (newValue) => {
+      activeSection.value = newValue;
+    }
+  );
+  // const route = useRoute();
+  // const path = ref(route.path);
+  // console.log(path.value);
+
   // import DocContent from "@/components/DocContent.vue";
   // const activeSection = ref(null);
-
   // const handleActiveSectionUpdate = (sectionId) => {
   //   activeSection.value = sectionId;
   //   console.log(sectionId);
@@ -55,15 +58,18 @@
 
     &-navigation {
       position: fixed;
-      top: 15%;
+      top: 20%;
       left: 2%;
       height: fit-content;
       border-right: $accent 2px solid;
       padding: 0rem 2rem;
     }
     &-content {
-      grid-column-start: 3;
-      grid-column-end: 10;
+      position: fixed;
+      top: 20%;
+      left: 24%;
+      width: 100rem;
+      background-color: red;
     }
   }
 

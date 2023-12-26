@@ -3,7 +3,9 @@
     rel="stylesheet"
     href="https://cdn-uicons.flaticon.com/2.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css" />
   <div>
-    <nav class="navigation">
+    <nav
+      class="navigation"
+      :class="isFixed ? 'fixed-nav' : ''">
       <div class="navigation-container">
         <img
           src="../assets/images/Logo.svg"
@@ -54,10 +56,17 @@
 </template>
 
 <script setup>
-  import { ref } from "vue";
-
+  import { computed, ref } from "vue";
+  import { useRoute } from "vue-router";
+  const route = useRoute().path;
+  const isFixed = computed(() => {
+    return (
+      route.includes("/boules-maximales/") ||
+      route.includes("/reconstruction/") ||
+      route.includes("/carte-distance/")
+    );
+  });
   const isMenuOpen = ref(false);
-  const isSmallScreen = ref(false);
   function toggleMenu() {
     isMenuOpen.value = !isMenuOpen.value;
   }
@@ -177,5 +186,11 @@
       width: 100%;
       text-align: center;
     }
+  }
+  .fixed-nav {
+    position: fixed;
+    top: 0;
+    // width: 100%;
+    z-index: 100;
   }
 </style>
