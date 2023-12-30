@@ -88,6 +88,8 @@
       color: $accent;
       font-weight: 100;
       padding: 0.7rem 0;
+      transition: all 0.3s ease-in-out;
+
       &::after {
         content: "";
         width: 80%;
@@ -98,12 +100,14 @@
         z-index: -1;
         display: block;
         @include apply-gradient-block($linear);
+        transition: all 0.3s ease-in-out;
       }
-      &:hover {
-        .highlight::after {
-          top: 35%;
-          left: 20%;
-        }
+      &:hover::after {
+        width: 110%;
+        left: -5%;
+      }
+      &:hover{
+        font-weight: 600;
       }
 
       &-full::after {

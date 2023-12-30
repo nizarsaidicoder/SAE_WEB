@@ -118,6 +118,9 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    *{
+      transition: all .3s ease-in-out;
+    }
     &-section-title {
       font-size: 1.8rem;
       font-weight: 600;
@@ -131,6 +134,9 @@
       border-left: 1px solid $grey;
       padding: 0 2rem;
       gap: 2.4rem;
+      *{
+        transition: all .3s ease-in-out;
+      }
       &-section {
         display: flex;
         flex-direction: column;
@@ -138,6 +144,9 @@
         gap: 1.2rem;
         cursor: pointer;
         position: relative;
+        *{
+          transition: all .3s ease-in-out;
+        }
       }
       &-items {
         padding: 0 2rem;
@@ -147,6 +156,9 @@
         gap: 1.2rem;
         font-size: 1.4rem;
         cursor: pointer;
+        *{
+          transition: all .3s ease-in-out;
+        }
       }
     }
   }

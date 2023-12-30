@@ -22,7 +22,7 @@ body {
   color: $accent;
   overflow-x: hidden;
   &::-webkit-scrollbar {
-    width: 12px; /* Adjust the width as needed */
+    width: 9px; /* Adjust the width as needed */
   }
 
   /* Define the styles for the scrollbar thumb (the draggable handle) */

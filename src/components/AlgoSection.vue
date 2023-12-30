@@ -8,6 +8,11 @@
       <p class="algo-description">
         {{ algo.description }}
       </p>
+      <div class="algo-sections">
+        <AlgoSubSection :algo="algo" />
+      </div>
+    </div>
+    <div class="algo-code">
       <CodeBlock :code="algo.code" />
     </div>
   </div>
@@ -15,6 +20,7 @@
 
 <script setup>
   import CodeBlock from "@/components/CodeBlock.vue";
+  import AlgoSubSection from "@/components/AlgoSubSection.vue";
   import { useAlgoStore } from "@/data/algoStore.js";
   const { algorithmes } = useAlgoStore();
 </script>
