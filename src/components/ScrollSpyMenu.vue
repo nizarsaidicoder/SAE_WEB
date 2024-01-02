@@ -1,6 +1,6 @@
 <template>
   <div class="menu">
-    <RouterLink :to="'/' + id + '/algo-brute-force'">
+    <RouterLink :to="'/' + id + '/brute-force'">
       <h3
         class="menu-section-title"
         :class="id == activeSection ? 'active' : ''"
@@ -17,21 +17,24 @@
         v-for="section in menuSections"
         :key="section.id"
         class="menu-sections-section">
-        <span
-          :class="section.id == activeSubSection ? 'active' : ''"
-          @click="changeAlgoType(section.id)">
-          {{ section.title }}
+        <RouterLink
+          :to="section.id ? section.id.replace(id + '-' ?? '', '') : ''">
           <span
-            v-if="section.id == activeSubSection"
-            class="scroll-spy-arrow active"
-            >&darr;</span
-          >
-          <span
-            v-else
-            class="scroll-spy-arrow"
-            >&rarr;</span
-          >
-        </span>
+            :class="section.id == activeSubSection ? 'active' : ''"
+            @click="changeAlgoType(section.id)">
+            {{ section.title }}
+            <span
+              v-if="section.id == activeSubSection"
+              class="scroll-spy-arrow active"
+              >&darr;</span
+            >
+            <span
+              v-else
+              class="scroll-spy-arrow"
+              >&rarr;</span
+            >
+          </span>
+        </RouterLink>
         <ul
           class="menu-sections-items"
           v-if="activeSubSection == section.id">
@@ -118,8 +121,8 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    *{
-      transition: all .3s ease-in-out;
+    * {
+      transition: all 0.3s ease-in-out;
     }
     &-section-title {
       font-size: 1.8rem;
@@ -134,8 +137,8 @@
       border-left: 1px solid $grey;
       padding: 0 2rem;
       gap: 2.4rem;
-      *{
-        transition: all .3s ease-in-out;
+      * {
+        transition: all 0.3s ease-in-out;
       }
       &-section {
         display: flex;
@@ -144,8 +147,8 @@
         gap: 1.2rem;
         cursor: pointer;
         position: relative;
-        *{
-          transition: all .3s ease-in-out;
+        * {
+          transition: all 0.3s ease-in-out;
         }
       }
       &-items {
@@ -156,8 +159,8 @@
         gap: 1.2rem;
         font-size: 1.4rem;
         cursor: pointer;
-        *{
-          transition: all .3s ease-in-out;
+        * {
+          transition: all 0.3s ease-in-out;
         }
       }
     }

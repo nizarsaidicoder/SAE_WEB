@@ -1,5 +1,24 @@
 <script setup>
   import AlgoSection from "@/components/AlgoSection.vue";
+  import { ref, computed, watch, onMounted } from "vue";
+  import { useAlgoStore } from "@/data/algoStore";
+  import { useSectionStore } from "@/data/sectionStore";
+  const algos = useAlgoStore().algorithmes[0];
+  const sections = useSectionStore();
+  let activeAlgo = ref(
+    sections.activeSubSection == "carte-distance-brute-force"
+      ? algos.algoTypes[0]
+      : algos.algoTypes[1]
+  );
+  watch(
+    () => sections.activeSubSection,
+    (newVal) => {
+      activeAlgo.value =
+        newVal == "carte-distance-brute-force"
+          ? algos.algoTypes[0]
+          : algos.algoTypes[1];
+    }
+  );
 </script>
 
 <template>
@@ -7,14 +26,9 @@
     class="documentation"
     id="carte-distance">
     <h1 class="documentation-title">Carte Distance Euclidienne au carré</h1>
-    <p class="documentation-description">
-      La "Carte Distance Euclidienne au Carré" est une mesure fondamentale en
-      traitement d'images. Elle évalue la distance entre deux points dans un
-      espace pixel. Plus spécifiquement, elle quantifie la différence de
-      luminosité entre les pixels. Cette mesure est souvent utilisée dans des
-      contextes tels que la segmentation d'image et la détection de contours.
-    </p>
-    <AlgoSection />
+    <AlgoSection
+      v-if="activeAlgo"
+      :algo="activeAlgo" />
   </div>
 </template>
 

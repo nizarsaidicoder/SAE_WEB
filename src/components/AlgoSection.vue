@@ -1,8 +1,7 @@
 <template>
-  <div
-    v-for="algo in algorithmes[0].algoTypes"
+  <section
     class="algo-container"
-    :id="algorithmes[0].name + algo.type">
+    :id="algo.id">
     <h2 class="algo-title">Algorithme {{ algo.type }}</h2>
     <div class="algo-explanation">
       <p class="algo-description">
@@ -15,14 +14,26 @@
     <div class="algo-code">
       <CodeBlock :code="algo.code" />
     </div>
-  </div>
+  </section>
 </template>
 
-<script setup>
+<script>
   import CodeBlock from "@/components/CodeBlock.vue";
   import AlgoSubSection from "@/components/AlgoSubSection.vue";
-  import { useAlgoStore } from "@/data/algoStore.js";
-  const { algorithmes } = useAlgoStore();
+  import { useSectionStore } from "@/data/sectionStore";
+  export default {
+    components: {
+      CodeBlock,
+      AlgoSubSection,
+    },
+    props: {
+      algo: {
+        type: Object,
+        required: true,
+      },
+    },
+   
+  };
 </script>
 
 <style lang="scss">
