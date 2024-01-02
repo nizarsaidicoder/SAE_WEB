@@ -26,7 +26,7 @@
   .btn {
     padding: 0.6rem 2.4rem;
     border-radius: 4px;
-    font-size: 2.4rem;
+    font-size: 1.8rem;
     font-weight: 500;
     position: relative;
     cursor: pointer;
@@ -41,6 +41,9 @@
     &.primary {
       @include apply-gradient-block($linear);
       color: $accent;
+      &:hover {
+        border: $accent 2px solid;
+      }
     }
 
     &.secondary {

@@ -5,7 +5,7 @@
   const route = useRoute();
   const lineClass = computed(() => {
     return {
-      "background-lines": route.path === "/",
+      "background-lines-hero layer": route.path === "/",
       "background-lines-a-propos layer": route.path === "/a-propos",
       "background-lines-about-me layer": route.path === "/about-me",
       "background-lines-carte-distance layer": route.path === "/carte-distance",
@@ -17,12 +17,13 @@
 </script>
 
 <template>
-  <header>
-    <NavigationBar  />
-  </header>
   <div
     class="background-lines"
     :class="lineClass">
+    <header>
+      <NavigationBar />
+    </header>
+
     <RouterView />
   </div>
 </template>
@@ -32,10 +33,12 @@
     position: relative;
     background-repeat: no-repeat;
     background-size: 120vw;
-    height: 100vh;
+    height: 130vh;
     background-position-x: center;
     z-index: 0;
-
+    &-hero {
+      background-image: url("./assets/images/back.png");
+    }
     &-a-propos {
       background-image: url("./assets/images/lines/Line\ 8.png");
     }
@@ -59,7 +62,7 @@
       top: 0;
       left: 0;
       width: 100vw;
-      height: 102vh;
+      height: 130vh;
       background-image: linear-gradient(
         to top,
         rgb(0, 0, 0),
@@ -68,5 +71,4 @@
       z-index: -1; /* Ensure the dark layer is above the image */
     }
   }
-
 </style>

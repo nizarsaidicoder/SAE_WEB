@@ -85,6 +85,7 @@
   .navigation {
     background-color: $primary;
     border-bottom: 1px solid $accent;
+    width: 100%;
     &-container {
       display: flex;
       justify-content: space-between;
@@ -202,5 +203,46 @@
     top: 0;
     width: 100%;
     z-index: 100;
+  }
+
+  @media (max-width: 1440px) {
+    .navigation {
+      &-item {
+        font-size: 1.5rem;
+        gap: 0.8rem;
+      }
+      &-list {
+        gap: 4rem;
+      }
+    }
+  }
+  @media (max-width: 1280px) {
+    .navigation {
+      &-item {
+        font-size: 1.4rem;
+        gap: 0.6rem;
+      }
+      &-list {
+        gap: 4rem;
+      }
+    }
+  }
+  @media (max-width: 1024px) {
+    .navigation {
+      &-item {
+        font-size: 1.3rem;
+        gap: 0.4rem;
+      }
+      &-list {
+        gap: 4rem;
+      }
+    }
+  }
+  @media (max-width: 768px) {
+    .navigation {
+      &-item {
+        font-size: 1.2rem;
+      }
+    }
   }
 </style>

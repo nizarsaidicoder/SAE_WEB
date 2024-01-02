@@ -22,12 +22,6 @@
           </RouterLink>
         </div>
       </div>
-      <div class="accueil-img">
-        <img
-          class="accueil-img-image"
-          src="../../assets/images/hero-img.png"
-          alt="" />
-      </div>
     </div>
   </div>
 </template>
@@ -41,43 +35,35 @@
   @import "../../assets/css/variables";
 
   .section-accueil {
+    max-width: 120rem;
     margin: 6.4rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
   .accueil {
-    display: flex;
-    position: relative;
-
     // gap: 50rem;
-    &-title {
-      margin-left: 3.2rem;
-      margin-bottom: 2.4rem;
-    }
+
     &-text {
       display: flex;
       gap: 3.2rem;
+      text-align: center;
       flex-direction: column;
+      align-items: center;
       animation: text-enter-right 2s cubic-bezier(0.165, 0.84, 0.44, 1);
-      max-width: 72rem;
-      margin-left: 12rem;
 
       &-para {
-        font-size: 2.4rem;
+        font-size: 2rem;
         font-style: normal;
         font-weight: 500;
         line-height: 3.9rem; /* 162.5% */
         letter-spacing: 2.4px;
+        letter-spacing: 1.4px;
       }
     }
-    &-img {
-      &-image {
-        position: absolute;
-        top: -50%;
-        left: 50%;
-        height: 100rem;
-        animation: image-enter-left 1s ease-out;
-      }
-    }
+
     &-buttons {
       display: flex;
       gap: 3.6rem;
@@ -106,7 +92,7 @@
         width: 110%;
         left: -5%;
       }
-      &:hover{
+      &:hover {
         font-weight: 600;
       }
 

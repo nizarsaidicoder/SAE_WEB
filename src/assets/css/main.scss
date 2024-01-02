@@ -41,27 +41,23 @@ body {
     background-color: $primary; /* Change the background color of the corner */
   }
 }
-
-@media screen and (max-width: 768px) {
+@media (max-width: 1440px) {
   html {
-    font-size: 45%;
+    font-size: 60%;
   }
 }
-
-@media screen and (max-width: 1024px) {
-  html {
-    font-size: 50%;
-  }
-}
-
-@media screen and (max-width: 1280px) {
+@media (max-width: 1280px) {
   html {
     font-size: 58%;
   }
 }
-
-@media screen and (max-width: 1440px) {
+@media (max-width: 1024px) {
   html {
-    font-size: 60%;
+    font-size: 50%;
+  }
+}
+@media (max-width: 768px) {
+  html {
+    font-size: 45%;
   }
 }
