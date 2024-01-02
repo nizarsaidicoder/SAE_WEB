@@ -17,22 +17,22 @@ export const useSectionStore = defineStore({
             title: "Algorithme brute force",
             subSections: [
               {
-                id: "carte-distance-brute-force-normalisation",
+                id: "normalisation",
                 title: "Normalisation",
               },
               {
-                id: "carte-distance-brute-force-initialisation",
+                id: "initialisation",
                 title: "Initialisation",
               },
               {
-                id: "carte-distance-brute-force-traitement",
+                id: "traitement",
                 title: "Traitement",
               },
               {
-                id: "carte-distance-brute-force-visualisation",
+                id: "visualisation",
                 title: "Visualisation",
               },
-              { id: "carte-distance-brute-force-code", title: "Code" },
+              { id: "code", title: "Code" },
             ],
           },
           {
@@ -40,19 +40,19 @@ export const useSectionStore = defineStore({
             title: "Algorithme optimisé",
             subSections: [
               {
-                id: "carte-distance-optimise-normalisation",
+                id: "normalisation",
                 title: "Normalisation",
               },
               {
-                id: "carte-distance-optimise-initialisation",
+                id: "initialisation",
                 title: "Initialisation",
               },
-              { id: "carte-distance-optimise-traitement", title: "Traitement" },
+              { id: "traitement", title: "Traitement" },
               {
-                id: "carte-distance-optimise-visualisation",
+                id: "visualisation",
                 title: "Visualisation",
               },
-              { id: "carte-distance-optimise-code", title: "Code" },
+              { id: "code", title: "Code" },
             ],
           },
           {
@@ -71,22 +71,22 @@ export const useSectionStore = defineStore({
             title: "Algorithme brute force",
             subSections: [
               {
-                id: "boules-maximales-brute-force-normalisation",
+                id: "normalisation",
                 title: "Normalisation",
               },
               {
-                id: "boules-maximales-brute-force-initialisation",
+                id: "initialisation",
                 title: "Initialisation",
               },
               {
-                id: "boules-maximales-brute-force-traitement",
+                id: "traitement",
                 title: "Traitement",
               },
               {
-                id: "boules-maximales-brute-force-visualisation",
+                id: "visualisation",
                 title: "Visualisation",
               },
-              { id: "boules-maximales-brute-force-code", title: "Code" },
+              { id: "code", title: "Code" },
             ],
           },
           {
@@ -94,22 +94,22 @@ export const useSectionStore = defineStore({
             title: "Algorithme optimisé",
             subSections: [
               {
-                id: "boules-maximales-optimise-normalisation",
+                id: "normalisation",
                 title: "Normalisation",
               },
               {
-                id: "boules-maximales-optimise-initialisation",
+                id: "initialisation",
                 title: "Initialisation",
               },
               {
-                id: "boules-maximales-optimise-traitement",
+                id: "traitement",
                 title: "Traitement",
               },
               {
-                id: "boules-maximales-optimise-visualisation",
+                id: "visualisation",
                 title: "Visualisation",
               },
-              { id: "boules-maximales-optimise-code", title: "Code" },
+              { id: "code", title: "Code" },
             ],
           },
           {
@@ -127,22 +127,22 @@ export const useSectionStore = defineStore({
             title: "Algorithme brute force",
             subSections: [
               {
-                id: "reconstruction-brute-force-normalisation",
+                id: "normalisation",
                 title: "Normalisation",
               },
               {
-                id: "reconstruction-brute-force-initialisation",
+                id: "initialisation",
                 title: "Initialisation",
               },
               {
-                id: "reconstruction-brute-force-traitement",
+                id: "traitement",
                 title: "Traitement",
               },
               {
-                id: "reconstruction-brute-force-visualisation",
+                id: "visualisation",
                 title: "Visualisation",
               },
-              { id: "reconstruction-brute-force-code", title: "Code" },
+              { id: "code", title: "Code" },
             ],
           },
           {
@@ -150,22 +150,22 @@ export const useSectionStore = defineStore({
             title: "Algorithme optimisé",
             subSections: [
               {
-                id: "reconstruction-optimise-normalisation",
+                id: "normalisation",
                 title: "Normalisation",
               },
               {
-                id: "reconstruction-optimise-initialisation",
+                id: "initialisation",
                 title: "Initialisation",
               },
               {
-                id: "reconstruction-optimise-traitement",
+                id: "traitement",
                 title: "Traitement",
               },
               {
-                id: "reconstruction-optimise-visualisation",
+                id: "visualisation",
                 title: "Visualisation",
               },
-              { id: "reconstruction-optimise-code", title: "Code" },
+              { id: "code", title: "Code" },
             ],
           },
           {

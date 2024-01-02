@@ -21,7 +21,7 @@ int[,] tabInit = InitResultat(tabImage);
 int resultatBrute = CarteBruteForce(tabInit);`,
               sections: [
                 {
-                  id: "carte-distance-brute-force-normalisation",
+                  id: "normalisation",
                   name: "Normalisation",
                   description:
                     "La normalisation consiste à transformer les pixels de l'image en pixels blancs ou noirs. Les pixels blancs sont représentés par la valeur 255 et les pixels noirs sont représentés par la valeur 0.",
@@ -67,7 +67,7 @@ int resultatBrute = CarteBruteForce(tabInit);`,
                   ],
                 },
                 {
-                  id: "carte-distance-brute-force-initialisation",
+                  id: "initialisation",
 
                   name: "Initialisation",
                   description:
@@ -121,7 +121,7 @@ int resultatBrute = CarteBruteForce(tabInit);`,
                   ],
                 },
                 {
-                  id: "carte-distance-brute-force-traitement",
+                  id: "traitement",
                   name: "Traitement",
                   description:
                     "Le traitement consiste à calculer la carte distance euclidienne au carré. La carte distance euclidienne au carré est une matrice de même taille que l'image. Chaque pixel de la carte distance euclidienne au carré est initialisé à la valeur 255.",
@@ -203,7 +203,7 @@ SaveImage(resultatBrute, "../../images/RESULTATS_BRUTE/resultatOptimise.bmp");
 `,
               sections: [
                 {
-                  id: "carte-distance-optimise-normalisation",
+                  id: "normalisation",
                   name: "Normalisation",
                   description:
                     "La normalisation consiste à transformer les pixels de l'image en pixels blancs ou noirs. Les pixels blancs sont représentés par la valeur 255 et les pixels noirs sont représentés par la valeur 0.",
@@ -249,7 +249,7 @@ SaveImage(resultatBrute, "../../images/RESULTATS_BRUTE/resultatOptimise.bmp");
                   ],
                 },
                 {
-                  id: "carte-distance-optimise-initialisation",
+                  id: "initialisation",
                   name: "Initialisation",
                   description:
                     "L'initialisation consiste à initialiser la carte distance euclidienne au carré. La carte distance euclidienne au carré est une matrice de même taille que l'image. Chaque pixel de la carte distance euclidienne au carré est initialisé à la valeur 255.",
@@ -303,7 +303,7 @@ SaveImage(resultatBrute, "../../images/RESULTATS_BRUTE/resultatOptimise.bmp");
                   ],
                 },
                 {
-                  id: "carte-distance-optimise-traitement",
+                  id: "traitement",
                   name: "Traitement",
                   description:
                     "Le traitement consiste à calculer la carte distance euclidienne au carré de manière optimisée. La carte distance euclidienne au carré est une matrice de même taille que l'image. Chaque pixel de la carte distance euclidienne au carré est initialisé à la valeur 255.",

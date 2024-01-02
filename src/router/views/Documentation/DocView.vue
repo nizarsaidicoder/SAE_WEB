@@ -27,26 +27,6 @@
       activeSection.value = newValue;
     }
   );
-  // const route = useRoute();
-  // const path = ref(route.path);
-  // console.log(path.value);
-
-  // import DocContent from "@/components/DocContent.vue";
-  // const activeSection = ref(null);
-  // const handleActiveSectionUpdate = (sectionId) => {
-  //   activeSection.value = sectionId;
-  //   console.log(sectionId);
-  // };
-
-  // const sections = ref([]);
-
-  // const handleAllIds = (ids) => {
-  //   sections.value = [...ids];
-  // };
-
-  // watch(activeSection, (newValue) => {
-  //   console.log("Active section changed:", newValue);
-  // });
 </script>
 
 <style lang="scss">
