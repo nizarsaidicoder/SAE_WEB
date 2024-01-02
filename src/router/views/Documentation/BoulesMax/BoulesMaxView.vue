@@ -11,10 +11,18 @@
     </p>
     <div class="buttons">
       <RouterLink to="/boules-maximales/optimise">
-        <Button btnType="primary">Algorithme Optimise</Button>
+        <Button
+          btnType="primary"
+          @click="changeAlgo(1)"
+          >Algorithme Optimise</Button
+        >
       </RouterLink>
       <RouterLink to="/boules-maximales/brute-force">
-        <Button btnType="secondary">Algorithme Brute Force</Button>
+        <Button
+          btnType="secondary"
+          @click="changeAlgo(0)"
+          >Algorithme Brute Force</Button
+        >
       </RouterLink>
     </div>
   </div>
@@ -22,6 +30,17 @@
 
 <script setup>
   import Button from "@/components/Button.vue";
+  import { useSectionStore } from "@/data/sectionStore";
+  const algos = useSectionStore();
+  const changeAlgo = (id) => {
+    const section = algos.getSection("boules-maximales");
+    const subSection =
+      id === 0 ? section?.subSections[0] : section?.subSections[1];
+    const subSubSection = subSection?.subSections[0];
+    algos.setActiveAlgo(section);
+    algos.setActiveAlgoType(subSection?.id);
+    algos.setActiveSection(subSubSection?.id);
+  };
 </script>
 
 <style lang="scss">

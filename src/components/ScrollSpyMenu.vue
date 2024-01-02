@@ -2,7 +2,7 @@
   <div class="menu">
     <RouterLink :to="'/' + id + '/brute-force'">
       <h3
-        class="menu-section-title"
+        class="menu-section-title hover"
         :class="id == activeSection ? 'active' : ''"
         :id="id"
         @click="changeAlgo(id)">
@@ -16,7 +16,8 @@
       <li
         v-for="section in menuSections"
         :key="section.id"
-        class="menu-sections-section">
+        class="menu-sections-section"
+        :class="activeSubSection != section.id ? 'hover' : ''">
         <RouterLink
           :to="section.id ? section.id.replace(id + '-' ?? '', '') : ''">
           <span
@@ -41,7 +42,6 @@
           <li
             v-for="subSection in section.subSections"
             :key="subSection.id"
-            @click="changeSection(subSection.id)"
             class="menu-sections-items-item">
             <span :class="subSection.id == activeSubSubSection ? 'active' : ''">
               {{ subSection.title }}
@@ -130,6 +130,10 @@
       margin-bottom: 1rem;
       cursor: pointer;
       position: relative;
+      &:hover {
+        @include apply-gradient-text;
+        color: transparent;
+      }
     }
     &-sections {
       display: flex;
@@ -147,6 +151,7 @@
         gap: 1.2rem;
         cursor: pointer;
         position: relative;
+
         * {
           transition: all 0.3s ease-in-out;
         }
@@ -158,7 +163,7 @@
         flex-direction: column;
         gap: 1.2rem;
         font-size: 1.4rem;
-        cursor: pointer;
+        cursor: default;
         * {
           transition: all 0.3s ease-in-out;
         }
@@ -177,5 +182,29 @@
     right: 0;
     font-size: 1.2rem;
     font-weight: 600;
+  }
+  .hover {
+    position: relative;
+    &:after {
+      background: none repeat scroll 0 0 transparent;
+      position: absolute;
+      display: block;
+      bottom: -7px; /* Adjust the value to position the underline */
+      content: "";
+      height: 3px;
+      left: 0;
+      border-radius: 3px;
+      @include apply-gradient-block($linear);
+      transition: width 0.3s ease 0s, left 0.3s ease 0s, height 0.1s ease 0s;
+      width: 0;
+    }
+    &:hover:after {
+      width: 80%;
+      left: 0;
+    }
+    &:active:after {
+      height: 5px;
+      width: 100%;
+    }
   }
 </style>
