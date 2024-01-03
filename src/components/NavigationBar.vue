@@ -14,36 +14,49 @@
         <button
           class="navigation-toggle"
           @click="toggleMenu">
-          <i class="fi fi-rr-menu-burger"></i>
+          <div
+            class="hamburger-line"
+            :class="isMenuOpen ? 'animate' : ''"></div>
+          <div
+            class="hamburger-line"
+            :class="isMenuOpen ? 'animate' : ''"></div>
+          <div
+            class="hamburger-line"
+            :class="isMenuOpen ? 'animate' : ''"></div>
         </button>
         <ul
           class="navigation-list"
           :class="isMenuOpen ? 'show-menu appear' : ''">
           <RouterLink
+            @click="toggleMenu"
             class="navigation-item"
             to="/"
             ><i class="fi fi-rr-home navigation-item-icon"></i>
             <p class="navigation-item-text">Accueil</p></RouterLink
           >
           <RouterLink
+            @click="toggleMenu"
             class="navigation-item"
             to="/carte-distance"
             ><i class="fi fi-rr-route navigation-item-icon"></i>
             <p class="navigation-item-text">Carte Distance</p></RouterLink
           >
           <RouterLink
+            @click="toggleMenu"
             class="navigation-item"
             to="/boules-maximales"
             ><i class="fi fi-rr-ball-pile navigation-item-icon"></i>
             <p class="navigation-item-text">Boules maximales</p></RouterLink
           >
           <RouterLink
+            @click="toggleMenu"
             class="navigation-item"
             to="/reconstruction"
             ><i class="fi fi-rr-build-alt navigation-item-icon"></i>
             <p class="navigation-item-text">Reconstruction</p></RouterLink
           >
           <RouterLink
+            @click="toggleMenu"
             class="navigation-item"
             to="/a-propos"
             ><i class="fi fi-rr-images navigation-item-icon"></i>
@@ -81,6 +94,7 @@
 
 <style lang="scss" scoped>
   @import "@/assets/css/variables";
+  @import "@/assets/css/animations";
   @import "@/assets/css/mixins";
   .navigation {
     background-color: $primary;
@@ -150,10 +164,15 @@
   /* LOGO */
   .logo-img {
     height: 4.8rem;
+    transition: all 1s ease-in;
+    animation: animate-logo-rotate 2s cubic-bezier(0.165, 0.84, 0.44, 1);
+    &:hover {
+      transform: rotate(720deg);
+    }
   }
 
   /* NAVBAR LIST */
-  .navigation-container > ul {
+  .navigation-list {
     padding: 0;
     list-style: none;
     display: flex;
@@ -184,11 +203,18 @@
       right: 5%;
     }
     .navigation-list {
+      position: absolute;
+      background-color: $primary;
+      z-index: 5;
+      top: 90%;
+      left: 0;
       display: none;
       flex-direction: column;
       gap: 2rem;
       padding: 1rem 0;
       width: 100%;
+      padding: 2.4rem;
+      border-bottom: $accent 2px solid;
       &.show-menu {
         display: flex;
       }
@@ -244,5 +270,28 @@
         font-size: 1.2rem;
       }
     }
+  }
+  .hamburger-line {
+    width: 35px;
+    height: 5px;
+    background-color: $accent;
+    border-radius: 8px;
+    margin: 6px 0;
+    transition: all 0.4s ease-in;
+  }
+
+  /* Rotate first bar */
+  .animate:first-child {
+    transform: rotate(-45deg) translate(-8px, 5px);
+  }
+
+  /* Fade out the second bar */
+  .animate:nth-child(2) {
+    transform: translateX(100px);
+  }
+
+  /* Rotate last bar */
+  .animate:nth-child(3) {
+    transform: rotate(45deg) translate(-10px, -8px);
   }
 </style>

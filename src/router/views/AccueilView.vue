@@ -1,10 +1,12 @@
 <template>
   <div class="section-accueil">
-    <h1 class="heading-primary accueil-title">01 ACCUEIL</h1>
+    <h1 class="heading-primary accueil-title">ACCUEIL</h1>
     <div class="accueil">
       <div class="accueil-text">
+        <div
+          id="typewriter"
+          class="typewriter"></div>
         <p class="accueil-text-para">
-          Hello! 👋 <span class="highlight highlight-full">WE ARE EZWIN</span>
           Bienvenue sur notre site de compression d'images ! Découvrez comment
           notre approche novatrice, basée sur l'algorithme de Distance
           Euclidienne au Carré (SED) et les Boules Maximales, révolutionne la
@@ -26,8 +28,33 @@
   </div>
 </template>
 
-<script setup>
+<script>
   import Button from "../../components/Button.vue";
+  export default {
+    components: {
+      Button,
+    },
+    mounted() {
+      this.typewriterEffect();
+    },
+    methods: {
+      typewriterEffect() {
+        const text = "Hello👋, Nous sommes EZWIN !";
+        let i = 0;
+        const speed = 200; // Speed in milliseconds
+
+        function typeWriter() {
+          if (i < text.length) {
+            document.getElementById("typewriter").innerHTML += text.charAt(i);
+            i++;
+            setTimeout(typeWriter, speed);
+          }
+        }
+
+        typeWriter();
+      },
+    },
+  };
 </script>
 
 <style lang="scss">
@@ -102,6 +129,83 @@
         width: 105%;
         height: 100%;
       }
+    }
+  }
+  @keyframes typewriter {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+  .typewriter {
+    position: relative;
+    overflow: hidden;
+    font-family: "JetBrains Mono";
+    font-size: 2.4rem;
+    white-space: nowrap;
+    letter-spacing: 0.15em;
+    padding: 0.4rem;
+    color: $secondary;
+    font-weight: 800;
+  }
+
+  .typewriter::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 1%;
+    width: 1.6rem;
+    height: 0.15rem;
+    background-color: $accent;
+    animation: blink-caret 1s step-end infinite;
+  }
+
+  @keyframes blink-caret {
+    from,
+    to {
+      background-color: transparent;
+    }
+    50% {
+      background-color: $accent;
+    }
+  }
+
+  @media (max-width: 1280px) {
+    .section-accueil {
+      max-width: 96rem;
+    }
+  }
+  @media (max-width: 1024px) {
+    .section-accueil {
+      max-width: 92rem;
+    }
+  }
+  @media (max-width: 768px) {
+    .section-accueil {
+      max-width: 76rem;
+    }
+  }
+  @media (max-width: 512px) {
+    .section-accueil {
+      max-width: max-content;
+      margin: 6.4rem 2.4rem;
+      align-items: flex-start;
+      gap: 2rem;
+    }
+    .accueil {
+      &-text {
+        align-items: flex-start;
+        text-align: left;
+        &-para {
+          font-size: 1.8rem;
+          line-height: 3rem;
+        }
+      }
+    }
+    .typewriter {
+      font-size: 1.8rem;
     }
   }
 </style>

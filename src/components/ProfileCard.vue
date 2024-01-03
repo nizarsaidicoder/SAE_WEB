@@ -195,4 +195,63 @@
       background-color: #fba33f;
     }
   }
+  @media (max-width: 1280px) {
+    .card {
+      &-container {
+        max-width: 32rem;
+      }
+    }
+  }
+  @media (max-width: 1025px) {
+    .card {
+      &-container {
+        max-width: 28rem;
+      }
+      &-image {
+        &-name {
+          font-size: 3.6rem;
+        }
+      }
+      &-text {
+        &-profile {
+          &-info {
+            &-name {
+              font-size: 2rem;
+            }
+            &-job {
+              font-size: 1.6rem;
+            }
+          }
+        }
+      }
+    }
+  }
+  @media (max-width: 768px) {
+    .card {
+      &-container {
+        max-width: 36rem;
+      }
+      &-image {
+        &-name {
+          font-size: 5.6rem;
+        }
+      }
+      &-text {
+        &-profile {
+          &-info {
+            &-name {
+              font-size: 2.8rem;
+            }
+            &-job {
+              font-size: 2rem;
+            }
+          }
+        }
+      }
+    }
+  }
+  @media (max-width: 512px) {
+    .card {
+    }
+  }
 </style>

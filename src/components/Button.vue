@@ -47,14 +47,10 @@
     }
 
     &.secondary {
-      // @include apply-gradient-border;
-      // box-shadow: 0 0 0 4px #f00, 0 0 0 8px #f80; /* Linear gradient border */
-      @include apply-gradient-border-box;
-
-      // @include apply-gradient-block;
       box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
       outline: 1px solid;
-      outline-color: rgba(255, 255, 255, 0.5);
+
+      outline-color: rgba(255, 255, 255, 0.988);
       outline-offset: 0px;
       transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
 
@@ -80,5 +76,24 @@
     opacity: 0;
     margin-left: 0.8rem;
     transition: all 0.2s ease-in;
+  }
+
+  @media (max-width: 1280px) {
+    .btn {
+      font-size: 1.7rem;
+      padding: 0.6rem 2.2rem;
+    }
+  }
+  @media (max-width: 1024px) {
+    .btn {
+      font-size: 1.6rem;
+      padding: 0.6rem 2rem;
+    }
+  }
+  @media (max-width: 512px) {
+    .btn {
+      font-size: 1.4rem;
+      padding: 0.6rem 1.6rem;
+    }
   }
 </style>

@@ -42,7 +42,7 @@
   };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   .container {
     display: flex;
     flex-direction: column;
@@ -60,5 +60,58 @@
   .buttons {
     display: flex;
     gap: 2.4rem;
+  }
+  @media (max-width: 1280px) {
+    .container {
+      max-width: 96rem;
+      & .heading-section-border {
+        font-size: 8.2rem;
+      }
+    }
+  }
+  @media (max-width: 1024px) {
+    .container {
+      max-width: 92rem;
+      & .heading-section-border {
+        font-size: 7.6rem;
+      }
+    }
+  }
+  @media (max-width: 768px) {
+    .container {
+      max-width: 76rem;
+      & .heading-section-border {
+        font-size: 5.4rem;
+      }
+      & .heading-section {
+        font-size: 5.4rem;
+      }
+      & .text {
+        text-align: center;
+      }
+    }
+  }
+  @media (max-width: 580px) {
+    .heading {
+      align-items: flex-start;
+      justify-content: flex-start;
+      text-align: left;
+    }
+    .container {
+      max-width: 72rem;
+    }
+  }
+  @media (max-width: 512px) {
+    .container {
+      margin: 9.2rem 2.4rem;
+      align-items: flex-start;
+      & .text {
+        text-align: left;
+      }
+      & .heading-section {
+        font-size: 3.2rem;
+        letter-spacing: 0.5rem;
+      }
+    }
   }
 </style>

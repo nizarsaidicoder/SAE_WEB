@@ -6,7 +6,7 @@
   const lineClass = computed(() => {
     return {
       "background-lines-hero layer": route.path === "/",
-      "background-lines-a-propos layer": route.path === "/a-propos",
+      "background-lines-a-propos ": route.path === "/a-propos",
       "background-lines-about-me layer": route.path === "/about-me",
       "background-lines-carte-distance layer": route.path === "/carte-distance",
       "background-lines-boules-maximales layer":
@@ -33,26 +33,32 @@
     position: relative;
     background-repeat: no-repeat;
     background-size: 120vw;
-    height: 130vh;
+    height: 110vh;
     background-position-x: center;
     z-index: 0;
     &-hero {
       background-image: url("./assets/images/back.png");
+      overflow-y: hidden;
     }
     &-a-propos {
-      background-image: url("./assets/images/lines/Line\ 8.png");
+      background-image: url("./assets/images/lines/Line-3.webp");
+      overflow-y: scroll;
     }
     &-about-me {
-      background-image: url("./assets/images/lines/Line\ 4.png");
+      background-image: url("./assets/images/lines/Line-9.webp");
+      overflow-y: hidden;
     }
     &-carte-distance {
-      background-image: url("./assets/images/lines/Line\ 5.png");
+      background-image: url("./assets/images/lines/Line-2.webp");
+      overflow-y: hidden;
     }
     &-boules-maximales {
-      background-image: url("./assets/images/lines/Line\ 2.png");
+      background-image: url("./assets/images/lines/Line-8.webp");
+      overflow-y: hidden;
     }
     &-reconstruction {
-      background-image: url("./assets/images/lines/Line\ 7.png");
+      background-image: url("./assets/images/lines/Line-1.webp");
+      overflow-y: hidden;
     }
   }
   .layer {
@@ -69,6 +75,40 @@
         rgba(0, 0, 0, 0)
       ); /* Adjust the opacity as needed */
       z-index: -1; /* Ensure the dark layer is above the image */
+    }
+  }
+  @media (max-width: 1280px) {
+  }
+  @media (max-width: 1024px) {
+    .background-lines {
+      background-size: cover;
+      height: 110vh;
+    }
+    .layer {
+      &::after {
+        background-size: cover;
+        height: 110vh;
+      }
+    }
+  }
+  @media (max-width: 768px) {
+    .background-lines {
+      // background-size: cover;
+      height: 100vh;
+    }
+    .layer {
+      &::after {
+        // background-size: cover;
+        height: 100vh;
+      }
+    }
+  }
+  @media (max-width: 512px) {
+    .layer {
+      &::after {
+        // background-size: cover;
+        height: 100vh;
+      }
     }
   }
 </style>

@@ -24,7 +24,7 @@ $heading-primary: 9.6rem;
   }
 }
 .heading-section {
-  display: inline-block;
+  display: inline;
   position: relative;
   font-size: $heading-primary;
   font-style: normal;
@@ -36,7 +36,7 @@ $heading-primary: 9.6rem;
   animation: title-enter-left 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 .heading-section-border {
-  display: inline-block;
+  display: inline;
   font-size: $heading-primary;
   text-transform: uppercase;
 
@@ -57,4 +57,58 @@ $heading-primary: 9.6rem;
   text-align: center;
   line-height: 24px; /* 120% */
   letter-spacing: 2px;
+}
+
+@media (max-width: 1280px) {
+  .heading-primary {
+    font-size: 8.6rem;
+  }
+  .heading-section {
+    font-size: 8.6rem;
+  }
+  .heading-section-border {
+    font-size: 8.6rem;
+  }
+  .text {
+    font-size: 1.6rem;
+  }
+}
+@media (max-width: 1024px) {
+  .heading-primary {
+    font-size: 7.6rem;
+  }
+  .heading-section {
+    font-size: 7.6rem;
+  }
+  .heading-section-border {
+    font-size: 7.6rem;
+  }
+  .text {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 768px) {
+  .heading-primary {
+    font-size: 6.6rem;
+  }
+  .heading-section {
+    font-size: 6.6rem;
+  }
+  .heading-section-border {
+    font-size: 6.6rem;
+  }
+  .text {
+    font-size: 1.4rem;
+  }
+}
+@media (max-width: 512px) {
+  .heading-primary {
+    font-size: 5.6rem;
+  }
+  .heading-section {
+    font-size: 5.6rem;
+  }
+  .heading-section-border {
+    font-size: 5.6rem;
+  }
 }
