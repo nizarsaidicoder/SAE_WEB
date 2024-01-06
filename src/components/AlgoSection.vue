@@ -18,6 +18,7 @@
 </template>
 
 <script>
+  import { Carousel, Slide, Pagination, Navigation } from "vue3-carousel";
   import CodeBlock from "@/components/CodeBlock.vue";
   import AlgoSubSection from "@/components/AlgoSubSection.vue";
   import { useSectionStore } from "@/data/sectionStore";
@@ -32,7 +33,6 @@
         required: true,
       },
     },
-   
   };
 </script>
 
