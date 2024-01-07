@@ -177,6 +177,7 @@
     @include apply-gradient-text;
     color: transparent;
   }
+
   .scroll-spy-arrow {
     position: absolute;
     right: 0;
@@ -205,6 +206,65 @@
     &:active:after {
       height: 5px;
       width: 100%;
+    }
+  }
+  @media (max-width: 1024px) {
+    .menu {
+      &-section-title {
+        font-size: 1.6rem;
+      }
+      &-sections {
+        padding: 0 1.4rem;
+
+        &-section {
+          font-size: 1.4rem;
+        }
+      }
+    }
+  }
+  @media (max-width: 768px) {
+    .menu {
+      &-section-title {
+        font-size: 1.4rem;
+      }
+      &-sections {
+        padding: 0 1.2rem;
+
+        &-section {
+          font-size: 1.2rem;
+        }
+        &-items {
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
+  @media (max-width: 580px) {
+    .menu {
+      &-section-title {
+        font-size: 1.3rem;
+      }
+      &-sections {
+        padding: 0 1rem;
+
+        &-section {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+  @media (max-width: 512px) {
+    .menu {
+      &-section-title {
+        font-size: 1.6rem;
+      }
+      &-sections {
+        padding: 0 1.4rem;
+
+        &-section {
+          font-size: 1.4rem;
+        }
+      }
     }
   }
 </style>

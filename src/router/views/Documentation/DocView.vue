@@ -32,13 +32,6 @@
 <style lang="scss">
   @import "@/assets/css/variables";
   .doc {
-    &-container {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      margin: 6.4rem 3.6rem;
-      gap: 3rem;
-    }
-
     &-navigation {
       position: fixed;
       top: 20%;
@@ -47,7 +40,7 @@
       padding: 0rem 2rem;
     }
     &-content {
-      margin: 10% 6.4rem 9.6rem 22%;
+      margin: 9% 6.4rem 9.6rem 22%;
     }
   }
 
@@ -55,5 +48,57 @@
     font-size: 2.4rem;
     font-weight: 500;
     margin-bottom: 1rem;
+  }
+  @media (max-width: 1340px) {
+    .doc {
+      &-navigation {
+        top: 16%;
+        left: 0%;
+      }
+      &-content {
+        margin: 10% 6.4rem 9.6rem 26%;
+      }
+    }
+  }
+  @media (max-width: 1024px) {
+    .doc {
+      &-navigation {
+        top: 12%;
+      }
+      &-content {
+        margin: 10% 1.6rem 9.6rem 25%;
+      }
+    }
+  }
+  @media (max-width: 768px) {
+    .doc {
+      &-navigation {
+        top: 11%;
+      }
+      &-content {
+        margin: 10% 1rem 9.6rem 26%;
+      }
+    }
+  }
+  @media (max-width: 580px) {
+    .doc {
+      &-content {
+        margin: 14% 1rem 9.6rem 2%;
+      }
+    }
+  }
+  @media (max-width: 512px) {
+    .doc {
+      &-content {
+        margin: 18% 1rem 9.6rem 2%;
+      }
+    }
+  }
+  @media (max-width: 450px) {
+    .doc {
+      &-content {
+        margin: 28% 1rem 9.6rem 2%;
+      }
+    }
   }
 </style>

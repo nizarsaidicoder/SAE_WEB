@@ -94,6 +94,7 @@
 
   .vueperslides__bullet--active .default {
     @include apply-gradient-block($linear);
+    border: none;
   }
   .vueperslide--active {
     transform: scale(1) !important;
@@ -125,5 +126,24 @@
       font-weight: 500;
       margin-bottom: 1rem;
     }
+  }
+  @media (max-width: 1340px) {
+    .documentation-title {
+      font-size: 4rem;
+    }
+  }
+  @media (max-width: 1080px) {
+    .documentation-title {
+      font-size: 3.6rem;
+    }
+  }
+  @media (max-width: 780px) {
+    .documentation-title {
+      font-size: 3.4rem;
+    }
+  }
+  @media (max-width: 580px) {
+  }
+  @media (max-width: 512px) {
   }
 </style>

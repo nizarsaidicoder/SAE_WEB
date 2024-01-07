@@ -11,12 +11,11 @@
 <script setup>
   import ScrollSpyMenu from "./ScrollSpyMenu.vue";
   import { useSectionStore } from "@/data/sectionStore.js";
-  const { sections} = useSectionStore();
+  const { sections } = useSectionStore();
 </script>
 
 <style lang="scss">
   @import "@/assets/css/variables";
-
 
   .scroll-spy {
     display: flex;
@@ -31,5 +30,10 @@
     //   flex-direction: column;
     //   position: relative;
     // }
+  }
+  @media (max-width: 580px) {
+    .scroll-spy {
+      display: none;
+    }
   }
 </style>
