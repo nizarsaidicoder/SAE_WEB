@@ -10,7 +10,7 @@
           :name="profile.name"
           :job="profile.job"
           :description="profile.description"
-          :backImage="profile.backImage"
+          :backImage="profile.cardImage"
           :image="profile.image"
           :theme="profile.theme"
       /></RouterLink>

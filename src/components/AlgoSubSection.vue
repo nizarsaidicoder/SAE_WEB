@@ -88,14 +88,13 @@
     },
     methods: {
       scrollSectionIntoView() {
-        const sectionStore = useSectionStore();
-
         const sectionElement = document.getElementById(
-          sectionStore.activeSubSubSection
+          useSectionStore().activeSubSubSection
         );
 
         if (sectionElement) {
-          sectionElement.scrollIntoView({ behavior: "smooth" });
+          sectionElement.scrollIntoView(scrollOptions);
+          window.scrollBy(0, scrollOffset);
         }
       },
       observeSections() {

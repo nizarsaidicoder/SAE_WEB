@@ -1,13 +1,22 @@
 <script>
-  import { ref, computed, watch, onMounted } from "vue";
+  import { ref, computed, watch } from "vue";
   import { useAlgoStore } from "@/data/algoStore";
   import { useSectionStore } from "@/data/sectionStore";
   import AlgoSection from "@/components/AlgoSection.vue";
   import { VueperSlides, VueperSlide } from "vueperslides";
+  import Button from "@/components/Button.vue";
   import "vueperslides/dist/vueperslides.css";
   export default {
     setup() {
+      const scrollToTop = () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      };
+
       const algos = useAlgoStore().algorithmes[0];
+      
       const sections = useSectionStore();
       const activeAlgo = ref(
         sections.activeSubSection == "carte-distance-brute-force"
@@ -20,6 +29,27 @@
       const show = ref(false);
       const image = ref("");
 
+      const changeAlgo = (id, change) => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+        let section;
+        if (change == 1) {
+          section = sections.getSection("boules-maximales");
+        } else if (change == 2) {
+          section = sections.getSection("reconstruction");
+        } else {
+          section = sections.getSection("carte-distance");
+        }
+        const subSection =
+          id === 0 ? section?.subSections[0] : section?.subSections[1];
+        const subSubSection = subSection?.subSections[0];
+        sections.setActiveAlgo(section.id);
+        sections.setActiveAlgoType(subSection?.id);
+        sections.setActiveSection(subSubSection?.id);
+      };
+
       const updateScreenSize = () => {
         screenWidth.value = window.innerWidth;
         screenHeight.value = window.innerHeight;
@@ -27,7 +57,6 @@
       const showImage = (slide) => {
         image.value = slide;
         show.value = true;
-        console.log("hey");
       };
       watch(
         () => sections.activeSubSection,
@@ -47,12 +76,15 @@
         slides,
         show,
         image,
+        changeAlgo,
+        algos,
       };
     },
     components: {
       AlgoSection,
       VueperSlides,
       VueperSlide,
+      Button,
     },
   };
 </script>
@@ -62,9 +94,15 @@
     class="documentation"
     id="carte-distance">
     <h1 class="documentation-title">Carte Distance Euclidienne au carré</h1>
+    <p
+      class="text"
+      style="text-align: left">
+      {{ algos.description }}
+    </p>
     <AlgoSection
       v-if="activeAlgo"
       :algo="activeAlgo" />
+
     <section id="visualisation">
       <h1 class="visualisation-title">VISUALISATION</h1>
       <vueper-slides
@@ -81,6 +119,28 @@
           @click="showImage(slide)"
           class="border" />
       </vueper-slides>
+      <div class="buttons">
+        <RouterLink
+          @click="changeAlgo(1)"
+          to="/carte-distance/optimise">
+          <Button btnType="secondary">Algorithme Optimise</Button>
+        </RouterLink>
+        <RouterLink
+          to="/carte-distance/brute-force"
+          @click="changeAlgo(0)">
+          <Button btnType="secondary">Algorithme Brute force</Button>
+        </RouterLink>
+        <RouterLink
+          to="/boules-maximales/brute-force"
+          @click="changeAlgo(0, 1)">
+          <Button btnType="secondary">Boules Maximales</Button>
+        </RouterLink>
+        <RouterLink
+          to="/reconstruction/docs"
+          @click="changeAlgo(0, 2)">
+          <Button btnType="secondary">Reconstruction</Button>
+        </RouterLink>
+      </div>
     </section>
     <div
       v-if="show"
@@ -105,6 +165,12 @@
   @import "@/assets/css/main";
   @import "@/assets/css/variables";
   @import "@/assets/css/mixins";
+  .buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 4.6rem;
+  }
   .modal {
     position: fixed;
     top: 0;

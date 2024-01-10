@@ -13,19 +13,15 @@
       maximales, offrant ainsi une représentation visuelle fidèle.
     </p>
     <div class="buttons">
-      <RouterLink to="/reconstruction/optimise">
+      <RouterLink to="/reconstruction/docs">
         <Button
           btnType="primary"
-          @click="changeAlgo(1)"
-          >Algorithme Optimise</Button
-        >
+          @click="changeAlgo()"
+          >Algorithme
+        </Button>
       </RouterLink>
-      <RouterLink to="/reconstruction/brute-force">
-        <Button
-          btnType="secondary"
-          @click="changeAlgo(0)"
-          >Algorithme Brute Force</Button
-        >
+      <RouterLink to="/a-propos">
+        <Button btnType="secondary">ABOUT US</Button>
       </RouterLink>
     </div>
   </div>
@@ -35,14 +31,10 @@
   import Button from "@/components/Button.vue";
   import { useSectionStore } from "@/data/sectionStore";
   const algos = useSectionStore();
-  const changeAlgo = (id) => {
-    const section = algos.getSection("reconstruction");
-    const subSection =
-      id === 0 ? section?.subSections[0] : section?.subSections[1];
-    const subSubSection = subSection?.subSections[0];
-    algos.setActiveAlgo(section);
-    algos.setActiveAlgoType(subSection?.id);
-    algos.setActiveSection(subSubSection?.id);
+  const changeAlgo = () => {
+    algos.setActiveAlgo("reconstruction");
+    algos.setActiveAlgoType("reconstruction-algo");
+    algos.setActiveSection("lecture");
   };
 </script>
 

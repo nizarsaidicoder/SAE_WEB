@@ -3,6 +3,7 @@ import AccueilViewVue from "@/router/views/AccueilView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
+
   routes: [
     {
       path: "/",
@@ -56,6 +57,7 @@ const router = createRouter({
     },
   ],
 });
+
 router.beforeEach((to, from, next) => {
   // Scroll to the top of the page on route change
   window.scrollTo(0, 0);

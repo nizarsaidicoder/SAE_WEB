@@ -42,7 +42,7 @@
             alt="" />
         </div>
         <div class="profile-name">
-          <h1 class="">{{ data.lastName }}</h1>
+          <h1>{{ data.lastName }}</h1>
           <h1 :class="data.name">{{ data.name }}</h1>
         </div>
       </div>
@@ -52,11 +52,20 @@
           <p class="project-desc">{{ data.projectReview }}</p>
           <div class="rating">
             NOTE SAE 1.1 :
-            <span v-for="i in data.rating1">&starf;</span>
+            <span
+              v-for="i in data.rating1"
+              :class="data.name"
+              >&starf;</span
+            >
             <span v-for="i in 5 - data.rating1">&star;</span>
           </div>
           <div class="rating">
-            NOTE SAE 1.2 : <span v-for="i in data.rating1">&starf;</span>
+            NOTE SAE 1.2 :
+            <span
+              v-for="i in data.rating1"
+              :class="data.name"
+              >&starf;</span
+            >
             <span v-for="i in 5 - data.rating1">&star;</span>
           </div>
         </div>
@@ -182,18 +191,6 @@
     align-items: center;
     justify-content: flex-start;
     gap: 3.2rem;
-
-    // &-img {
-    //   width: 20rem;
-    //   height: 20rem;
-    //   border-radius: 50%;
-    //   overflow: hidden;
-    //   img {
-    //     width: 100%;
-    //     height: 100%;
-    //     object-fit: cover;
-    //   }
-    // }
     &-img {
       height: 12.8rem;
       width: 12.8rem;
@@ -275,6 +272,136 @@
     border-bottom: 3px solid $accent;
     .profiles-menu-link-text {
       color: $primary;
+    }
+  }
+
+  @media (max-width: 1420px) {
+    .about-container {
+      max-width: 120rem;
+    }
+    .profile-name {
+      & h1 {
+        font-size: 6.4rem;
+        letter-spacing: 1px;
+      }
+    }
+    .about-background-lines {
+      height: 100vh;
+    }
+    .project {
+      &-info {
+        max-width: 56rem;
+      }
+    }
+  }
+  @media (max-width: 1120px) {
+    .about-container {
+      max-width: 100rem;
+    }
+    .profile-name {
+      & h1 {
+        font-size: 6.4rem;
+        letter-spacing: 1px;
+      }
+    }
+    .about-background-lines {
+      background-position-y: 100%;
+    }
+    .project {
+      &-info {
+        max-width: 52rem;
+      }
+    }
+  }
+  @media (max-width: 820px) {
+    .about-container {
+      max-width: 80rem;
+    }
+    .profile-img {
+      height: 10.8rem;
+      width: 10.8rem;
+    }
+    .profile-name {
+      & h1 {
+        font-size: 5.2rem;
+        letter-spacing: 1px;
+      }
+    }
+    .about-background-lines {
+      height: 90vh;
+      background-position-y: 100%;
+      background-size: 140%;
+    }
+    .project {
+      &-title {
+        font-size: 2rem;
+      }
+      &-info {
+        max-width: 40rem;
+      }
+    }
+  }
+  @media (max-width: 600px) {
+    .about-container {
+      max-width: 100%;
+      margin: 6.4rem 2.4rem;
+    }
+    .profile-img {
+      height: 10.8rem;
+      width: 10.8rem;
+    }
+    .profile-name {
+      & h1 {
+        font-size: 5.2rem;
+        letter-spacing: 1px;
+      }
+    }
+    .about-background-lines {
+      height: 90vh;
+      background-position-y: 100%;
+    }
+    .project {
+      &-title {
+        font-size: 2rem;
+      }
+      &-info {
+        max-width: 32rem;
+      }
+    }
+  }
+  @media (max-width: 480px) {
+    .about-container {
+      max-width: 100%;
+      margin: 6.4rem 2.4rem;
+    }
+    .profile-img {
+      height: 10.8rem;
+      width: 10.8rem;
+    }
+    .profile-name {
+      flex-direction: column;
+      gap: 0;
+      & h1 {
+        font-size: 4.4rem;
+        letter-spacing: 1px;
+      }
+    }
+    .about-background-lines {
+      // height: 100vh;
+      background-position-y: 100%;
+      height: 90vh;
+      background-size: 200%;
+    }
+    .project {
+      &-title {
+        font-size: 2rem;
+      }
+      &-info {
+        max-width: 100%;
+      }
+    }
+    .project-img {
+      display: none;
     }
   }
 </style>

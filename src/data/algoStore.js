@@ -9,7 +9,7 @@ export const useAlgoStore = defineStore({
           id: "carte-distance",
           name: "Carte Distance euclidienne au carré",
           description:
-            "Cette algorithme calcule la carte distance euclidienne au carré. Elle consiste à trouver la distance entre chaque point de la forme et chaque point de l'objet. La complexité de cet algorithme est de l'ordre de O(n*m) où n est le nombre de points de l'image et m le nombre de points de l'objet.",
+            "Cette algorithme calcule la carte distance euclidienne au carré. Elle consiste à trouver la distance entre chaque point de la forme et chaque point de l'objet. ",
           images: [
             "/src/assets/images/visualisation/carte-distance/1.bmp",
             "/src/assets/images/visualisation/carte-distance/2.bmp",
@@ -862,6 +862,153 @@ EstBouleMaximale(Boule boule, List<Boule> boulesMax)
                         "Elle génère un chemin de fichier en remplaçant l'extension du fichier d'origine par \".txt\".",
                         "Initialise une chaîne avec les dimensions de l'image.",
                         "Pour chaque boule dans la liste, ajoute ses coordonnées et son rayon à la chaîne.",
+                      ],
+                    },
+                  ],
+                },
+              ],
+            },
+          ],
+        },
+        {
+          id: "reconstruction",
+          name: "Reconstruction",
+          description:
+            "Cette algorithme permet la reconstruction des images binaires à partir des boules maximales discrètes. en utilisant une approche assez simple, rapdie et efficace (97% de précision lors de la reconstruction).",
+          images: [
+            "/src/assets/images/visualisation/reconstruction/1.bmp",
+            "/src/assets/images/visualisation/reconstruction/2.bmp",
+            "/src/assets/images/visualisation/reconstruction/3.bmp",
+            "/src/assets/images/visualisation/reconstruction/4.bmp",
+            "/src/assets/images/visualisation/reconstruction/5.bmp",
+            "/src/assets/images/visualisation/reconstruction/6.bmp",
+            "/src/assets/images/visualisation/reconstruction/7.bmp",
+            "/src/assets/images/visualisation/reconstruction/8.bmp",
+            "/src/assets/images/visualisation/reconstruction/9.bmp",
+            "/src/assets/images/visualisation/reconstruction/0.bmp",
+          ],
+          algoTypes: [
+            {
+              id: "reconstruction-docs",
+              type: null,
+              description:
+                "Cette méthode consiste à reconstruire l'image en assimilant à chaque boule maximale discrétes un cercle remplie en noir.",
+              code: `Reconstruction(string TextPath)
+{
+    string[] lines = File.ReadAllLines(TextPath);
+    string[] dimensions = lines[0].Split(',');
+    int largeur = int.Parse(dimensions[0].Trim());
+    int hauteur = int.Parse(dimensions[1].Trim());
+
+    int[,] tab = new int[largeur, hauteur];
+    List<Boule> BoulesMax = ParseBoules(lines);
+
+    Affiche_Image(tab, BoulesMax);
+    SaveImage(tab, BoulesMax, "../../images/image.bmp");
+}`,
+              sections: [
+                {
+                  id: "lecture",
+                  name: "Lecture du fichier texte",
+                  description:
+                    "Cette étape consiste à lire le fichier texte contenant les informations des boules maximales discrétes ainsi que la taille de l'image.",
+                  code: `string[] lines = File.ReadAllLines(TextPath);
+string[] dimensions = lines[0].Split(',');
+int largeur = int.Parse(dimensions[0].Trim());
+int hauteur = int.Parse(dimensions[1].Trim());`,
+                  etapes: [
+                    {
+                      name: "Déroulement",
+                      subStep: [
+                        "Lire toutes les lignes du fichier texte.",
+                        "Récupérer les dimensions de l'image à partir de la première ligne.",
+                      ],
+                    },
+                  ],
+                },
+                {
+                  id: "initialisation",
+                  name: "Initialisation",
+                  description:
+                    "Cette étape consiste à initialiser le tableau 2D d'entiers à partir des dimensions de l'image et à initialiser la liste des boules maximales discrétes à partir des informations du fichier texte.",
+                  code: `int[,] tab = new int[largeur, hauteur];
+List<Boule> BoulesMax = ParseBoules(lines);
+ParseBoules(string[] lines)
+{
+    List<Boule> BoulesMax = new List<Boule>();
+
+    for (int i = 1; i < lines.Length; i++)
+    {
+        string lineWithoutBrackets = lines[i].Replace("[", "").Replace("]", "");
+        string[] valeurs = lineWithoutBrackets.Split(',');
+
+        int x = int.Parse(valeurs[0].Trim());
+        int y = int.Parse(valeurs[1].Trim());
+        int rayon = int.Parse(valeurs[2].Trim());
+
+        Boule boule = new Boule(x, y, rayon);
+        BoulesMax.Add(boule);
+    }
+
+    return BoulesMax;
+}`,
+                  etapes: [
+                    {
+                      name: "Déroulement",
+                      subStep: [
+                        "Initialiser le tableau 2D d'entiers à partir des dimensions de l'image.",
+                        "Initialiser la liste des boules maximales discrétes à partir des informations du fichier texte.",
+                        "Pour chaque ligne du fichier texte, faire :",
+                        "Supprimer les crochets de la ligne.",
+                        "Séparer les valeurs de la ligne.",
+                        "Récupérer les coordonnées et le rayon de la boule.",
+                        "Créer une boule avec les coordonnées et le rayon récupérés.",
+                        "Ajouter la boule à la liste des boules maximales discrétes.",
+                        "Retourner la liste des boules maximales discrétes.",
+                      ],
+                      name: "Résultat",
+                      description:
+                        "Obtention d'une liste de boules maximales discrétes à partir des informations du fichier texte.",
+                    },
+                  ],
+                },
+                {
+                  id: "reconstruction",
+                  name: "Reconstruction",
+                  description:
+                    "Cette étape consiste à parcourir le tableau 2D d'entiers et à remplir les boules maximales discrétes en noir.",
+                  code: `Affichage_Image(int[,] Xtab, List<Boule> XboulesMax, Bitmap Ximg)
+{
+    int hauteur = Xtab.GetLength(0);
+    int largeur = Xtab.GetLength(1);
+    using (Graphics g = Graphics.FromImage(Ximg))
+    {
+        g.DrawImage(Ximg, 0, 0);
+
+        foreach (Boule boule in XboulesMax)
+        {
+
+            int rayon = (int)Math.Round(Math.Sqrt(boule.Rayon));
+            SolidBrush blackBrush = new SolidBrush(Color.Black);
+            g.FillEllipse(blackBrush, boule.Y - rayon, boule.X - rayon, 2 * rayon, 2 * rayon);          
+        }
+    }
+}
+SaveSquelette(tab, BoulesMax, chemin)`,
+                  etapes: [
+                    {
+                      name: "Paramètre",
+                      description:
+                        "Xtab - Le tableau 2D d'entiers à parcourir.\nXboulesMax - La liste des boules maximales discrétes.\nXimg - L'image à remplir.",
+                    },
+                    {
+                      name: "Déroulement",
+                      subStep: [
+                        "Parcourir le tableau 2D d'entiers avec deux boucles (lignes et colonnes).",
+                        "Pour chaque boule maximale discréte, faire :",
+                        "Récupérer le rayon de la boule.",
+                        "Remplir la boule en noir.",
+                        "Sauvegarder l'image.",
                       ],
                     },
                   ],

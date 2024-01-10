@@ -116,47 +116,24 @@ export const useSectionStore = defineStore({
         id: "reconstruction",
         subSections: [
           {
-            id: "reconstruction-brute-force",
-            title: "Algorithme brute force",
+            id: "reconstruction-docs",
+            title: "Algorithme",
             subSections: [
               {
-                id: "normalisation",
-                title: "Normalisation",
+                id: "lecture",
+                title: "Lecture",
               },
               {
                 id: "initialisation",
                 title: "Initialisation",
               },
               {
-                id: "traitement",
-                title: "Traitement",
+                id: "reconstruction",
+                title: "Reconstruction",
               },
+
               { id: "code", title: "Code + Visualisation" },
             ],
-          },
-          {
-            id: "reconstruction-optimise",
-            title: "Algorithme optimisé",
-            subSections: [
-              {
-                id: "normalisation",
-                title: "Normalisation",
-              },
-              {
-                id: "initialisation",
-                title: "Initialisation",
-              },
-              {
-                id: "traitement",
-                title: "Traitement",
-              },
-              { id: "code", title: "Code + Visualisation" },
-            ],
-          },
-          {
-            id: "comparaison",
-            title: "Comparaison",
-            subSections: [{ id: "comparaison-cawai", title: "Cawai" }],
           },
         ],
       },

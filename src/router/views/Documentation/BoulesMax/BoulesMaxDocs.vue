@@ -3,6 +3,7 @@
   import { useAlgoStore } from "@/data/algoStore";
   import { useSectionStore } from "@/data/sectionStore";
   import AlgoSection from "@/components/AlgoSection.vue";
+  import Button from "@/components/Button.vue";
   import { VueperSlides, VueperSlide } from "vueperslides";
   import "vueperslides/dist/vueperslides.css";
   export default {
@@ -19,7 +20,26 @@
       const screenHeight = ref(window.innerHeight);
       const show = ref(false);
       const image = ref("");
-
+      const changeAlgo = (id, change) => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+        let section;
+        if (change == 1) {
+          section = sections.getSection("boules-maximales");
+        } else if (change == 2) {
+          section = sections.getSection("reconstruction");
+        } else {
+          section = sections.getSection("carte-distance");
+        }
+        const subSection =
+          id === 0 ? section?.subSections[0] : section?.subSections[1];
+        const subSubSection = subSection?.subSections[0];
+        sections.setActiveAlgo(section.id);
+        sections.setActiveAlgoType(subSection?.id);
+        sections.setActiveSection(subSubSection?.id);
+      };
       const updateScreenSize = () => {
         screenWidth.value = window.innerWidth;
         screenHeight.value = window.innerHeight;
@@ -50,15 +70,18 @@
         screenWidth,
         screenHeight,
         showImage,
+        changeAlgo,
         slides,
         show,
         image,
+        algos,
       };
     },
     components: {
       AlgoSection,
       VueperSlides,
       VueperSlide,
+      Button,
     },
   };
 </script>
@@ -68,6 +91,11 @@
     class="documentation"
     id="carte-distance">
     <h1 class="documentation-title">Boules Maximales</h1>
+    <p
+      class="text"
+      style="text-align: left">
+      {{ algos.description }}
+    </p>
     <AlgoSection
       v-if="activeAlgo"
       :algo="activeAlgo" />
@@ -87,6 +115,28 @@
           @click="showImage(slide)"
           class="border" />
       </vueper-slides>
+      <div class="buttons">
+        <RouterLink
+          @click="changeAlgo(1, 1)"
+          to="/boules-maximales/optimise">
+          <Button btnType="secondary">Algorithme Optimise</Button>
+        </RouterLink>
+        <RouterLink
+          to="/boules-maximales/brute-force"
+          @click="changeAlgo(0, 1)">
+          <Button btnType="secondary">Algorithme Brute force</Button>
+        </RouterLink>
+        <RouterLink
+          to="/reconstruction/docs"
+          @click="changeAlgo(0, 2)">
+          <Button btnType="secondary">Reconstruction</Button>
+        </RouterLink>
+        <RouterLink
+          to="/carte-distance/brute-force"
+          @click="changeAlgo(0)">
+          <Button btnType="secondary">Carte Distance</Button>
+        </RouterLink>
+      </div>
     </section>
     <div
       v-if="show"
@@ -111,6 +161,12 @@
   @import "@/assets/css/main";
   @import "@/assets/css/variables";
   @import "@/assets/css/mixins";
+  .buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 4.6rem;
+  }
   .modal {
     position: fixed;
     top: 0;

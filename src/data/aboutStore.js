@@ -16,6 +16,7 @@ export const useAboutStore = defineStore("about", {
             "Le projet de développement web et de compression d'images en C# a été vraiment passionnant ! J'ai apprécié l'aspect créatif du design et la manière dont j'ai réussi à surmonter les défis de codage. C'est vraiment gratifiant de constater l'évolution de mes compétences. J'attends avec impatience les futurs projets et les créations à venir ! ",
           rating1: 4,
           rating2: 4,
+          cardImage: "/src/assets/images/profiles/nesrine-card.jpg",
           backImage: "/src/assets/images/profiles/nesrine-back.svg",
           sideImage: "/src/assets/images/profiles/nesrine-side.svg",
 
@@ -30,6 +31,7 @@ export const useAboutStore = defineStore("about", {
           job: "Designer",
           description: "✨ Concevant l'avenir, un pixel à la fois. ☕",
           image: "/src/assets/images/profiles/nizar.png",
+          cardImage: "/src/assets/images/profiles/nizar-card.png",
           backImage: "/src/assets/images/profiles/nizar-back.svg",
           sideImage: "/src/assets/images/profiles/nizar-side.svg",
           projectReview:
@@ -49,6 +51,7 @@ export const useAboutStore = defineStore("about", {
           description:
             "🖥️ Confectionnant des solutions puissantes avec la magie du code ! ✨",
           image: "/src/assets/images/profiles/amine.png",
+          cardImage: "/src/assets/images/profiles/amine-card.png",
           backImage: "/src/assets/images/profiles/amine-back.svg",
           sideImage: "/src/assets/images/profiles/amine-side.svg",
           projectReview:
