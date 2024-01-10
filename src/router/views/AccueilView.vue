@@ -8,9 +8,10 @@
           class="typewriter"></div>
         <p class="accueil-text-para">
           Bienvenue sur notre site de compression d'images ! Découvrez comment
-          notre approche novatrice, basée sur l'algorithme de Distance
-          Euclidienne au Carré (SED) et les Boules Maximales, révolutionne la
-          compression. Réduisez la taille des fichiers sans compromettre la
+          notre approche novatrice, basée sur l'algorithme de la Carte de
+          Distance Euclidienne au Carré (SEDT) et les Boules Maximales,
+          révolutionne la compression, spécifiquement pour les images binaires
+          au format BMP. Réduisez la taille des fichiers sans compromettre la
           qualité visuelle. Explorez notre contenu éducatif pour comprendre ces
           techniques en seulement quelques clics. Optez pour une compression
           intelligente et efficace dès aujourd'hui !
@@ -29,7 +30,6 @@
 </template>
 
 <script>
-
   import Button from "../../components/Button.vue";
   export default {
     components: {
@@ -42,7 +42,7 @@
       typewriterEffect() {
         const text = "Hello👋, Nous sommes EZWIN !";
         let i = 0;
-        const speed = 200; // Speed in milliseconds
+        const speed = 120; // Speed in milliseconds
 
         function typeWriter() {
           if (i < text.length) {

@@ -11,17 +11,20 @@
         <AlgoSubSection :algo="algo" />
       </div>
     </div>
-    <div class="algo-code">
+    <section
+      class="algo-code"
+      id="code">
+      <h1 class="code-heading">Etapes d'éxecutions</h1>
       <CodeBlock :code="algo.code" />
-    </div>
+    </section>
   </section>
 </template>
 
 <script>
-  import { Carousel, Slide, Pagination, Navigation } from "vue3-carousel";
   import CodeBlock from "@/components/CodeBlock.vue";
   import AlgoSubSection from "@/components/AlgoSubSection.vue";
   import { useSectionStore } from "@/data/sectionStore";
+
   export default {
     components: {
       CodeBlock,
@@ -33,11 +36,84 @@
         required: true,
       },
     },
+    data() {
+      return {
+        observer: null,
+      };
+    },
+    created() {
+      this.observer = new IntersectionObserver(this.onElementObserved, {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.3,
+      });
+    },
+    watch: {
+      // Watch for changes in data that should trigger scrolling
+      // For example, if you have a variable named 'scrollToSection' that determines when to scroll
+      scrollToSection(newValue, oldValue) {
+        if (newValue !== oldValue) {
+          this.scrollSectionIntoView();
+        }
+      },
+    },
+    mounted() {
+      this.observeSections();
+      const sectionStore = useSectionStore();
+
+      const sectionElement = document.getElementById(
+        sectionStore.activeSubSubSection
+      );
+
+      if (sectionElement) {
+        sectionElement.scrollIntoView({ behavior: "smooth" });
+      }
+    },
+
+    beforeDestroy() {
+      this.observer.disconnect();
+    },
+    methods: {
+      scrollSectionIntoView() {
+        const sectionStore = useSectionStore();
+
+        const sectionElement = document.getElementById(
+          sectionStore.activeSubSubSection
+        );
+
+        if (sectionElement) {
+          sectionElement.scrollIntoView({ behavior: "smooth" });
+        }
+      },
+      observeSections() {
+        this.$el.querySelectorAll("section[id]").forEach((section) => {
+          this.observer.observe(section);
+        });
+      },
+      onElementObserved(entries) {
+        let activeSection = null;
+        entries.forEach(({ target, isIntersecting }) => {
+          const id = target.getAttribute("id");
+          if (isIntersecting) {
+            activeSection = id;
+          }
+        });
+        if (activeSection == null) {
+          return;
+        }
+        const sectionStore = useSectionStore();
+        sectionStore.setActiveSection(activeSection);
+      },
+    },
   };
 </script>
 
 <style lang="scss">
   @import "@/assets/css/variables";
+  .code-heading {
+    font-size: 3.8rem;
+    margin: 1.2rem 0;
+  }
   .algo {
     &-container {
       border-top: $accent 1px solid;

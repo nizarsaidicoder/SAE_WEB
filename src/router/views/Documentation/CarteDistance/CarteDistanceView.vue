@@ -8,8 +8,7 @@
       La "Carte Distance Euclidienne au Carré" est une mesure fondamentale en
       traitement d'images. Elle évalue la distance entre deux points dans un
       espace pixel. Plus spécifiquement, elle quantifie la différence de
-      luminosité entre les pixels. Cette mesure est souvent utilisée dans des
-      contextes tels que la segmentation d'image et la détection de contours.
+      luminosité entre les pixels.
     </p>
     <div class="buttons">
       <RouterLink to="/carte-distance/optimise">

@@ -14,24 +14,7 @@
           ? algos.algoTypes[0]
           : algos.algoTypes[1]
       );
-      const slides = [
-        {
-          id: 0,
-          image: "/src/assets/images/visualisation/boules-maximales/image0.png",
-        },
-        {
-          id: 1,
-          image: "/src/assets/images/visualisation/boules-maximales/image1.bmp",
-        },
-        {
-          id: 2,
-          image: "/src/assets/images/visualisation/boules-maximales/image2.bmp",
-        },
-        {
-          id: 3,
-          image: "/src/assets/images/visualisation/boules-maximales/image3.bmp",
-        },
-      ];
+      const slides = algos.images;
       watch(
         () => sections.activeSubSection,
         (newVal) => {
@@ -63,19 +46,22 @@
     <AlgoSection
       v-if="activeAlgo"
       :algo="activeAlgo" />
-    <vueper-slides
-      class="no-shadow"
-      :visible-slides="3"
-      :slide-ratio="1 / 3"
-      :gap="3"
-      :dragging-distance="70">
-      <vueper-slide
-        v-for="slide in slides"
-        :key="slide.id"
-        :image="slide.image"
-        :style="`background-size: cover; background-repeat: no-repeat; background-position: center; background-color: #111;`"
-        class="border" />
-    </vueper-slides>
+    <section id="visualisation">
+      <h1 class="visualisation-title">VISUALISATION</h1>
+      <vueper-slides
+        class="no-shadow"
+        :visible-slides="3"
+        :slide-ratio="1 / 3"
+        :gap="3"
+        :dragging-distance="70">
+        <vueper-slide
+          v-for="(slide, i) in slides"
+          :key="i"
+          :image="slide"
+          :style="`background-size: contain; background-repeat: no-repeat; background-position: center; background-color: white;`"
+          class="border" />
+      </vueper-slides>
+    </section>
   </div>
 </template>
 
@@ -83,6 +69,13 @@
   @import "@/assets/css/main";
   @import "@/assets/css/variables";
   @import "@/assets/css/mixins";
+  .visualisation-title {
+    font-size: 4.8rem;
+    font-weight: 500;
+    @include apply-gradient-text;
+    color: transparent;
+    margin: 3.2rem 0;
+  }
   .vueperslides__bullet .default {
     background-color: rgba(0, 0, 0, 0.3);
     border: 1px solid $secondary;

@@ -58,7 +58,7 @@
       this.observer = new IntersectionObserver(this.onElementObserved, {
         root: null,
         rootMargin: "0px",
-        threshold: 0.3,
+        threshold: 0.2,
       });
     },
     watch: {
@@ -77,7 +77,6 @@
       const sectionElement = document.getElementById(
         sectionStore.activeSubSubSection
       );
-      console.log(sectionElement);
 
       if (sectionElement) {
         sectionElement.scrollIntoView({ behavior: "smooth" });
@@ -94,7 +93,6 @@
         const sectionElement = document.getElementById(
           sectionStore.activeSubSubSection
         );
-        console.log(sectionElement);
 
         if (sectionElement) {
           sectionElement.scrollIntoView({ behavior: "smooth" });
@@ -113,7 +111,6 @@
             activeSection = id;
           }
         });
-        console.log(activeSection);
         if (activeSection == null) {
           return;
         }

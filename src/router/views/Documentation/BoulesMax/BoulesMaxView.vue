@@ -5,9 +5,12 @@
       <h1 class="heading-section">maximales</h1>
     </div>
     <p class="text">
-      Nuxt is an open source framework that makes web development intuitive and
-      powerful.Create performant and production-grade full-stack web apps and
-      websites with confidence.
+      Les boules maximales reposent sur la carte de distance euclidienne et le
+      processus de squelettisation, utilisant ces concepts pour déterminer les
+      centres des boules maximales dans une forme. Cette approche offre une
+      représentation structurée en mettant en évidence les points centraux des
+      boules maximales, intégrant ainsi la géométrie de la figure avec la notion
+      de squelettisation.
     </p>
     <div class="buttons">
       <RouterLink to="/boules-maximales/optimise">

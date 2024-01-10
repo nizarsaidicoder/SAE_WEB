@@ -4,9 +4,13 @@
       <h1 class="heading-section">Reconstruction</h1>
     </div>
     <p class="text">
-      Nuxt is an open source framework that makes web development intuitive and
-      powerful.Create performant and production-grade full-stack web apps and
-      websites with confidence.
+      La reconstruction s'appuie sur le concept des boules maximales, utilisant
+      ces informations pour créer une représentation visuelle. En partant d'un
+      fichier .txt contenant les coordonnées des centres et des rayons des
+      boules maximales, le processus de reconstruction consiste à dessiner des
+      boules remplies à ces emplacements spécifiques. Cette approche permet de
+      reconstituer la structure géométrique à partir des données des boules
+      maximales, offrant ainsi une représentation visuelle fidèle.
     </p>
     <div class="buttons">
       <RouterLink to="/reconstruction/optimise">

@@ -28,11 +28,7 @@ export const useSectionStore = defineStore({
                 id: "traitement",
                 title: "Traitement",
               },
-              {
-                id: "visualisation",
-                title: "Visualisation",
-              },
-              { id: "code", title: "Code" },
+              { id: "code", title: "Code + Visualisation" },
             ],
           },
           {
@@ -47,12 +43,15 @@ export const useSectionStore = defineStore({
                 id: "initialisation",
                 title: "Initialisation",
               },
-              { id: "traitement", title: "Traitement" },
               {
-                id: "visualisation",
-                title: "Visualisation",
+                id: "propagation-verticale",
+                title: "Propagation Verticale",
               },
-              { id: "code", title: "Code" },
+              {
+                id: "propagation-horizontale",
+                title: "Propagation Horizontale",
+              },
+              { id: "code", title: "Code + Visualisation" },
             ],
           },
           {
@@ -71,22 +70,19 @@ export const useSectionStore = defineStore({
             title: "Algorithme brute force",
             subSections: [
               {
-                id: "normalisation",
-                title: "Normalisation",
+                id: "structure",
+                title: "Structure",
               },
-              {
-                id: "initialisation",
-                title: "Initialisation",
-              },
+
               {
                 id: "traitement",
                 title: "Traitement",
               },
               {
-                id: "visualisation",
-                title: "Visualisation",
+                id: "conversion",
+                title: "Conversion",
               },
-              { id: "code", title: "Code" },
+              { id: "code", title: "Code + Visualisation" },
             ],
           },
           {
@@ -94,22 +90,19 @@ export const useSectionStore = defineStore({
             title: "Algorithme optimisé",
             subSections: [
               {
-                id: "normalisation",
-                title: "Normalisation",
+                id: "structure",
+                title: "Structure",
               },
               {
                 id: "initialisation",
                 title: "Initialisation",
               },
               {
-                id: "traitement",
-                title: "Traitement",
+                id: "extraction",
+                title: "Extraction",
               },
-              {
-                id: "visualisation",
-                title: "Visualisation",
-              },
-              { id: "code", title: "Code" },
+              { id: "conversion", title: "Conversion" },
+              { id: "code", title: "Code + Visualisation" },
             ],
           },
           {
@@ -138,11 +131,7 @@ export const useSectionStore = defineStore({
                 id: "traitement",
                 title: "Traitement",
               },
-              {
-                id: "visualisation",
-                title: "Visualisation",
-              },
-              { id: "code", title: "Code" },
+              { id: "code", title: "Code + Visualisation" },
             ],
           },
           {
@@ -161,11 +150,7 @@ export const useSectionStore = defineStore({
                 id: "traitement",
                 title: "Traitement",
               },
-              {
-                id: "visualisation",
-                title: "Visualisation",
-              },
-              { id: "code", title: "Code" },
+              { id: "code", title: "Code + Visualisation" },
             ],
           },
           {
