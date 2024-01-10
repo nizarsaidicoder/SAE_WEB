@@ -4,7 +4,7 @@
     :class="'card-container-' + theme">
     <div
       class="card-image"
-      :style="{ backgroundImage: 'url(' + backGround + ')' }">
+      :style="{ backgroundImage: 'url(' + backImage + ')' }">
       <h1
         class="card-image-name"
         :class="'card-image-name-' + theme">
@@ -18,7 +18,7 @@
           :class="'card-profile-image-' + theme">
           <img
             class="card-text-profile-image"
-            :src="profileImage"
+            :src="image"
             alt="profile picture " />
         </div>
 
@@ -49,8 +49,6 @@
     image: String,
     theme: String,
   });
-  const profileImage = "/src/assets/images/profiles/" + props.image;
-  const backGround = "/src/assets/images/" + props.backImage;
 </script>
 
 <style lang="scss">
@@ -63,7 +61,7 @@
       height: 100%;
       max-width: 36rem;
       border-radius: 1rem;
-      border: solid 4px orange;
+      border: solid 4px #8a30d0;
       background-color: $accent;
       box-shadow: 0px 0.6rem 2rem rgba(255, 255, 255, 0.117);
       overflow: hidden;
@@ -82,7 +80,7 @@
         border-color: #0c0731;
       }
       &-nesrine {
-        border-color: #fba33f;
+        border-color: #8a30d0;
       }
     }
 
@@ -108,7 +106,7 @@
       }
       &-name {
         @include apply-color-border;
-        color: #fba33f;
+        color: #8a30d0;
         text-align: center;
         font-size: 4.8rem;
         font-weight: 800;
@@ -125,7 +123,7 @@
         }
         &-nesrine {
           @include apply-color-border($primary);
-          color: #fba33f;
+          color: #8a30d0;
         }
         // Add your styles here
       }
@@ -156,7 +154,7 @@
           }
           &-job {
             // Add your styles here
-            @include apply-gradient-block($nousa-linear);
+            @include apply-gradient-block($nesrine-linear);
             border-radius: 8rem;
             text-align: center;
             color: $accent;
@@ -170,7 +168,7 @@
               color: $accent;
             }
             &-nesrine {
-              @include apply-gradient-block($nousa-linear);
+              @include apply-gradient-block($nesrine-linear);
             }
           }
         }
@@ -192,7 +190,7 @@
       background-color: #0c0731;
     }
     &-nesrine {
-      background-color: #fba33f;
+      background-color: #8a30d0;
     }
   }
   @media (max-width: 1280px) {

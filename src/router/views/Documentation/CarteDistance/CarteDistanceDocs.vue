@@ -15,6 +15,20 @@
           : algos.algoTypes[1]
       );
       const slides = algos.images;
+      const screenWidth = ref(window.innerWidth);
+      const screenHeight = ref(window.innerHeight);
+      const show = ref(false);
+      const image = ref("");
+
+      const updateScreenSize = () => {
+        screenWidth.value = window.innerWidth;
+        screenHeight.value = window.innerHeight;
+      };
+      const showImage = (slide) => {
+        image.value = slide;
+        show.value = true;
+        console.log("hey");
+      };
       watch(
         () => sections.activeSubSection,
         (newVal) => {
@@ -27,7 +41,12 @@
 
       return {
         activeAlgo,
+        screenWidth,
+        screenHeight,
+        showImage,
         slides,
+        show,
+        image,
       };
     },
     components: {
@@ -50,7 +69,7 @@
       <h1 class="visualisation-title">VISUALISATION</h1>
       <vueper-slides
         class="no-shadow"
-        :visible-slides="3"
+        :visible-slides="screenWidth < 768 ? 1 : 3"
         :slide-ratio="1 / 3"
         :gap="3"
         :dragging-distance="70">
@@ -58,10 +77,27 @@
           v-for="(slide, i) in slides"
           :key="i"
           :image="slide"
-          :style="`background-size: contain; background-repeat: no-repeat; background-position: center; background-color: white;`"
+          :style="`background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #fff;`"
+          @click="showImage(slide)"
           class="border" />
       </vueper-slides>
     </section>
+    <div
+      v-if="show"
+      class="modal"
+      @click="show = false">
+      <div class="modal-content">
+        <span
+          @click="show = false"
+          class="close"
+          >&times;</span
+        >
+        <img
+          :src="image"
+          alt="Visualisation de l'algorithme"
+          class="modal-image" />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -69,12 +105,42 @@
   @import "@/assets/css/main";
   @import "@/assets/css/variables";
   @import "@/assets/css/mixins";
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  .modal-content {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    position: relative;
+  }
+  .close {
+    position: absolute;
+    top: -4%;
+    right: 0.5rem;
+    font-size: 6.4rem;
+    color: $primary;
+    cursor: pointer;
+  }
+  .modal-image {
+    height: 64rem;
+  }
   .visualisation-title {
-    font-size: 4.8rem;
+    font-size: 2.4rem;
     font-weight: 500;
     @include apply-gradient-text;
     color: transparent;
-    margin: 3.2rem 0;
+    margin-bottom: 2rem;
   }
   .vueperslides__bullet .default {
     background-color: rgba(0, 0, 0, 0.3);
@@ -101,6 +167,23 @@
     color: #fff;
     font-size: 10px;
     opacity: 0.8;
+  }
+  .vueperslides__arrow {
+    color: white;
+  }
+  #visualisation {
+    margin-bottom: 6.4rem;
+  }
+  @media (max-width: 768px) {
+    .vueperslides__parallax-wrapper {
+      height: 32rem;
+    }
+    .vueperslide {
+      height: 32rem !important;
+    }
+    .vueperslides__arrow {
+      color: black;
+    }
   }
   .border {
     @include apply-gradient-border-box;

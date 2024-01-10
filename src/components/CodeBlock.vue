@@ -19,6 +19,22 @@
     font-size: 1.8rem;
     font-weight: bold;
   }
+  @media (max-width: 1080px) {
+    .code {
+      font-size: 1.6rem;
+    }
+  }
+  @media (max-width: 768px) {
+    .code {
+      font-size: 1.4rem;
+    }
+  }
+  @media (max-width: 580px) {
+    .code {
+      font-size: 1.2rem;
+    }
+  }
+
   code {
     border-radius: 1rem;
     font-weight: bold;

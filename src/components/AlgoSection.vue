@@ -110,9 +110,13 @@
 
 <style lang="scss">
   @import "@/assets/css/variables";
+  @import "@/assets/css/mixins";
   .code-heading {
-    font-size: 3.8rem;
-    margin: 1.2rem 0;
+    font-size: 2.4rem;
+    font-weight: 500;
+    @include apply-gradient-text;
+    color: transparent;
+    margin-bottom: 2rem;
   }
   .algo {
     &-container {
