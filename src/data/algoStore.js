@@ -966,6 +966,8 @@ ParseBoules(string[] lines)
                         "Ajouter la boule à la liste des boules maximales discrétes.",
                         "Retourner la liste des boules maximales discrétes.",
                       ],
+                    },
+                    {
                       name: "Résultat",
                       description:
                         "Obtention d'une liste de boules maximales discrétes à partir des informations du fichier texte.",
