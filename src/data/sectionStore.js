@@ -56,7 +56,17 @@ export const useSectionStore = defineStore({
           },
           {
             title: "Comparaison",
-            subSections: [],
+            id: "carte-distance-comparaison",
+            subSections: [
+              {
+                id: "performance-brute-force",
+                title: "Performance Brute Force",
+              },
+              {
+                id: "performance-optimise",
+                title: "Performance Optimisé",
+              },
+            ],
           },
         ],
       },
@@ -107,7 +117,17 @@ export const useSectionStore = defineStore({
           },
           {
             title: "Comparaison",
-            subSections: [],
+            id: "boules-maximales-comparaison",
+            subSections: [
+              {
+                id: "performance-brute-force",
+                title: "Performance Brute Force",
+              },
+              {
+                id: "performance-optimise",
+                title: "Performance Optimisé",
+              },
+            ],
           },
         ],
       },
@@ -133,6 +153,16 @@ export const useSectionStore = defineStore({
               },
 
               { id: "code", title: "Code + Visualisation" },
+            ],
+          },
+          {
+            title: "Comparaison",
+            id: "reconstruction-comparaison",
+            subSections: [
+              {
+                id: "performance",
+                title: "Performance",
+              },
             ],
           },
         ],

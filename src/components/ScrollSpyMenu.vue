@@ -85,6 +85,8 @@
     algos.setActiveSection(subSubSection?.id);
   };
   const changeAlgoType = (id) => {
+    console.log(id);
+
     const subSection = algos.getSubSection(id);
     const subSubSection = subSection?.subSections[0];
     algos.setActiveAlgoType(subSection?.id);

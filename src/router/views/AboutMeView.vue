@@ -95,7 +95,7 @@
   @import "@/assets/css/variables";
   @import "@/assets/css/typography";
   @import "@/assets/css/mixins";
-
+  @import "@/assets/css/animations";
   .profiles-menu {
     font-family: "JetBrains Mono", monospace;
     height: 6.4rem;
