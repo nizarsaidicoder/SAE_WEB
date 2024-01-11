@@ -51,6 +51,14 @@
     watch: {
       // Watch for changes in data that should trigger scrolling
       // For example, if you have a variable named 'scrollToSection' that determines when to scroll
+      algo: {
+        deep: true,
+        handler(newValue, oldValue) {
+          if (newValue !== oldValue) {
+            this.scrollSectionIntoView();
+          }
+        },
+      },
       scrollToSection(newValue, oldValue) {
         if (newValue !== oldValue) {
           this.scrollSectionIntoView();

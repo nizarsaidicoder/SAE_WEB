@@ -16,7 +16,7 @@ export const useAboutStore = defineStore("about", {
             "Le projet de développement web et de compression d'images en C# a été vraiment passionnant ! J'ai apprécié l'aspect créatif du design et la manière dont j'ai réussi à surmonter les défis de codage. C'est vraiment gratifiant de constater l'évolution de mes compétences. J'attends avec impatience les futurs projets et les créations à venir ! ",
           rating1: 4,
           rating2: 4,
-          cardImage: "/src/assets/images/profiles/nesrine-card.jpg",
+          cardImage: "/src/assets/images/profiles/nesrine-card.webp",
           backImage: "/src/assets/images/profiles/nesrine-back.svg",
           sideImage: "/src/assets/images/profiles/nesrine-side.svg",
 

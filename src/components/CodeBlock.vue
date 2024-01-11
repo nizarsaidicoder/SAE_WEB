@@ -7,8 +7,15 @@
 
 <script setup>
   import "highlight.js/lib/common";
+  import { defineProps, watch, ref } from "vue";
   const props = defineProps({ code: String });
-  const csharpCode = props.code;
+  const csharpCode = ref(props.code);
+  watch(
+    () => props.code,
+    (newVal) => {
+      csharpCode.value = newVal;
+    }
+  );
 </script>
 <style lang="scss">
   @import "@/assets/css/variables";

@@ -586,7 +586,7 @@ PropagationVersLeHaut(int[] col)
                 "La méthode brute force consiste à extraire les boules maximales discrètes en vérifiant chaque pixel de la forme par rapport à tous les autres pixels. La complexité de cet algorithme est de l'ordre de O(n*m), où n est le nombre de points de l'image et m le nombre de points de la forme.",
               code: `int[,] tabImage = TabFromFile(imagePath);
 int[,] tabInit = InitResultat(tabImage);
-int resultatBrute = CarteOptimise(tabInit);
+int resultatOptimise = CarteOptimise(tabInit);
 List<Boule> BoulesMax = ExtraireBoulesMaxBrute(resultatOptimise);
 int width = tabImage.GetLength(0);
 int height = tabImage.GetLength(1);
@@ -745,7 +745,7 @@ BoulesMaxToFile(BoulesMax, width, height, $"{BallPath}{i}.bmp");
                 "La méthode optimisée simplifie le processus d'extraction des boules maximales en utilisant une approche méthodique pour la création, le tri et la sélection des boules maximales à partir de la carte de distance fournie.",
               code: `int[,] tabImage = TabFromFile(imagePath);
 int[,] tabInit = InitResultat(tabImage);
-int resultatBrute = CarteOptimise(tabInit);
+int resultatOptimise = CarteOptimise(tabInit);
 List<Boule> BoulesMax = ExtraireBoulesMaxOptimise(resultatOptimise);
 int width = tabImage.GetLength(0);
 int height = tabImage.GetLength(1);
