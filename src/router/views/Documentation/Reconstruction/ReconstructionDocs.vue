@@ -3,6 +3,8 @@
   import { useAlgoStore } from "@/data/algoStore";
   import { useSectionStore } from "@/data/sectionStore";
   import AlgoSection from "@/components/AlgoSection.vue";
+  import ComparaisonSection from "@/components/ComparaisonSection.vue";
+
   import { VueperSlides, VueperSlide } from "vueperslides";
   import Button from "@/components/Button.vue";
   import "vueperslides/dist/vueperslides.css";
@@ -10,6 +12,9 @@
     setup() {
       const algos = useAlgoStore().algorithmes[2];
       const sections = useSectionStore();
+      const comparaison = ref(
+        sections.activeSubSection == "reconstruction-comparaison" ? algos : null
+      );
       const activeAlgo = ref(algos.algoTypes[0]);
       const slides = algos.images;
       const screenWidth = ref(window.innerWidth);
@@ -37,7 +42,13 @@
         sections.setActiveAlgoType(subSection?.id);
         sections.setActiveSection(subSubSection?.id);
       };
-
+      const goToComparaison = () => {
+        sections.setActiveAlgoType("reconstruction-comparaison");
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      };
       const updateScreenSize = () => {
         screenWidth.value = window.innerWidth;
         screenHeight.value = window.innerHeight;
@@ -46,6 +57,13 @@
         image.value = slide;
         show.value = true;
       };
+      watch(
+        () => sections.activeSubSection,
+        (newVal) => {
+          comparaison.value =
+            newVal == "reconstruction-comparaison" ? algos : null;
+        }
+      );
       return {
         activeAlgo,
         screenWidth,
@@ -56,6 +74,8 @@
         image,
         changeAlgo,
         algos,
+        comparaison,
+        goToComparaison,
       };
     },
     components: {
@@ -63,6 +83,7 @@
       VueperSlides,
       VueperSlide,
       Button,
+      ComparaisonSection,
     },
   };
 </script>
@@ -72,61 +93,77 @@
     class="documentation"
     id="carte-distance">
     <h1 class="documentation-title">Reconstruction</h1>
-    <p
-      class="text"
-      style="text-align: left">
-      {{ algos.description }}
-    </p>
-    <AlgoSection
-      v-if="activeAlgo"
-      :algo="activeAlgo" />
-    <section id="visualisation">
-      <h1 class="visualisation-title">VISUALISATION</h1>
-      <vueper-slides
-        class="no-shadow"
-        :visible-slides="screenWidth < 768 ? 1 : 3"
-        :slide-ratio="1 / 3"
-        :gap="3"
-        :dragging-distance="70">
-        <vueper-slide
-          v-for="(slide, i) in slides"
-          :key="i"
-          :image="slide"
-          :style="`background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #fff;`"
-          @click="showImage(slide)"
-          class="border" />
-      </vueper-slides>
-      <div class="buttons">
-        <RouterLink
-          to="/boules-maximales/brute-force"
-          @click="changeAlgo(0, 1)">
-          <Button btnType="secondary">Boules Maximales</Button>
-        </RouterLink>
-        <RouterLink
-          to="/carte-distance/brute-force"
-          @click="changeAlgo(0)">
-          <Button btnType="secondary">Carte Distance</Button>
-        </RouterLink>
-        <RouterLink to="/a-propos">
-          <Button btnType="secondary">ABOUT US</Button>
-        </RouterLink>
+    <ComparaisonSection
+      v-if="comparaison"
+      :data="comparaison" />
+    <div v-else>
+      <p
+        class="text"
+        style="text-align: left">
+        {{ algos.description }}
+      </p>
+      <AlgoSection
+        v-if="activeAlgo"
+        :algo="activeAlgo" />
+      <section id="visualisation">
+        <h1 class="visualisation-title">VISUALISATION</h1>
+        <vueper-slides
+          class="no-shadow"
+          :visible-slides="screenWidth < 768 ? 1 : 3"
+          :slide-ratio="1 / 3"
+          :gap="3"
+          :dragging-distance="70">
+          <vueper-slide
+            v-for="(slide, i) in slides"
+            :key="i"
+            :image="slide"
+            :style="`background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #fff;`"
+            @click="showImage(slide)"
+            class="border" />
+        </vueper-slides>
+      </section>
+      <div
+        v-if="show"
+        class="modal"
+        @click="show = false">
+        <div class="modal-content">
+          <span
+            @click="show = false"
+            class="close"
+            >&times;</span
+          >
+          <img
+            :src="image"
+            alt="Visualisation de l'algorithme"
+            class="modal-image" />
+        </div>
       </div>
-    </section>
-    <div
-      v-if="show"
-      class="modal"
-      @click="show = false">
-      <div class="modal-content">
-        <span
-          @click="show = false"
-          class="close"
-          >&times;</span
-        >
-        <img
-          :src="image"
-          alt="Visualisation de l'algorithme"
-          class="modal-image" />
-      </div>
+    </div>
+    <div class="buttons">
+      <RouterLink
+        to="/reconstruction/docs"
+        @click="changeAlgo(0, 2)">
+        <Button btnType="secondary">Algorithme</Button>
+      </RouterLink>
+      <RouterLink
+        to="/reconstruction/comparaison"
+        @click="goToComparaison">
+        <Button btnType="secondary">Comparaison</Button>
+      </RouterLink>
+      <RouterLink
+        to="/boules-maximales/brute-force"
+        @click="changeAlgo(0, 1)">
+        <Button btnType="secondary">Boules Maximales</Button>
+      </RouterLink>
+
+      <RouterLink
+        to="/carte-distance/brute-force"
+        @click="changeAlgo(0)">
+        <Button btnType="secondary">Carte Distance</Button>
+      </RouterLink>
+      <RouterLink to="/a-propos">
+        <Button btnType="secondary">ABOUT US</Button>
+      </RouterLink>
     </div>
   </div>
 </template>

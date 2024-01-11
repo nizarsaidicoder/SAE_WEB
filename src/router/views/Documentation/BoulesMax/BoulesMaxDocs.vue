@@ -2,6 +2,8 @@
   import { ref, watch, onMounted } from "vue";
   import { useAlgoStore } from "@/data/algoStore";
   import { useSectionStore } from "@/data/sectionStore";
+  import ComparaisonSection from "@/components/ComparaisonSection.vue";
+
   import AlgoSection from "@/components/AlgoSection.vue";
   import Button from "@/components/Button.vue";
   import { VueperSlides, VueperSlide } from "vueperslides";
@@ -10,6 +12,11 @@
     setup() {
       const algos = useAlgoStore().algorithmes[1];
       const sections = useSectionStore();
+      const comparaison = ref(
+        sections.activeSubSection == "boules-maximales-comparaison"
+          ? algos
+          : null
+      );
       const activeAlgo = ref(
         sections.activeSubSection == "boules-maximales-brute-force"
           ? algos.algoTypes[0]
@@ -40,6 +47,13 @@
         sections.setActiveAlgoType(subSection?.id);
         sections.setActiveSection(subSubSection?.id);
       };
+      const goToComparaison = () => {
+        sections.setActiveAlgoType("boules-maximales-comparaison");
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      };
       const updateScreenSize = () => {
         screenWidth.value = window.innerWidth;
         screenHeight.value = window.innerHeight;
@@ -47,7 +61,6 @@
       const showImage = (slide) => {
         image.value = slide;
         show.value = true;
-        console.log("hey");
       };
       onMounted(() => {
         updateScreenSize();
@@ -64,6 +77,13 @@
               : algos.algoTypes[1];
         }
       );
+      watch(
+        () => sections.activeSubSection,
+        (newVal) => {
+          comparaison.value =
+            newVal == "boules-maximales-comparaison" ? algos : null;
+        }
+      );
 
       return {
         activeAlgo,
@@ -75,12 +95,15 @@
         show,
         image,
         algos,
+        comparaison,
+        goToComparaison,
       };
     },
     components: {
       AlgoSection,
       VueperSlides,
       VueperSlide,
+      ComparaisonSection,
       Button,
     },
   };
@@ -91,68 +114,78 @@
     class="documentation"
     id="carte-distance">
     <h1 class="documentation-title">Boules Maximales</h1>
-    <p
-      class="text"
-      style="text-align: left">
-      {{ algos.description }}
-    </p>
-    <AlgoSection
-      v-if="activeAlgo"
-      :algo="activeAlgo" />
-    <section id="visualisation">
-      <h1 class="visualisation-title">Visualisation</h1>
-      <vueper-slides
-        class="no-shadow"
-        :visible-slides="screenWidth < 768 ? 1 : 3"
-        :slide-ratio="1 / 3"
-        :gap="3"
-        :dragging-distance="70">
-        <vueper-slide
-          v-for="(slide, i) in slides"
-          :key="i"
-          :image="slide"
-          :style="`background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #fff;`"
-          @click="showImage(slide)"
-          class="border" />
-      </vueper-slides>
-      <div class="buttons">
-        <RouterLink
-          @click="changeAlgo(1, 1)"
-          to="/boules-maximales/optimise">
-          <Button btnType="secondary">Algorithme Optimise</Button>
-        </RouterLink>
-        <RouterLink
-          to="/boules-maximales/brute-force"
-          @click="changeAlgo(0, 1)">
-          <Button btnType="secondary">Algorithme Brute force</Button>
-        </RouterLink>
-        <RouterLink
-          to="/reconstruction/docs"
-          @click="changeAlgo(0, 2)">
-          <Button btnType="secondary">Reconstruction</Button>
-        </RouterLink>
-        <RouterLink
-          to="/carte-distance/brute-force"
-          @click="changeAlgo(0)">
-          <Button btnType="secondary">Carte Distance</Button>
-        </RouterLink>
+    <ComparaisonSection
+      v-if="comparaison"
+      :data="comparaison" />
+    <div v-else>
+      <p
+        class="text"
+        style="text-align: left">
+        {{ algos.description }}
+      </p>
+      <AlgoSection
+        v-if="activeAlgo"
+        :algo="activeAlgo" />
+      <section id="visualisation">
+        <h1 class="visualisation-title">Visualisation</h1>
+        <vueper-slides
+          class="no-shadow"
+          :visible-slides="screenWidth < 768 ? 1 : 3"
+          :slide-ratio="1 / 3"
+          :gap="3"
+          :dragging-distance="70">
+          <vueper-slide
+            v-for="(slide, i) in slides"
+            :key="i"
+            :image="slide"
+            :style="`background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #fff;`"
+            @click="showImage(slide)"
+            class="border" />
+        </vueper-slides>
+      </section>
+      <div
+        v-if="show"
+        class="modal"
+        @click="show = false">
+        <div class="modal-content">
+          <span
+            @click="show = false"
+            class="close"
+            >&times;</span
+          >
+          <img
+            :src="image"
+            alt="Visualisation de l'algorithme"
+            class="modal-image" />
+        </div>
       </div>
-    </section>
-    <div
-      v-if="show"
-      class="modal"
-      @click="show = false">
-      <div class="modal-content">
-        <span
-          @click="show = false"
-          class="close"
-          >&times;</span
-        >
-        <img
-          :src="image"
-          alt="Visualisation de l'algorithme"
-          class="modal-image" />
-      </div>
+    </div>
+    <div class="buttons">
+      <RouterLink
+        @click="changeAlgo(1, 1)"
+        to="/boules-maximales/optimise">
+        <Button btnType="secondary">Algorithme Optimise</Button>
+      </RouterLink>
+      <RouterLink
+        to="/boules-maximales/brute-force"
+        @click="changeAlgo(0, 1)">
+        <Button btnType="secondary">Algorithme Brute force</Button>
+      </RouterLink>
+      <RouterLink
+        to="/boules-maximales/comparaison"
+        @click="goToComparaison()">
+        <Button btnType="secondary">Comparaison</Button>
+      </RouterLink>
+      <RouterLink
+        to="/reconstruction/docs"
+        @click="changeAlgo(0, 2)">
+        <Button btnType="secondary">Reconstruction</Button>
+      </RouterLink>
+      <RouterLink
+        to="/carte-distance/brute-force"
+        @click="changeAlgo(0)">
+        <Button btnType="secondary">Carte Distance</Button>
+      </RouterLink>
     </div>
   </div>
 </template>

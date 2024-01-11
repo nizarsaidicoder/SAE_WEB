@@ -1,5 +1,5 @@
 <script>
-  import { ref, computed, watch } from "vue";
+  import { ref, watch } from "vue";
   import { useAlgoStore } from "@/data/algoStore";
   import { useSectionStore } from "@/data/sectionStore";
   import ComparaisonSection from "@/components/ComparaisonSection.vue";
@@ -53,7 +53,13 @@
         sections.setActiveAlgoType(subSection?.id);
         sections.setActiveSection(subSubSection?.id);
       };
-
+      const goToComparaison = () => {
+        sections.setActiveAlgoType("carte-distance-comparaison");
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      };
       const updateScreenSize = () => {
         screenWidth.value = window.innerWidth;
         screenHeight.value = window.innerHeight;
@@ -90,6 +96,7 @@
         changeAlgo,
         algos,
         comparaison,
+        goToComparaison,
       };
     },
     components: {
@@ -165,6 +172,11 @@
       to="/carte-distance/brute-force"
       @click="changeAlgo(0)">
       <Button btnType="secondary">Algorithme Brute force</Button>
+    </RouterLink>
+    <RouterLink
+      @click="goToComparaison()"
+      to="/carte-distance/comparaison">
+      <Button btnType="secondary">Comparaison</Button>
     </RouterLink>
     <RouterLink
       to="/boules-maximales/brute-force"

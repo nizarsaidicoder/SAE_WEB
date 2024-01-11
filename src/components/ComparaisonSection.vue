@@ -81,6 +81,20 @@
         </div>
       </div>
     </section>
+    <section
+      v-if="data.pourcentageImage"
+      class="reconstruction-pourcentage">
+      <h2>Pourcentage de la reconstruction de l'image</h2>
+      <div class="container-pourcentage">
+        <div class="pourcentage__text">
+          <div>Une reconstruction efficace de</div>
+          <p>96%</p>
+        </div>
+        <img
+          :src="data.pourcentageImage"
+          alt="pourcentage" />
+      </div>
+    </section>
     <div class="dernier-mots">{{ data.comparaisonResults }}</div>
   </div>
 </template>
@@ -127,6 +141,8 @@
     &-section {
       display: flex;
       flex-direction: column;
+      border-bottom: 1px solid $secondary;
+      padding-bottom: 2.4rem;
       gap: 2rem;
       &__conclusion {
         display: flex;
@@ -178,7 +194,26 @@
       }
     }
   }
-
+  .reconstruction-pourcentage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    & > h2 {
+      font-size: 3.6rem;
+      color: $accent;
+      font-weight: 500;
+    }
+  }
+  .container-pourcentage {
+    display: flex;
+    align-items: center;
+    & > img {
+      width: 100%;
+      height: 100%;
+    }
+  }
   .comparaison-section__sections__content--forme {
     border-right: 1px solid $secondary;
 
@@ -188,6 +223,28 @@
     font-size: 1.6rem;
 
     /* Add your styles here */
+  }
+  .pourcentage__text {
+    font-family: "JetBrains Mono", monospace;
+    width: 70%;
+
+    & p {
+      font-size: 12.8rem;
+
+      text-align: center;
+      @include apply-gradient-text;
+      color: transparent;
+      font-weight: 900;
+    }
+    & div {
+      font-family: "Montserrat", monospace;
+
+      font-size: 2.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      color: $accent;
+    }
   }
 
   .rating {
@@ -231,7 +288,7 @@
     padding: 2rem 2.4rem;
     border-radius: 4px;
     font-weight: 500;
-    border: 2px solid $secondary;
+    border: 2px solid $accent;
     font-weight: 600;
     display: inline;
     width: fit-content;
@@ -244,8 +301,38 @@
       font-size: 1.6rem;
       padding: 0.2rem 0.9rem;
       border-radius: 2px;
-      color: $secondary;
+      color: $primary;
       background-color: white;
+    }
+  }
+  @media (max-width: 768px) {
+    .comparaison {
+      &-section {
+        &__sections {
+          flex-direction: column;
+          gap: 2rem;
+          &__content {
+            width: 100%;
+            border-right: none;
+            &__image {
+              height: 32rem;
+            }
+          }
+        }
+      }
+    }
+  }
+  @media (max-width: 576px) {
+    .comparaison {
+      &-section {
+        &__sections {
+          &__content {
+            &__image {
+              height: 24rem;
+            }
+          }
+        }
+      }
     }
   }
 </style>
