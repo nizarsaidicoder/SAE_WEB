@@ -50,7 +50,7 @@
         <div class="project-info">
           <div class="project-title">Avis concernant le projet :</div>
           <p class="project-desc">{{ data.projectReview }}</p>
-          <div class="rating">
+          <div class="ratinga">
             NOTE SAE 1.1 :
             <span
               v-for="i in data.rating1"
@@ -59,7 +59,7 @@
             >
             <span v-for="i in 5 - data.rating1">&star;</span>
           </div>
-          <div class="rating">
+          <div class="ratinga">
             NOTE SAE 1.2 :
             <span
               v-for="i in data.rating1"
@@ -250,7 +250,7 @@
       }
     }
   }
-  .rating {
+  .ratinga {
     font-family: "JetBrains Mono", monospace;
     font-size: 2.4rem;
     font-weight: 500;
