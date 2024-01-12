@@ -11,16 +11,16 @@ export const useAlgoStore = defineStore({
           description:
             "Cette algorithme calcule la carte distance euclidienne au carré. Elle consiste à trouver la distance entre chaque point de la forme et chaque point de l'objet. ",
           images: [
-            "/assets/images/visualisation/carte-distance/1.bmp",
-            "/assets/images/visualisation/carte-distance/2.bmp",
-            "/assets/images/visualisation/carte-distance/3.bmp",
-            "/assets/images/visualisation/carte-distance/4.bmp",
-            "/assets/images/visualisation/carte-distance/5.bmp",
-            "/assets/images/visualisation/carte-distance/6.bmp",
-            "/assets/images/visualisation/carte-distance/7.bmp",
-            "/assets/images/visualisation/carte-distance/8.bmp",
-            "/assets/images/visualisation/carte-distance/9.bmp",
-            "/assets/images/visualisation/carte-distance/0.bmp",
+            "/src/assets/images/visualisation/carte-distance/1.bmp",
+            "/src/assets/images/visualisation/carte-distance/2.bmp",
+            "/src/assets/images/visualisation/carte-distance/3.bmp",
+            "/src/assets/images/visualisation/carte-distance/4.bmp",
+            "/src/assets/images/visualisation/carte-distance/5.bmp",
+            "/src/assets/images/visualisation/carte-distance/6.bmp",
+            "/src/assets/images/visualisation/carte-distance/7.bmp",
+            "/src/assets/images/visualisation/carte-distance/8.bmp",
+            "/src/assets/images/visualisation/carte-distance/9.bmp",
+            "/src/assets/images/visualisation/carte-distance/0.bmp",
           ],
           comparaison: [
             {
@@ -31,11 +31,11 @@ export const useAlgoStore = defineStore({
               impactBruit:
                 "La méthode brute force est n'est pas sensible au bruit, car elle calcule la distance entre chaque point de la forme et chaque point de l'image.",
               imageBruit:
-                "/assets/images/comparaison/carte-distance/brute-bruit.png",
+                "/src/assets/images/comparaison/carte-distance/brute-bruit.png",
               impactForme:
                 "La méthode brute force est sensible aux nombre de pixels de la forme, plus le nombre de pixels de la forme est grand, plus l'algorithme est moins performant.",
               imageForme:
-                "/assets/images/comparaison/carte-distance/brute-forme.png",
+                "/src/assets/images/comparaison/carte-distance/brute-forme.png",
               vitesse: 1,
               bruit: 5,
               forme: 1,
@@ -48,11 +48,11 @@ export const useAlgoStore = defineStore({
               impactBruit:
                 "La méthode optimisée n'est pas sensible au bruit, car elle utilise la propagation verticale et horizontale pour calculer la distance entre chaque point de la forme et chaque point de l'image. ce qui permet de réduire la complexité de l'algorithme par rapport à la méthode brute force.",
               imageBruit:
-                "/assets/images/comparaison/carte-distance/optimise-bruit.png",
+                "/src/assets/images/comparaison/carte-distance/optimise-bruit.png",
               impactForme:
                 "La méthode optimisée est peu sensible au nombre de pixels de la forme, car même s'il utilise un algorithme performant, la rapidité de l'algorithme dépend du language de programmation utilisé et de la machine.",
               imageForme:
-                "/assets/images/comparaison/carte-distance/optimise-forme.png",
+                "/src/assets/images/comparaison/carte-distance/optimise-forme.png",
               vitesse: 5,
               bruit: 1,
               forme: 4,
@@ -253,7 +253,7 @@ int resultatBrute = CarteBruteForce(tabInit);`,
 int[,] tabInit = InitResultat(tabImage);
 int[,] resultatOptimise = CarteOptimise(tabInit);
 Affiche_image(resultatOptimise);
-SaveImage(resultatBrute, "../../images/RESULTATS_BRUTE//assets/images/visualisation/carte-distance/imageresultatOptimise.bmp");
+SaveImage(resultatBrute, "../../images/RESULTATS_BRUTE//src/assets/images/visualisation/carte-distance/imageresultatOptimise.bmp");
 `,
               sections: [
                 {
@@ -529,16 +529,16 @@ PropagationVersLeHaut(int[] col)
           description:
             " une boule maximale discrète est un disque centré sur un point de la forme, dont le rayon est déterminé par la distance euclidienne au carré. Ces boules maximales sont utilisées dans le processus de reconstruction de la forme d'origine à partir des distances calculées par l'algorithme de la carte distance euclidienne au carré.",
           images: [
-            "/assets/images/visualisation/boules-maximales/1.bmp",
-            "/assets/images/visualisation/boules-maximales/2.bmp",
-            "/assets/images/visualisation/boules-maximales/3.bmp",
-            "/assets/images/visualisation/boules-maximales/4.bmp",
-            "/assets/images/visualisation/boules-maximales/5.bmp",
-            "/assets/images/visualisation/boules-maximales/6.bmp",
-            "/assets/images/visualisation/boules-maximales/7.bmp",
-            "/assets/images/visualisation/boules-maximales/8.bmp",
-            "/assets/images/visualisation/boules-maximales/9.bmp",
-            "/assets/images/visualisation/boules-maximales/0.bmp",
+            "/src/assets/images/visualisation/boules-maximales/1.bmp",
+            "/src/assets/images/visualisation/boules-maximales/2.bmp",
+            "/src/assets/images/visualisation/boules-maximales/3.bmp",
+            "/src/assets/images/visualisation/boules-maximales/4.bmp",
+            "/src/assets/images/visualisation/boules-maximales/5.bmp",
+            "/src/assets/images/visualisation/boules-maximales/6.bmp",
+            "/src/assets/images/visualisation/boules-maximales/7.bmp",
+            "/src/assets/images/visualisation/boules-maximales/8.bmp",
+            "/src/assets/images/visualisation/boules-maximales/9.bmp",
+            "/src/assets/images/visualisation/boules-maximales/0.bmp",
           ],
           comparaison: [
             {
@@ -549,11 +549,11 @@ PropagationVersLeHaut(int[] col)
               impactBruit:
                 "La méthode brute force est n'est pas sensible au bruit, car pour extraire les boules maximales discrètes, elle vérifie chaque pixel de la forme par rapport à tous les autres pixels.",
               imageBruit:
-                "/assets/images/comparaison/boules-maximales/brute-bruit.png",
+                "/src/assets/images/comparaison/boules-maximales/brute-bruit.png",
               impactForme:
                 "La méthode brute force est sensible aux nombre de pixels de la forme, plus le nombre de pixels de la forme est grand, plus l'algorithme est moins performant.",
               imageForme:
-                "/assets/images/comparaison/boules-maximales/brute-forme.png",
+                "/src/assets/images/comparaison/boules-maximales/brute-forme.png",
               vitesse: 1,
               bruit: 5,
               forme: 1,
@@ -566,11 +566,11 @@ PropagationVersLeHaut(int[] col)
               impactBruit:
                 "La méthode optimisée est peu sensible au bruit car le bruit augmente la compléxité de l'image, ce qui augmente le nombre de boules maximales dans l'image.",
               imageBruit:
-                "/assets/images/comparaison/boules-maximales/optimise-bruit.png",
+                "/src/assets/images/comparaison/boules-maximales/optimise-bruit.png",
               impactForme:
                 "La méthode optimisée est peu sensible au nombre de pixels de la forme mais plûtot à la complexité de l'image. Si une petite image possède une forme compliquée, elle prendra plus de temps à être calculée qu'une grande image avec une forme simple. Par exemple : imaginons une petite image avec une forme compliquée, elle prendra plus de temps à être calculée qu'une grande image où la forme est un simple rond.",
               imageForme:
-                "/assets/images/comparaison/boules-maximales/optimise-forme.png",
+                "/src/assets/images/comparaison/boules-maximales/optimise-forme.png",
               vitesse: 3,
               bruit: 3,
               forme: 3,
@@ -952,16 +952,16 @@ EstBouleMaximale(Boule boule, List<Boule> boulesMax)
           description:
             "Cette algorithme permet la reconstruction des images binaires à partir des boules maximales discrètes. en utilisant une approche assez simple, rapdie et efficace (97% de précision lors de la reconstruction).",
           images: [
-            "/assets/images/visualisation/reconstruction/1.bmp",
-            "/assets/images/visualisation/reconstruction/2.bmp",
-            "/assets/images/visualisation/reconstruction/3.bmp",
-            "/assets/images/visualisation/reconstruction/4.bmp",
-            "/assets/images/visualisation/reconstruction/5.bmp",
-            "/assets/images/visualisation/reconstruction/6.bmp",
-            "/assets/images/visualisation/reconstruction/7.bmp",
-            "/assets/images/visualisation/reconstruction/8.bmp",
-            "/assets/images/visualisation/reconstruction/9.bmp",
-            "/assets/images/visualisation/reconstruction/0.bmp",
+            "/src/assets/images/visualisation/reconstruction/1.bmp",
+            "/src/assets/images/visualisation/reconstruction/2.bmp",
+            "/src/assets/images/visualisation/reconstruction/3.bmp",
+            "/src/assets/images/visualisation/reconstruction/4.bmp",
+            "/src/assets/images/visualisation/reconstruction/5.bmp",
+            "/src/assets/images/visualisation/reconstruction/6.bmp",
+            "/src/assets/images/visualisation/reconstruction/7.bmp",
+            "/src/assets/images/visualisation/reconstruction/8.bmp",
+            "/src/assets/images/visualisation/reconstruction/9.bmp",
+            "/src/assets/images/visualisation/reconstruction/0.bmp",
           ],
           comparaison: [
             {
@@ -971,10 +971,12 @@ EstBouleMaximale(Boule boule, List<Boule> boulesMax)
                 "L'algorithme de reconstruction est très rapide, car il ne fait que parcourir les boules maximales discrètes et remplir les boules avec la couleur noir. La complexité de l'algorithme est de l'ordre O(n) où n est le nombre de boules maximales discrètes.",
               impactBruit:
                 "L'algorithme de reconstruction est très rapide et ne dépend pas du bruit, car il ne fait que parcourir les boules maximales discrètes et remplir les boules avec la couleur noir. La complexité de l'algorithme est de l'ordre O(n) où n est le nombre de boules maximales discrètes.",
-              imageBruit: "/assets/images/comparaison/reconstruction/bruit.png",
+              imageBruit:
+                "/src/assets/images/comparaison/reconstruction/bruit.png",
               impactForme:
                 "L'algorithme est rapide à un point où on voit pas la différence entre une image simple et une image complexe.",
-              imageForme: "/assets/images/comparaison/reconstruction/forme.png",
+              imageForme:
+                "/src/assets/images/comparaison/reconstruction/forme.png",
               vitesse: 5,
               bruit: 5,
               forme: 5,
@@ -983,7 +985,7 @@ EstBouleMaximale(Boule boule, List<Boule> boulesMax)
           comparaisonResults:
             "La reconstruction de l'image originale à partir des boules maximales est réussie avec une moyenne de 96% de ressemblance avec l'image d'origine, démontrant la fidélité du processus, même avec des images complexes.",
           pourcentageImage:
-            "/assets/images/comparaison/reconstruction/pourcentage.png",
+            "/src/assets/images/comparaison/reconstruction/pourcentage.png",
           algoTypes: [
             {
               id: "reconstruction-docs",
