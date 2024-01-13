@@ -36,6 +36,8 @@
   }
   .cards-container {
     display: flex;
+    justify-content: center;
+
     flex-wrap: wrap;
     gap: 3.2rem;
   }

@@ -25,6 +25,22 @@
           <span class="profiles-menu-link-text">Amine</span>
         </li>
       </router-link>
+      <router-link
+        to="/a-propos/romain"
+        class="profiles-menu-item profiles-menu-item-romain"
+        :class="data.name == 'romain' ? 'link-active' : ''">
+        <li class="profiles-menu-link">
+          <span class="profiles-menu-link-text">Romain</span>
+        </li>
+      </router-link>
+      <router-link
+        to="/a-propos/aurelie"
+        class="profiles-menu-item profiles-menu-item-aurelie"
+        :class="data.name == 'aurelie' ? 'link-active' : ''">
+        <li class="profiles-menu-link">
+          <span class="profiles-menu-link-text">Aurelie</span>
+        </li>
+      </router-link>
     </ul>
   </nav>
   <div
@@ -71,6 +87,7 @@
         </div>
         <div class="project-img">
           <img
+            :class="data.name == 'aurelie' ? 'project-img-aurelie' : ''"
             :src="data.sideImage"
             alt="" />
         </div>
@@ -205,6 +222,12 @@
       &-nesrine {
         @include apply-gradient-block($nesrine-linear);
       }
+      &-romain {
+        @include apply-gradient-block(#467ac7);
+      }
+      &-aurelie {
+        @include apply-gradient-block(#ffb4af);
+      }
     }
     &-name {
       display: flex;
@@ -265,6 +288,14 @@
   }
   .amine {
     @include apply-gradient-text($amine-linear);
+    color: transparent;
+  }
+  .romain {
+    @include apply-gradient-text(#467ac7);
+    color: transparent;
+  }
+  .aurelie {
+    @include apply-gradient-text(#ffb4af);
     color: transparent;
   }
   .link-active {
@@ -403,5 +434,8 @@
     .project-img {
       display: none;
     }
+  }
+  .project-img-aurelie {
+    margin-top: 10%;
   }
 </style>

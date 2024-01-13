@@ -11,16 +11,16 @@ export const useAlgoStore = defineStore({
           description:
             "Cette algorithme calcule la carte distance euclidienne au carré. Elle consiste à trouver la distance entre chaque point de la forme et chaque point de l'objet. ",
           images: [
-            "/src/assets/images/visualisation/carte-distance/1.bmp",
-            "/src/assets/images/visualisation/carte-distance/2.bmp",
-            "/src/assets/images/visualisation/carte-distance/3.bmp",
-            "/src/assets/images/visualisation/carte-distance/4.bmp",
-            "/src/assets/images/visualisation/carte-distance/5.bmp",
-            "/src/assets/images/visualisation/carte-distance/6.bmp",
-            "/src/assets/images/visualisation/carte-distance/7.bmp",
-            "/src/assets/images/visualisation/carte-distance/8.bmp",
-            "/src/assets/images/visualisation/carte-distance/9.bmp",
-            "/src/assets/images/visualisation/carte-distance/0.bmp",
+            "/carte-distance/1.bmp",
+            "/carte-distance/2.bmp",
+            "/carte-distance/3.bmp",
+            "/carte-distance/4.bmp",
+            "/carte-distance/5.bmp",
+            "/carte-distance/6.bmp",
+            "/carte-distance/7.bmp",
+            "/carte-distance/8.bmp",
+            "/carte-distance/9.bmp",
+            "/carte-distance/0.bmp",
           ],
           comparaison: [
             {
@@ -253,7 +253,7 @@ int resultatBrute = CarteBruteForce(tabInit);`,
 int[,] tabInit = InitResultat(tabImage);
 int[,] resultatOptimise = CarteOptimise(tabInit);
 Affiche_image(resultatOptimise);
-SaveImage(resultatBrute, "../../images/RESULTATS_BRUTE//src/assets/images/visualisation/carte-distance/imageresultatOptimise.bmp");
+SaveImage(resultatBrute, "../../images/RESULTATS_BRUTE//carte-distance/imageresultatOptimise.bmp");
 `,
               sections: [
                 {
@@ -529,16 +529,16 @@ PropagationVersLeHaut(int[] col)
           description:
             " une boule maximale discrète est un disque centré sur un point de la forme, dont le rayon est déterminé par la distance euclidienne au carré. Ces boules maximales sont utilisées dans le processus de reconstruction de la forme d'origine à partir des distances calculées par l'algorithme de la carte distance euclidienne au carré.",
           images: [
-            "/src/assets/images/visualisation/boules-maximales/1.bmp",
-            "/src/assets/images/visualisation/boules-maximales/2.bmp",
-            "/src/assets/images/visualisation/boules-maximales/3.bmp",
-            "/src/assets/images/visualisation/boules-maximales/4.bmp",
-            "/src/assets/images/visualisation/boules-maximales/5.bmp",
-            "/src/assets/images/visualisation/boules-maximales/6.bmp",
-            "/src/assets/images/visualisation/boules-maximales/7.bmp",
-            "/src/assets/images/visualisation/boules-maximales/8.bmp",
-            "/src/assets/images/visualisation/boules-maximales/9.bmp",
-            "/src/assets/images/visualisation/boules-maximales/0.bmp",
+            "/boules-maximales/1.bmp",
+            "/boules-maximales/2.bmp",
+            "/boules-maximales/3.bmp",
+            "/boules-maximales/4.bmp",
+            "/boules-maximales/5.bmp",
+            "/boules-maximales/6.bmp",
+            "/boules-maximales/7.bmp",
+            "/boules-maximales/8.bmp",
+            "/boules-maximales/9.bmp",
+            "/boules-maximales/0.bmp",
           ],
           comparaison: [
             {
@@ -952,16 +952,16 @@ EstBouleMaximale(Boule boule, List<Boule> boulesMax)
           description:
             "Cette algorithme permet la reconstruction des images binaires à partir des boules maximales discrètes. en utilisant une approche assez simple, rapdie et efficace (97% de précision lors de la reconstruction).",
           images: [
-            "/src/assets/images/visualisation/reconstruction/1.bmp",
-            "/src/assets/images/visualisation/reconstruction/2.bmp",
-            "/src/assets/images/visualisation/reconstruction/3.bmp",
-            "/src/assets/images/visualisation/reconstruction/4.bmp",
-            "/src/assets/images/visualisation/reconstruction/5.bmp",
-            "/src/assets/images/visualisation/reconstruction/6.bmp",
-            "/src/assets/images/visualisation/reconstruction/7.bmp",
-            "/src/assets/images/visualisation/reconstruction/8.bmp",
-            "/src/assets/images/visualisation/reconstruction/9.bmp",
-            "/src/assets/images/visualisation/reconstruction/0.bmp",
+            "/reconstruction/1.bmp",
+            "/reconstruction/2.bmp",
+            "/reconstruction/3.bmp",
+            "/reconstruction/4.bmp",
+            "/reconstruction/5.bmp",
+            "/reconstruction/6.bmp",
+            "/reconstruction/7.bmp",
+            "/reconstruction/8.bmp",
+            "/reconstruction/9.bmp",
+            "/reconstruction/0.bmp",
           ],
           comparaison: [
             {

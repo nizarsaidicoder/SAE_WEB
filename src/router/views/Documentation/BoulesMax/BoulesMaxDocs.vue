@@ -137,7 +137,7 @@
           <vueper-slide
             v-for="(slide, i) in slides"
             :key="i"
-            :image="slide"
+            :image="'../src/assets/images/visualisation' + slide"
             :style="`background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #fff;`"
             @click="showImage(slide)"
             class="border" />

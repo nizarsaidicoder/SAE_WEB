@@ -61,6 +61,44 @@ export const useAboutStore = defineStore("about", {
           rating2: 5,
           details: "",
         },
+        {
+          id: 3,
+          name: "romain",
+          lastName: "perrin",
+
+          job: "Professeur",
+          description:
+            "🖥️ Le meilleur professeur de l'IUT de Robert Schuman; Oops Correction : du monde ! ✨",
+          image: "/src/assets/images/profiles/romain-card.png",
+          cardImage: "/src/assets/images/profiles/romain-back.png",
+          backImage: "/src/assets/images/profiles/amine-back.svg",
+          sideImage: "/src/assets/images/profiles/romain-side.svg",
+          projectReview:
+            "Les étudiants ont fait un travail remarquable sur ce projet. Ils ont fait preuve de créativité et ont réussi à surmonter les défis de codage. C'est vraiment gratifiant de voir leurs compétences évoluer. J'ai hâte de voir ce qu'ils vont créer à l'avenir ! 👍",
+          theme: "romain",
+          rating1: 5,
+          rating2: 5,
+          details: "",
+        },
+        {
+          id: 4,
+          name: "aurelie",
+          lastName: "leborgne",
+
+          job: "ph.D",
+          description:
+            " 🖥️ Professeur de l'IUT de Robert Schuman, spécialiste en informatique et en intelligence artificielle ! ✨",
+          image: "/src/assets/images/profiles/aurelie.jpeg",
+          cardImage: "/src/assets/images/profiles/aurelie-card.jpg",
+          backImage: "/src/assets/images/profiles/nesrine-back.svg",
+          sideImage: "/src/assets/images/profiles/aurelie-side.svg",
+          projectReview:
+            "Les étudiants ont fait un travail remarquable sur ce projet. Ils ont fait preuve de créativité et ont réussi à surmonter les défis de codage. C'est vraiment gratifiant de voir leurs compétences évoluer. J'ai hâte de voir ce qu'ils vont créer à l'avenir ! 👍",
+          theme: "aurelie",
+          rating1: 5,
+          rating2: 5,
+          details: "",
+        },
       ],
     };
   },

@@ -82,6 +82,12 @@
       &-nesrine {
         border-color: #8a30d0;
       }
+      &-romain {
+        border-color: #467ac7;
+      }
+      &-aurelie {
+        border-color: #ffb4af;
+      }
     }
 
     &-image {
@@ -124,6 +130,14 @@
         &-nesrine {
           @include apply-color-border($primary);
           color: #8a30d0;
+        }
+        &-romain {
+          @include apply-color-border(#467ac7);
+          color: #467ac7;
+        }
+        &-aurelie {
+          @include apply-color-border(#ffb4af);
+          color: #ffb4af;
         }
         // Add your styles here
       }
@@ -170,6 +184,14 @@
             &-nesrine {
               @include apply-gradient-block($nesrine-linear);
             }
+            &-romain {
+              @include apply-gradient-block(#467ac7);
+              color: $accent;
+            }
+            &-aurelie {
+              @include apply-gradient-block(#ffb4af);
+              color: $primary;
+            }
           }
         }
       }
@@ -191,6 +213,12 @@
     }
     &-nesrine {
       background-color: #8a30d0;
+    }
+    &-romain {
+      background-color: #467ac7;
+    }
+    &-aurelie {
+      background-color: #ffb4af;
     }
   }
   @media (max-width: 1280px) {
