@@ -4,7 +4,7 @@
   <div class="comparaison-container">
     <section
       class="comparaison-section"
-      v-for="comparaison in comparaisonData"
+      v-for="(comparaison, index) in comparaisonData"
       :key="comparaison.id">
       <div class="comparaison-section__title">
         <h2>{{ comparaison.name }}</h2>
@@ -122,6 +122,9 @@
 <style lang="scss">
   @import "@/assets/css/variables";
   @import "@/assets/css/mixins";
+  .animate-image {
+    animation: animate-image 1.2s ease-in-out;
+  }
   .comparaison {
     &-title {
       font-size: 3.6rem;
@@ -184,16 +187,27 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            overflow: hidden;
             & > img {
               width: 100%;
               height: 100%;
               object-fit: contain;
+              animation: animate-image 1.2s forwards;
             }
           }
         }
       }
     }
   }
+  @keyframes animate-image {
+    0% {
+      transform: translateX(-100%) scale(0.5);
+    }
+    100% {
+      transform: translateX(0%) scale(1);
+    }
+  }
+
   .reconstruction-pourcentage {
     display: flex;
     flex-direction: column;
