@@ -49,11 +49,11 @@
           <div class="ratinga">
             NOTE SAE 1.2 :
             <span
-              v-for="i in data.rating1"
+              v-for="i in data.rating2"
               :class="data.name"
               >&starf;</span
             >
-            <span v-for="i in 5 - data.rating1">&star;</span>
+            <span v-for="i in 5 - data.rating2">&star;</span>
           </div>
         </div>
         <div class="project-img">
