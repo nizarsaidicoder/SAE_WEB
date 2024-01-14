@@ -51,7 +51,6 @@
             setTimeout(typeWriter, speed);
           }
         }
-
         typeWriter();
       },
     },
@@ -64,7 +63,7 @@
 
   .section-accueil {
     max-width: 120rem;
-    margin: 6.4rem auto;
+    margin: 3.6rem auto;
     display: flex;
     flex-direction: column;
     align-items: center;

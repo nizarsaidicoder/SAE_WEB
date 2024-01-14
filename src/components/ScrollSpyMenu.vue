@@ -133,8 +133,7 @@
       cursor: pointer;
       position: relative;
       &:hover {
-        @include apply-gradient-text;
-        color: transparent;
+        color: $secondary;
       }
     }
     &-sections {
@@ -176,8 +175,7 @@
     display: none;
   }
   .active {
-    @include apply-gradient-text;
-    color: transparent;
+    color: $secondary;
   }
 
   .scroll-spy-arrow {

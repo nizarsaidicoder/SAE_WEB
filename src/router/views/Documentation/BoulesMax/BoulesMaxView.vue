@@ -63,6 +63,8 @@
   }
   .buttons {
     display: flex;
+    margin-top: 1rem;
+
     gap: 2.4rem;
   }
   @media (max-width: 1280px) {

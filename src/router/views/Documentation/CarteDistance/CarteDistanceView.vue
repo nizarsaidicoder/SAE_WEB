@@ -51,7 +51,7 @@
     align-items: center;
     margin: 6.4rem auto;
     max-width: 120rem;
-    gap: 3.2rem;
+    gap: 1.2rem;
   }
   .heading {
     display: flex;
@@ -62,6 +62,7 @@
   }
   .buttons {
     display: flex;
+    margin-top: 1rem;
     gap: 2.4rem;
   }
 

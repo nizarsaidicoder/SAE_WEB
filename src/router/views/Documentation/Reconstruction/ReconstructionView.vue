@@ -56,6 +56,7 @@
   .buttons {
     display: flex;
     gap: 2.4rem;
+    margin-top: 1rem;
   }
   @media (max-width: 1280px) {
     .container {

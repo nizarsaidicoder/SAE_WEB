@@ -127,13 +127,11 @@
       &:hover {
         .navigation-item-icon {
           transition: all cubic-bezier(0.39, 0.575, 0.565, 1) 0.3s;
-          @include apply-gradient-text;
-          color: transparent;
+          color: $secondary;
           transform: scale(1.4);
         }
         .navigation-item-text {
-          @include apply-gradient-text;
-          color: transparent;
+          color: $secondary;
 
           // color: red;
         }
@@ -147,7 +145,7 @@
         height: 1px;
         left: 0;
         border-radius: 1px;
-        @include apply-gradient-block($linear);
+        background-color: $secondary;
         transition: width 0.3s ease 0s, left 0.3s ease 0s, height 0.1s ease 0s;
         width: 0;
       }

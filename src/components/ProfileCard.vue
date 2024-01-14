@@ -56,7 +56,7 @@
 <style lang="scss">
   @import "../assets/css/mixins.scss";
   @import "../assets/css/variables";
-
+  @import "../assets/css/animations";
   .card {
     // Add your styles here
     &-container {
@@ -68,6 +68,8 @@
       box-shadow: 0px 0.6rem 2rem rgba(255, 255, 255, 0.117);
       overflow: hidden;
       transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      animation: animate-card 1.2s ease-in-out;
+
       &:hover {
         box-shadow: 0px 2rem 4rem rgba(255, 255, 255, 0.161);
         transform: translateY(-0.4rem);
@@ -121,24 +123,21 @@
         padding: 8rem 0;
         text-transform: uppercase;
         letter-spacing: 0.2rem;
+        @include apply-color-border($accent);
+
         &-nizar {
-          @include apply-color-border($accent);
           color: #151515;
         }
         &-amine {
-          @include apply-color-border($accent);
           color: #0c0731;
         }
         &-nesrine {
-          @include apply-color-border($primary);
           color: #8a30d0;
         }
         &-romain {
-          @include apply-color-border(#467ac7);
           color: #467ac7;
         }
         &-aurelie {
-          @include apply-color-border(#ffb4af);
           color: #ffb4af;
         }
         // Add your styles here

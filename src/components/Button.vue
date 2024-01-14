@@ -1,7 +1,7 @@
 <template>
   <button
     :type="btnType"
-    :class="['btn', btnType]">
+    :class="'btn ' + 'btn-' + btnType">
     <slot></slot>
     <span class="arrow"> &rarr; </span>
     <span></span><span></span><span></span><span></span>
@@ -38,15 +38,33 @@
         opacity: 1;
       }
     }
-    &.primary {
-      @include apply-gradient-block($linear);
+    &-primary {
+      background-color: $secondary;
       color: $accent;
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        height: 100%;
+        width: 0%;
+        background-image: linear-gradient(90deg, #9153ad, #9713a3);
+        border-radius: 4px;
+        z-index: -1;
+        transition: all 0.2s ease-in;
+      }
+      &:hover::after {
+        width: 100%;
+      }
       &:hover {
+        background-color: transparent;
         border: $accent 2px solid;
       }
     }
 
-    &.secondary {
+    &-secondary {
       box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
       outline: 1px solid;
 
@@ -81,19 +99,17 @@
   @media (max-width: 1280px) {
     .btn {
       font-size: 1.7rem;
-      padding: 0.6rem 2.2rem;
+      padding: 0.8rem 2rem;
     }
   }
   @media (max-width: 1024px) {
     .btn {
-      font-size: 1.6rem;
-      padding: 0.6rem 2rem;
+      font-size: 1.7rem;
     }
   }
   @media (max-width: 512px) {
     .btn {
-      font-size: 1.4rem;
-      padding: 0.6rem 1.6rem;
+      font-size: 1.7rem;
     }
   }
 </style>
