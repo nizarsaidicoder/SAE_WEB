@@ -30,12 +30,10 @@ export const useAlgoStore = defineStore({
                 "La performance de la méthode brute force est très lente, plus l'image est grande, plus l'algorithme est moins performant, alors on peut dire que la performance de l'algorithme est de l'ordre O(n*m) où n est le nombre de lignes de l'image et m le nombre de colonnes.",
               impactBruit:
                 "La méthode brute force est n'est pas sensible au bruit, car elle calcule la distance entre chaque point de la forme et chaque point de l'image.",
-              imageBruit:
-                "/src/assets/images/comparaison/carte-distance/brute-bruit.png",
+              imageBruit: "https://i.ibb.co/QdP0Vk9/brute-bruit.png",
               impactForme:
                 "La méthode brute force est sensible aux nombre de pixels de la forme, plus le nombre de pixels de la forme est grand, plus l'algorithme est moins performant.",
-              imageForme:
-                "/src/assets/images/comparaison/carte-distance/brute-forme.png",
+              imageForme: "https://i.ibb.co/VtQ5T95/brute-forme.png",
               vitesse: 1,
               bruit: 5,
               forme: 1,
@@ -47,12 +45,10 @@ export const useAlgoStore = defineStore({
                 "La performance de la méthode optimisé est plus rapide que la méthode brute force, que se soit la complexité, le bruit ou bien la taille de l'image, l'algorithme est performant, La méthode optimisée est nettement plus rapide, exploitant efficacement les relations spatiales dans l'image.",
               impactBruit:
                 "La méthode optimisée n'est pas sensible au bruit, car elle utilise la propagation verticale et horizontale pour calculer la distance entre chaque point de la forme et chaque point de l'image. ce qui permet de réduire la complexité de l'algorithme par rapport à la méthode brute force.",
-              imageBruit:
-                "/src/assets/images/comparaison/carte-distance/optimise-bruit.png",
+              imageBruit: "https://i.ibb.co/nmYzsNP/optimise-bruit.png",
               impactForme:
                 "La méthode optimisée est peu sensible au nombre de pixels de la forme, car même s'il utilise un algorithme performant, la rapidité de l'algorithme dépend du language de programmation utilisé et de la machine.",
-              imageForme:
-                "/src/assets/images/comparaison/carte-distance/optimise-forme.png",
+              imageForme: "https://i.ibb.co/kgKfzXY/optimise-forme.png",
               vitesse: 5,
               bruit: 1,
               forme: 4,
@@ -548,12 +544,10 @@ PropagationVersLeHaut(int[] col)
                 "La performance de la méthode brute force est très lente juste comme la méthode brute force de la carte de distance euclidienne, plus l'image est grande, plus l'algorithme est moins performant, alors on peut dire que la performance de l'algorithme est de l'ordre O(n²) où n est le nombre de boules de l'image.",
               impactBruit:
                 "La méthode brute force est n'est pas sensible au bruit, car pour extraire les boules maximales discrètes, elle vérifie chaque pixel de la forme par rapport à tous les autres pixels.",
-              imageBruit:
-                "/src/assets/images/comparaison/boules-maximales/brute-bruit.png",
+              imageBruit: "https://i.ibb.co/hCfqsp8/brute-bruit.png",
               impactForme:
                 "La méthode brute force est sensible aux nombre de pixels de la forme, plus le nombre de pixels de la forme est grand, plus l'algorithme est moins performant.",
-              imageForme:
-                "/src/assets/images/comparaison/boules-maximales/brute-forme.png",
+              imageForme: "https://i.ibb.co/Cz0yFJp/brute-forme.png",
               vitesse: 1,
               bruit: 5,
               forme: 1,
@@ -565,12 +559,10 @@ PropagationVersLeHaut(int[] col)
                 "La performance de la méthode optimisé est plus rapide que la méthode brute force, que se soit l'intensité du bruit ou bien la taille de l'image, l'algorithme est performant. Mais ils devient moins perfomant si l'image est très grande et complexe. La méthode optimisée est nettement plus rapide, car la rapidité de l'algorithme dépend aux nombres de boules maximales dans l'image. plus l'image est complexe, plus l'algorithme est moins performant.",
               impactBruit:
                 "La méthode optimisée est peu sensible au bruit car le bruit augmente la compléxité de l'image, ce qui augmente le nombre de boules maximales dans l'image.",
-              imageBruit:
-                "/src/assets/images/comparaison/boules-maximales/optimise-bruit.png",
+              imageBruit: "https://i.ibb.co/kVZ14Jw/optimise-bruit.png",
               impactForme:
                 "La méthode optimisée est peu sensible au nombre de pixels de la forme mais plûtot à la complexité de l'image. Si une petite image possède une forme compliquée, elle prendra plus de temps à être calculée qu'une grande image avec une forme simple. Par exemple : imaginons une petite image avec une forme compliquée, elle prendra plus de temps à être calculée qu'une grande image où la forme est un simple rond.",
-              imageForme:
-                "/src/assets/images/comparaison/boules-maximales/optimise-forme.png",
+              imageForme: "https://i.ibb.co/pz7FzY3/optimise-forme.png",
               vitesse: 3,
               bruit: 3,
               forme: 3,
@@ -971,12 +963,10 @@ EstBouleMaximale(Boule boule, List<Boule> boulesMax)
                 "L'algorithme de reconstruction est très rapide, car il ne fait que parcourir les boules maximales discrètes et remplir les boules avec la couleur noir. La complexité de l'algorithme est de l'ordre O(n) où n est le nombre de boules maximales discrètes.",
               impactBruit:
                 "L'algorithme de reconstruction est très rapide et ne dépend pas du bruit, car il ne fait que parcourir les boules maximales discrètes et remplir les boules avec la couleur noir. La complexité de l'algorithme est de l'ordre O(n) où n est le nombre de boules maximales discrètes.",
-              imageBruit:
-                "/src/assets/images/comparaison/reconstruction/bruit.png",
+              imageBruit: "https://i.ibb.co/30phYBS/bruit.png",
               impactForme:
                 "L'algorithme est rapide à un point où on voit pas la différence entre une image simple et une image complexe.",
-              imageForme:
-                "/src/assets/images/comparaison/reconstruction/forme.png",
+              imageForme: "https://i.ibb.co/L6jycfc/forme.png",
               vitesse: 5,
               bruit: 5,
               forme: 5,
@@ -984,8 +974,7 @@ EstBouleMaximale(Boule boule, List<Boule> boulesMax)
           ],
           comparaisonResults:
             "La reconstruction de l'image originale à partir des boules maximales est réussie avec une moyenne de 96% de ressemblance avec l'image d'origine, démontrant la fidélité du processus, même avec des images complexes.",
-          pourcentageImage:
-            "/src/assets/images/comparaison/reconstruction/pourcentage.png",
+          pourcentageImage: "https://i.ibb.co/hssZ2q0/pourcentage.png",
           algoTypes: [
             {
               id: "reconstruction-docs",
