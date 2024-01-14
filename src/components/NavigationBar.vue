@@ -144,9 +144,9 @@
         display: block;
         bottom: -7px; /* Adjust the value to position the underline */
         content: "";
-        height: 3px;
+        height: 1px;
         left: 0;
-        border-radius: 3px;
+        border-radius: 1px;
         @include apply-gradient-block($linear);
         transition: width 0.3s ease 0s, left 0.3s ease 0s, height 0.1s ease 0s;
         width: 0;
@@ -156,7 +156,7 @@
         left: 0;
       }
       &:active:after {
-        height: 5px;
+        height: 2px;
         width: 100%;
       }
     }

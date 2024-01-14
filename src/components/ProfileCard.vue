@@ -4,7 +4,9 @@
     :class="'card-container-' + theme">
     <div
       class="card-image"
-      :style="{ backgroundImage: 'url(' + backImage + ')' }">
+      :style="{
+        backgroundImage: 'url(src/assets/images/profiles/' + backImage + ')',
+      }">
       <h1
         class="card-image-name"
         :class="'card-image-name-' + theme">
@@ -18,7 +20,7 @@
           :class="'card-profile-image-' + theme">
           <img
             class="card-text-profile-image"
-            :src="image"
+            :src="'src/assets/images/profiles/' + image"
             alt="profile picture " />
         </div>
 

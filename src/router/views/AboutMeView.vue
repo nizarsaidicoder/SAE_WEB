@@ -45,7 +45,10 @@
   </nav>
   <div
     class="about-background-lines"
-    :style="'background-image: url(' + data.backImage + ')'">
+    :style="{
+      backgroundImage:
+        'url(../src/assets/images/profiles/' + data.backImage + ')',
+    }">
     <section
       id="about-me"
       class="about-container">
@@ -54,7 +57,7 @@
           class="profile-img"
           :class="'profile-img-' + data.name">
           <img
-            :src="data.image"
+            :src="'../src/assets/images/profiles/' + data.image"
             alt="" />
         </div>
         <div class="profile-name">
@@ -88,7 +91,7 @@
         <div class="project-img">
           <img
             :class="data.name == 'aurelie' ? 'project-img-aurelie' : ''"
-            :src="data.sideImage"
+            :src="'../src/assets/images/profiles/' + data.sideImage"
             alt="" />
         </div>
       </div>

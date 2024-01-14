@@ -11,14 +11,14 @@ export const useAboutStore = defineStore("about", {
           job: "Developpeuse",
           description:
             "💻 Développeuse passionnée créant des merveilles numériques ! 🚀",
-          image: "/src/assets/images/profiles/nezuko.png",
+          image: "nezuko.png",
           projectReview:
             "Le projet de développement web et de compression d'images en C# a été vraiment passionnant ! J'ai apprécié l'aspect créatif du design et la manière dont j'ai réussi à surmonter les défis de codage. C'est vraiment gratifiant de constater l'évolution de mes compétences. J'attends avec impatience les futurs projets et les créations à venir ! ",
           rating1: 4,
           rating2: 4,
-          cardImage: "/src/assets/images/profiles/nesrine-card.webp",
-          backImage: "/src/assets/images/profiles/nesrine-back.svg",
-          sideImage: "/src/assets/images/profiles/nesrine-side.svg",
+          cardImage: "nesrine-card.webp",
+          backImage: "nesrine-back.svg",
+          sideImage: "nesrine-side.svg",
 
           theme: "nesrine",
           details: "",
@@ -30,10 +30,10 @@ export const useAboutStore = defineStore("about", {
 
           job: "Designer",
           description: "✨ Concevant l'avenir, un pixel à la fois. ☕",
-          image: "/src/assets/images/profiles/nizar.png",
-          cardImage: "/src/assets/images/profiles/nizar-card.png",
-          backImage: "/src/assets/images/profiles/nizar-back.svg",
-          sideImage: "/src/assets/images/profiles/nizar-side.svg",
+          image: "nizar.png",
+          cardImage: "nizar-card.png",
+          backImage: "nizar-back.svg",
+          sideImage: "nizar-side.svg",
           projectReview:
             "Alors, le projet de développement web et de compression d'images en C#, c'était vraiment cool ! J'ai adoré la créativité dans le design et comment j'ai pu relever les défis de codage. C'est super de voir mes compétences évoluer. J'ai hâte de voir ce que je vais créer à l'avenir ! 🚀",
           theme: "nizar",
@@ -50,10 +50,10 @@ export const useAboutStore = defineStore("about", {
           job: "Developpeur",
           description:
             "🖥️ Confectionnant des solutions puissantes avec la magie du code ! ✨",
-          image: "/src/assets/images/profiles/amine.png",
-          cardImage: "/src/assets/images/profiles/amine-card.png",
-          backImage: "/src/assets/images/profiles/amine-back.svg",
-          sideImage: "/src/assets/images/profiles/amine-side.svg",
+          image: "amine.png",
+          cardImage: "amine-card.png",
+          backImage: "amine-back.svg",
+          sideImage: "amine-side.svg",
           projectReview:
             "Le projet de développement web et de compression d'images en C# a été une expérience enrichissante. J'ai apprécié les choix de conception et la résolution des défis. Cette expérience a renforcé mes compétences en informatique et a été stimulante. Merci pour cette opportunité d'apprentissage ! 👍",
           theme: "amine",
@@ -69,10 +69,10 @@ export const useAboutStore = defineStore("about", {
           job: "Professeur",
           description:
             "🖥️ Le meilleur professeur de l'IUT de Robert Schuman; Oops Correction : du monde ! ✨",
-          image: "/src/assets/images/profiles/romain-card.png",
-          cardImage: "/src/assets/images/profiles/romain-back.png",
-          backImage: "/src/assets/images/profiles/amine-back.svg",
-          sideImage: "/src/assets/images/profiles/romain-side.svg",
+          image: "romain-card.png",
+          cardImage: "romain-back.png",
+          backImage: "amine-back.svg",
+          sideImage: "romain-side.svg",
           projectReview:
             "Les étudiants ont fait un travail remarquable sur ce projet. Ils ont fait preuve de créativité et ont réussi à surmonter les défis de codage. C'est vraiment gratifiant de voir leurs compétences évoluer. J'ai hâte de voir ce qu'ils vont créer à l'avenir ! 👍",
           theme: "romain",
@@ -88,10 +88,10 @@ export const useAboutStore = defineStore("about", {
           job: "ph.D",
           description:
             " 🖥️ Professeur de l'IUT de Robert Schuman, spécialiste en informatique et en intelligence artificielle ! ✨",
-          image: "/src/assets/images/profiles/aurelie.jpeg",
-          cardImage: "/src/assets/images/profiles/aurelie-card.jpg",
-          backImage: "/src/assets/images/profiles/nesrine-back.svg",
-          sideImage: "/src/assets/images/profiles/aurelie-side.svg",
+          image: "aurelie.jpeg",
+          cardImage: "aurelie-card.jpg",
+          backImage: "nesrine-back.svg",
+          sideImage: "aurelie-side.svg",
           projectReview:
             "Les étudiants ont fait un travail remarquable sur ce projet. Ils ont fait preuve de créativité et ont réussi à surmonter les défis de codage. C'est vraiment gratifiant de voir leurs compétences évoluer. J'ai hâte de voir ce qu'ils vont créer à l'avenir ! 👍",
           theme: "aurelie",
