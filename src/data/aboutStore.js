@@ -61,44 +61,44 @@ export const useAboutStore = defineStore("about", {
           rating2: 5,
           details: "",
         },
-        {
-          id: 3,
-          name: "romain",
-          lastName: "perrin",
+        // {
+        //   id: 3,
+        //   name: "romain",
+        //   lastName: "perrin",
 
-          job: "Professeur",
-          description:
-            "🖥️ Le meilleur professeur de l'IUT de Robert Schuman; Oops Correction : du monde ! ✨",
-          image: "romain-card.png",
-          cardImage: "romain-back.png",
-          backImage: "amine-back.svg",
-          sideImage: "romain-side.svg",
-          projectReview:
-            "Les étudiants ont fait un travail remarquable sur ce projet. Ils ont fait preuve de créativité et ont réussi à surmonter les défis de codage. C'est vraiment gratifiant de voir leurs compétences évoluer. J'ai hâte de voir ce qu'ils vont créer à l'avenir ! 👍",
-          theme: "romain",
-          rating1: 5,
-          rating2: 5,
-          details: "",
-        },
-        {
-          id: 4,
-          name: "aurelie",
-          lastName: "leborgne",
+        //   job: "Professeur",
+        //   description:
+        //     "🖥️ Le meilleur professeur de l'IUT de Robert Schuman; Oops Correction : du monde ! ✨",
+        //   image: "romain-card.png",
+        //   cardImage: "romain-back.png",
+        //   backImage: "amine-back.svg",
+        //   sideImage: "romain-side.svg",
+        //   projectReview:
+        //     "Les étudiants ont fait un travail remarquable sur ce projet. Ils ont fait preuve de créativité et ont réussi à surmonter les défis de codage. C'est vraiment gratifiant de voir leurs compétences évoluer. J'ai hâte de voir ce qu'ils vont créer à l'avenir ! 👍",
+        //   theme: "romain",
+        //   rating1: 5,
+        //   rating2: 5,
+        //   details: "",
+        // },
+        // {
+        //   id: 4,
+        //   name: "aurelie",
+        //   lastName: "leborgne",
 
-          job: "ph.D",
-          description:
-            " 🖥️ Professeur de l'IUT de Robert Schuman, spécialiste en informatique et en intelligence artificielle ! ✨",
-          image: "aurelie.jpeg",
-          cardImage: "aurelie-card.jpg",
-          backImage: "nesrine-back.svg",
-          sideImage: "aurelie-side.svg",
-          projectReview:
-            "Les étudiants ont fait un travail remarquable sur ce projet. Ils ont fait preuve de créativité et ont réussi à surmonter les défis de codage. C'est vraiment gratifiant de voir leurs compétences évoluer. J'ai hâte de voir ce qu'ils vont créer à l'avenir ! 👍",
-          theme: "aurelie",
-          rating1: 5,
-          rating2: 5,
-          details: "",
-        },
+        //   job: "ph.D",
+        //   description:
+        //     " 🖥️ Professeur de l'IUT de Robert Schuman, spécialiste en informatique et en intelligence artificielle ! ✨",
+        //   image: "aurelie.jpeg",
+        //   cardImage: "aurelie-card.jpg",
+        //   backImage: "nesrine-back.svg",
+        //   sideImage: "aurelie-side.svg",
+        //   projectReview:
+        //     "Les étudiants ont fait un travail remarquable sur ce projet. Ils ont fait preuve de créativité et ont réussi à surmonter les défis de codage. C'est vraiment gratifiant de voir leurs compétences évoluer. J'ai hâte de voir ce qu'ils vont créer à l'avenir ! 👍",
+        //   theme: "aurelie",
+        //   rating1: 5,
+        //   rating2: 5,
+        //   details: "",
+        // },
       ],
     };
   },

@@ -42,7 +42,6 @@
     }
     &-a-propos {
       background-image: url("./assets/images/lines/Line-3.webp");
-      overflow-y: scroll;
     }
     &-about-me {
       background-image: url("./assets/images/lines/Line-9.webp");
