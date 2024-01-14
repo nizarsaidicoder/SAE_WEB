@@ -46,8 +46,7 @@
   <div
     class="about-background-lines"
     :style="{
-      backgroundImage:
-        'url(../src/assets/images/profiles/' + data.backImage + ')',
+      backgroundImage: 'url(/profiles/' + data.backImage + ')',
     }">
     <section
       id="about-me"
@@ -57,7 +56,7 @@
           class="profile-img"
           :class="'profile-img-' + data.name">
           <img
-            :src="'../src/assets/images/profiles/' + data.image"
+            :src="'/profiles/' + data.image"
             alt="" />
         </div>
         <div class="profile-name">
@@ -91,7 +90,7 @@
         <div class="project-img">
           <img
             :class="data.name == 'aurelie' ? 'project-img-aurelie' : ''"
-            :src="'../src/assets/images/profiles/' + data.sideImage"
+            :src="'/profiles/' + data.sideImage"
             alt="" />
         </div>
       </div>

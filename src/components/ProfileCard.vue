@@ -20,7 +20,7 @@
           :class="'card-profile-image-' + theme">
           <img
             class="card-text-profile-image"
-            :src="'src/assets/images/profiles/' + image"
+            :src="'/profiles/' + image"
             alt="profile picture " />
         </div>
 
