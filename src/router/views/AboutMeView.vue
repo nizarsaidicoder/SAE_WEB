@@ -1,46 +1,15 @@
 <template>
   <nav class="profiles-menu">
     <ul class="profiles-menu-list">
-      <router-link
-        to="/a-propos/nesrine"
+      <RouterLink
+        v-for="profile in profiles"
+        :to="'/a-propos/' + profile.name"
         class="profiles-menu-item profiles-menu-item-nesrine"
-        :class="data.name == 'nesrine' ? 'link-active' : ''">
+        :class="data.name == profile.name ? 'link-active' : ''">
         <li class="profiles-menu-link">
-          <span class="profiles-menu-link-text">Nesrine</span>
+          <span class="profiles-menu-link-text">{{ profile.name }}</span>
         </li>
-      </router-link>
-      <router-link
-        to="/a-propos/nizar"
-        class="profiles-menu-item profiles-menu-item-nizar"
-        :class="data.name == 'nizar' ? 'link-active' : ''">
-        <li class="profiles-menu-link">
-          <span class="profiles-menu-link-text">Nizar</span>
-        </li>
-      </router-link>
-      <router-link
-        to="/a-propos/amine"
-        class="profiles-menu-item profiles-menu-item-amine"
-        :class="data.name == 'amine' ? 'link-active' : ''">
-        <li class="profiles-menu-link">
-          <span class="profiles-menu-link-text">Amine</span>
-        </li>
-      </router-link>
-      <router-link
-        to="/a-propos/romain"
-        class="profiles-menu-item profiles-menu-item-romain"
-        :class="data.name == 'romain' ? 'link-active' : ''">
-        <li class="profiles-menu-link">
-          <span class="profiles-menu-link-text">Romain</span>
-        </li>
-      </router-link>
-      <router-link
-        to="/a-propos/aurelie"
-        class="profiles-menu-item profiles-menu-item-aurelie"
-        :class="data.name == 'aurelie' ? 'link-active' : ''">
-        <li class="profiles-menu-link">
-          <span class="profiles-menu-link-text">Aurelie</span>
-        </li>
-      </router-link>
+      </RouterLink>
     </ul>
   </nav>
   <div
@@ -104,6 +73,7 @@
   import { computed } from "vue";
   const route = useRoute();
   const aboutStore = useAboutStore();
+  const profiles = aboutStore.profiles;
   const data = computed(() => {
     const profile = route.params.name;
     return aboutStore.profiles.find((p) => p.name === profile);
