@@ -5,7 +5,7 @@
     <div
       class="card-image"
       :style="{
-        backgroundImage: 'url(src/assets/images/profiles/' + backImage + ')',
+        backgroundImage: 'url(/profiles/' + backImage + ')',
       }">
       <h1
         class="card-image-name"
